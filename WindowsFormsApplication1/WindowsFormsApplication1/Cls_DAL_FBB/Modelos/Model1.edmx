@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fbb_inventario_contabiliadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="articulo">
+          <Key>
+            <PropertyRef Name="id_articulo" />
+          </Key>
+          <Property Name="id_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_salida_inv" Type="datetime" />
+          <Property Name="fecha_entrada_inv" Type="datetime" />
+          <Property Name="precio_sugerido" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="precio_venta" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="cod_color" Type="int" />
+          <Property Name="cod_articulo" Type="int" />
+          <Property Name="cod_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="id_color" />
+          </Key>
+          <Property Name="id_color" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_promocion" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="conta">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_factura" Type="datetime" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="250" />
+          <Property Name="proveedor" Type="nvarchar" MaxLength="100" />
+          <Property Name="cod_categoria" Type="int" />
+          <Property Name="cod_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detalle">
+          <Key>
+            <PropertyRef Name="id_detalle" />
+          </Key>
+          <Property Name="id_detalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_producto" Type="int" />
+          <Property Name="cod_venta" Type="int" />
+        </EntityType>
+        <EntityType Name="donacion">
+          <Key>
+            <PropertyRef Name="id_donacion" />
+          </Key>
+          <Property Name="id_donacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_donacion" Type="datetime" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="250" />
+          <Property Name="cod_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado">
+          <Key>
+            <PropertyRef Name="id_estado" />
+          </Key>
+          <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tipo_articulo">
+          <Key>
+            <PropertyRef Name="id_tipo_articulo" />
+          </Key>
+          <Property Name="id_tipo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="contrasena" Type="nvarchar" MaxLength="100" />
+          <Property Name="cod_rol" Type="int" />
+          <Property Name="cod_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="id_venta" />
+          </Key>
+          <Property Name="id_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="200" />
+          <Property Name="cod_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_articulo_color">
+          <End Role="color" Type="Self.color" Multiplicity="0..1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="id_color" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_articulo_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_articulo_tipo_art">
+          <End Role="tipo_articulo" Type="Self.tipo_articulo" Multiplicity="0..1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_articulo">
+              <PropertyRef Name="id_tipo_articulo" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_conta_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="conta" Type="Self.conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="conta">
+              <PropertyRef Name="cod_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_conta_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="conta" Type="Self.conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="conta">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_detalle_articulo">
+          <End Role="articulo" Type="Self.articulo" Multiplicity="0..1" />
+          <End Role="detalle" Type="Self.detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articulo">
+              <PropertyRef Name="id_articulo" />
+            </Principal>
+            <Dependent Role="detalle">
+              <PropertyRef Name="cod_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_detalle_factura">
+          <End Role="venta" Type="Self.venta" Multiplicity="0..1" />
+          <End Role="detalle" Type="Self.detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="detalle">
+              <PropertyRef Name="cod_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_donacion_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="donacion" Type="Self.donacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="donacion">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venta_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="venta" Type="Self.venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fbb_inventario_contabiliadModelStoreContainer">
+          <EntitySet Name="articulo" EntityType="Self.articulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="color" EntityType="Self.color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="conta" EntityType="Self.conta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle" EntityType="Self.detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="donacion" EntityType="Self.donacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_articulo" EntityType="Self.tipo_articulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="venta" EntityType="Self.venta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_articulo_color" Association="Self.fk_articulo_color">
+            <End Role="color" EntitySet="color" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_articulo_estado" Association="Self.fk_articulo_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_articulo_tipo_art" Association="Self.fk_articulo_tipo_art">
+            <End Role="tipo_articulo" EntitySet="tipo_articulo" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_conta_categoria" Association="Self.fk_conta_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="conta" EntitySet="conta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_conta_estado" Association="Self.fk_conta_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="conta" EntitySet="conta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_detalle_articulo" Association="Self.fk_detalle_articulo">
+            <End Role="articulo" EntitySet="articulo" />
+            <End Role="detalle" EntitySet="detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_detalle_factura" Association="Self.fk_detalle_factura">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="detalle" EntitySet="detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_donacion_estado" Association="Self.fk_donacion_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="donacion" EntitySet="donacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_estado" Association="Self.fk_usuario_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_rol" Association="Self.fk_usuario_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venta_estado" Association="Self.fk_venta_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fbb_inventario_contabiliadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="articulo">
+          <Key>
+            <PropertyRef Name="id_articulo" />
+          </Key>
+          <Property Name="id_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_salida_inv" Type="DateTime" Precision="3" />
+          <Property Name="fecha_entrada_inv" Type="DateTime" Precision="3" />
+          <Property Name="precio_sugerido" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="precio_venta" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="cod_color" Type="Int32" />
+          <Property Name="cod_articulo" Type="Int32" />
+          <Property Name="cod_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="color" Relationship="Self.fk_articulo_color" FromRole="articulo" ToRole="color" />
+          <NavigationProperty Name="estado" Relationship="Self.fk_articulo_estado" FromRole="articulo" ToRole="estado" />
+          <NavigationProperty Name="tipo_articulo" Relationship="Self.fk_articulo_tipo_art" FromRole="articulo" ToRole="tipo_articulo" />
+          <NavigationProperty Name="detalle" Relationship="Self.fk_detalle_articulo" FromRole="articulo" ToRole="detalle" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="conta" Relationship="Self.fk_conta_categoria" FromRole="categoria" ToRole="conta" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="id_color" />
+          </Key>
+          <Property Name="id_color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_promocion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="articulo" Relationship="Self.fk_articulo_color" FromRole="color" ToRole="articulo" />
+        </EntityType>
+        <EntityType Name="conta">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_factura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cod_categoria" Type="Int32" />
+          <Property Name="cod_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categoria" Relationship="Self.fk_conta_categoria" FromRole="conta" ToRole="categoria" />
+          <NavigationProperty Name="estado" Relationship="Self.fk_conta_estado" FromRole="conta" ToRole="estado" />
+        </EntityType>
+        <EntityType Name="detalle">
+          <Key>
+            <PropertyRef Name="id_detalle" />
+          </Key>
+          <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_producto" Type="Int32" />
+          <Property Name="cod_venta" Type="Int32" />
+          <NavigationProperty Name="articulo" Relationship="Self.fk_detalle_articulo" FromRole="detalle" ToRole="articulo" />
+          <NavigationProperty Name="venta" Relationship="Self.fk_detalle_factura" FromRole="detalle" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="donacion">
+          <Key>
+            <PropertyRef Name="id_donacion" />
+          </Key>
+          <Property Name="id_donacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_donacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cod_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estado" Relationship="Self.fk_donacion_estado" FromRole="donacion" ToRole="estado" />
+        </EntityType>
+        <EntityType Name="estado">
+          <Key>
+            <PropertyRef Name="id_estado" />
+          </Key>
+          <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="articulo" Relationship="Self.fk_articulo_estado" FromRole="estado" ToRole="articulo" />
+          <NavigationProperty Name="conta" Relationship="Self.fk_conta_estado" FromRole="estado" ToRole="conta" />
+          <NavigationProperty Name="donacion" Relationship="Self.fk_donacion_estado" FromRole="estado" ToRole="donacion" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_usuario_estado" FromRole="estado" ToRole="usuario" />
+          <NavigationProperty Name="venta" Relationship="Self.fk_venta_estado" FromRole="estado" ToRole="venta" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_usuario_rol" FromRole="rol" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="tipo_articulo">
+          <Key>
+            <PropertyRef Name="id_tipo_articulo" />
+          </Key>
+          <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="articulo" Relationship="Self.fk_articulo_tipo_art" FromRole="tipo_articulo" ToRole="articulo" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="contrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cod_rol" Type="Int32" />
+          <Property Name="cod_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estado" Relationship="Self.fk_usuario_estado" FromRole="usuario" ToRole="estado" />
+          <NavigationProperty Name="rol" Relationship="Self.fk_usuario_rol" FromRole="usuario" ToRole="rol" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="id_venta" />
+          </Key>
+          <Property Name="id_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cod_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="detalle" Relationship="Self.fk_detalle_factura" FromRole="venta" ToRole="detalle" />
+          <NavigationProperty Name="estado" Relationship="Self.fk_venta_estado" FromRole="venta" ToRole="estado" />
+        </EntityType>
+        <Association Name="fk_articulo_color">
+          <End Role="color" Type="Self.color" Multiplicity="0..1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="id_color" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_articulo_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_articulo_tipo_art">
+          <End Role="tipo_articulo" Type="Self.tipo_articulo" Multiplicity="0..1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_articulo">
+              <PropertyRef Name="id_tipo_articulo" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="cod_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_detalle_articulo">
+          <End Role="articulo" Type="Self.articulo" Multiplicity="0..1" />
+          <End Role="detalle" Type="Self.detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articulo">
+              <PropertyRef Name="id_articulo" />
+            </Principal>
+            <Dependent Role="detalle">
+              <PropertyRef Name="cod_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_conta_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="conta" Type="Self.conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="conta">
+              <PropertyRef Name="cod_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_conta_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="conta" Type="Self.conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="conta">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_detalle_factura">
+          <End Role="venta" Type="Self.venta" Multiplicity="0..1" />
+          <End Role="detalle" Type="Self.detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venta">
+              <PropertyRef Name="id_venta" />
+            </Principal>
+            <Dependent Role="detalle">
+              <PropertyRef Name="cod_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_donacion_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="donacion" Type="Self.donacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="donacion">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venta_estado">
+          <End Role="estado" Type="Self.estado" Multiplicity="1" />
+          <End Role="venta" Type="Self.venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="venta">
+              <PropertyRef Name="cod_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fbb_inventario_contabiliadEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="articulo" EntityType="Self.articulo" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" />
+          <EntitySet Name="color" EntityType="Self.color" />
+          <EntitySet Name="conta" EntityType="Self.conta" />
+          <EntitySet Name="detalle" EntityType="Self.detalle" />
+          <EntitySet Name="donacion" EntityType="Self.donacion" />
+          <EntitySet Name="estado" EntityType="Self.estado" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="tipo_articulo" EntityType="Self.tipo_articulo" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <EntitySet Name="venta" EntityType="Self.venta" />
+          <AssociationSet Name="fk_articulo_color" Association="Self.fk_articulo_color">
+            <End Role="color" EntitySet="color" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_articulo_estado" Association="Self.fk_articulo_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_articulo_tipo_art" Association="Self.fk_articulo_tipo_art">
+            <End Role="tipo_articulo" EntitySet="tipo_articulo" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_detalle_articulo" Association="Self.fk_detalle_articulo">
+            <End Role="articulo" EntitySet="articulo" />
+            <End Role="detalle" EntitySet="detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_conta_categoria" Association="Self.fk_conta_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="conta" EntitySet="conta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_conta_estado" Association="Self.fk_conta_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="conta" EntitySet="conta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_detalle_factura" Association="Self.fk_detalle_factura">
+            <End Role="venta" EntitySet="venta" />
+            <End Role="detalle" EntitySet="detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_donacion_estado" Association="Self.fk_donacion_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="donacion" EntitySet="donacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_estado" Association="Self.fk_usuario_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venta_estado" Association="Self.fk_venta_estado">
+            <End Role="estado" EntitySet="estado" />
+            <End Role="venta" EntitySet="venta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_rol" Association="Self.fk_usuario_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fbb_inventario_contabiliadModelStoreContainer" CdmEntityContainer="fbb_inventario_contabiliadEntities3">
+          <EntitySetMapping Name="articulo">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.articulo">
+              <MappingFragment StoreEntitySet="articulo">
+                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+                <ScalarProperty Name="fecha_salida_inv" ColumnName="fecha_salida_inv" />
+                <ScalarProperty Name="fecha_entrada_inv" ColumnName="fecha_entrada_inv" />
+                <ScalarProperty Name="precio_sugerido" ColumnName="precio_sugerido" />
+                <ScalarProperty Name="precio_venta" ColumnName="precio_venta" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="cod_color" ColumnName="cod_color" />
+                <ScalarProperty Name="cod_articulo" ColumnName="cod_articulo" />
+                <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="color">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.color">
+              <MappingFragment StoreEntitySet="color">
+                <ScalarProperty Name="id_color" ColumnName="id_color" />
+                <ScalarProperty Name="descripcion_promocion" ColumnName="descripcion_promocion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conta">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.conta">
+              <MappingFragment StoreEntitySet="conta">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="fecha_factura" ColumnName="fecha_factura" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="cod_categoria" ColumnName="cod_categoria" />
+                <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.detalle">
+              <MappingFragment StoreEntitySet="detalle">
+                <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="donacion">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.donacion">
+              <MappingFragment StoreEntitySet="donacion">
+                <ScalarProperty Name="id_donacion" ColumnName="id_donacion" />
+                <ScalarProperty Name="fecha_donacion" ColumnName="fecha_donacion" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.estado">
+              <MappingFragment StoreEntitySet="estado">
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_articulo">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.tipo_articulo">
+              <MappingFragment StoreEntitySet="tipo_articulo">
+                <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="cod_rol" ColumnName="cod_rol" />
+                <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venta">
+            <EntityTypeMapping TypeName="fbb_inventario_contabiliadModel.venta">
+              <MappingFragment StoreEntitySet="venta">
+                <ScalarProperty Name="id_venta" ColumnName="id_venta" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
