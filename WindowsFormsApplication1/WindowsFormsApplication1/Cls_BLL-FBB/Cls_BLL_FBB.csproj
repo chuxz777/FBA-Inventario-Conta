@@ -45,7 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\cls_Validaciones_BLL.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BaseDatos\Script - Crear Base de Datos - FINAL.sql" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cls_DAL_FBB\Cls_DAL_FBB.csproj">
       <Project>{7840e836-bf1a-47fe-8e93-16b3e9eb1135}</Project>
