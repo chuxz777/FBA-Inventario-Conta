@@ -72,21 +72,21 @@ create table venta
 
 
 
-create table facturas_gastos
-(
-	moto
-	detalle
+--create table facturas_gastos
+--(
+--	moto
+--	detalle
 
 
 
-)
+--)
 
-create table donaciones_ingresos
-(
+--create table donaciones_ingresos
+--(
 
 
 
-)
+--)
 
 
 create table roles
@@ -103,3 +103,102 @@ create table usuarios
 	contraseña							nvarchar(10),
 	cod_rol								int
 )
+GO
+-----------------------------------------------------------------------------------------
+----------------------------------------SP's---------------------------------------------
+-----------------------------------------------------------------------------------------
+
+CREATE PROCEDURE SP_Insertar_Estados
+@descripcion nvarchar(100)
+AS
+BEGIN
+	INSERT  INTO [dbo].[estado]
+				([descripcion])
+			VALUES
+			(@descripcion)
+			SELECT MAX([id_estado]) FROM [estado];
+END
+GO
+
+CREATE PROCEDURE SP_Insertar_Tipo_Articulo
+@descripcion nvarchar(100)
+AS
+BEGIN
+	INSERT  INTO [dbo].[tipo_articulo]
+				([descripcion])
+			VALUES
+			(@descripcion)
+			SELECT MAX([id_tipo_articulo]) FROM [tipo_articulo];
+END
+GO
+
+CREATE PROCEDURE SP_Modificar_Tipo_Articulo
+@id_tipo_articulo int,
+@descripcion nvarchar(100)
+AS
+BEGIN
+	UPDATE [dbo].[tipo_articulo]
+
+	   SET [descripcion] = @descripcion
+
+	 WHERE [id_tipo_articulo] = @id_tipo_articulo
+END
+GO
+
+CREATE PROCEDURE SP_Eliminar_Tipo_Articulo
+@id_tipo_articulo int
+AS
+BEGIN
+	UPDATE [dbo].[tipo_articulo]
+
+	   SET [descripcion] = 'I'
+
+	 WHERE [id_tipo_articulo] = @id_tipo_articulo
+END
+GO
+
+CREATE PROCEDURE SP_Seleccionar_Tipo_Articulo
+AS
+BEGIN
+	SELECT [id_tipo_articulo] AS 'Codigo del tipo de articulo',
+		   [descripcion] AS 'Descripcion del tipo de articulo'
+
+  FROM [dbo].[tipo_articulo]
+END
+GO
+
+CREATE PROCEDURE SP_Insertar_Objetivo
+@descripcion nvarchar(100)
+AS
+BEGIN
+	INSERT  INTO [dbo].[objetivo]
+				([descripcion])
+			VALUES
+			(@descripcion)
+			SELECT MAX([id_objetivo]) FROM [objetivo];
+END
+GO
+
+CREATE PROCEDURE SP_Insertar_Departamento
+@descripcion nvarchar(100)
+AS
+BEGIN
+	INSERT  INTO [dbo].[departamento]
+				([descripcion])
+			VALUES
+			(@descripcion)
+			SELECT MAX([id_departamento]) FROM [departamento];
+END
+GO
+
+CREATE PROCEDURE SP_Insertar_Color
+@descripcion nvarchar(100)
+AS
+BEGIN
+	INSERT  INTO [dbo].[color]
+				([descripcion])
+			VALUES
+			(@descripcion)
+			SELECT MAX([id_color]) FROM [color];
+END
+GO

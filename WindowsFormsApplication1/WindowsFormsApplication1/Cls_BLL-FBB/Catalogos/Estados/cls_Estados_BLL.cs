@@ -9,7 +9,7 @@ using Cls_DAL_FBB.Catalogos.Estados;
 
 namespace Cls_BLL_FBB.Catalogos.Estados
 {
-    class cls_Estados_BLL
+    public class cls_Estados_BLL
     {
         #region Variables Globales
 

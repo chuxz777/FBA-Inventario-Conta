@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.designer.cs">
+      <DependentUpon>frm_Listar_Estados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Login\Frm_Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\Cls_Validaciones_PL.cs" />
+    <EmbeddedResource Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.resx">
+      <DependentUpon>frm_Listar_Estados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Login\Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -845,10 +854,7 @@
     <Content Include="Recursos\fondo-color-trazos-azul.jpg" />
     <Content Include="Recursos\Medicalwp-Medical-Tooth-blue.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pantallas\Catalogos\Listar\" />
-    <Folder Include="Pantallas\Catalogos\Modificar\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Cls_BLL-FBB\Cls_BLL_FBB.csproj">
       <Project>{5bdc850e-bc62-485a-8748-b144277f1a17}</Project>

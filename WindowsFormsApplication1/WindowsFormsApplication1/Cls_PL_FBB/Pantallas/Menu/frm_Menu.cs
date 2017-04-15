@@ -49,9 +49,9 @@ namespace Cls_PL
 
         private void toolStripButton8_Click(object sender, EventArgs e)//Estados
         {
-            //Frm_Listar_Estados Obj_Pantalla_Listar_Estados = new Frm_Listar_Estados();
+            Frm_Listar_Estados Obj_Pantalla_Listar_Estados = new Frm_Listar_Estados();
             //Obj_Pantalla_Listar_Estados.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Estados.ShowDialog();
+            Obj_Pantalla_Listar_Estados.ShowDialog();
         }
 
         private void toolStripButton11_Click(object sender, EventArgs e)//Roles
@@ -144,9 +144,5 @@ namespace Cls_PL
             //Obj_Pantalla_Detalles_Facturas.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

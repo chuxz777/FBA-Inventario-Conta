@@ -18,7 +18,7 @@ namespace Cls_PL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new  Frm_Inicio ());
+            Application.Run(new  Frm_Menu ());
         }
     }
 }
