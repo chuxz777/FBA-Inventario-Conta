@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Acciones_Genericas
 {
-    class cls_Clase_Generica_DAL
+    public class cls_Clase_Generica_DAL
     {
         #region Variables privadas
         // Clase para q todos los objetos DAL hereden estas propiedades

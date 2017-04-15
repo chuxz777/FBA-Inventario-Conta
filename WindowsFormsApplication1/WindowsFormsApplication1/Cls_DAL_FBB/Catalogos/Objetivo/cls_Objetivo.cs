@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Catalogos.Objetivo
 {
-    class cls_Objetivo
+    public class cls_Objetivo
     {
         #region Variables Privadas
         private int _id_objetivo;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Catalogos.Color
 {
-    class cls_Color
+    public class cls_Color
     {
         #region Variables Privadas
         private int _id_color;

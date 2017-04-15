@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Catalogos.Estados
 {
-    class cls_Estados_DAL
+    public class cls_Estados_DAL : Acciones_Genericas.cls_Clase_Generica_DAL
     {
         #region Variables Privadas
         private int _id_estado;
