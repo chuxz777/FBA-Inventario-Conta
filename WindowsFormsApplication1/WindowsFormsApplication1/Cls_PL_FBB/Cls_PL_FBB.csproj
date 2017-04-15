@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.cs">
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.designer.cs">
-      <DependentUpon>frm_Listar_Estados.cs</DependentUpon>
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.designer.cs">
+      <DependentUpon>Frm_Listar_Estados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.Designer.cs">
+      <DependentUpon>Frm_Modificar_Estados.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Login\Frm_Inicio.cs">
       <SubType>Form</SubType>
@@ -66,8 +72,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\Cls_Validaciones_PL.cs" />
-    <EmbeddedResource Include="Pantallas\Catalogos\Estados\frm_Listar_Estados.resx">
-      <DependentUpon>frm_Listar_Estados.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.resx">
+      <DependentUpon>Frm_Listar_Estados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.resx">
+      <DependentUpon>Frm_Modificar_Estados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Login\Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>

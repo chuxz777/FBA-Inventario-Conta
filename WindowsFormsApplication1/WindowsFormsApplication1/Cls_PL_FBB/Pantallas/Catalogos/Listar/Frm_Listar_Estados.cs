@@ -5,18 +5,25 @@ using System.Windows.Forms;
 //using Cls_BLL.Catalogos.Estados;
 //using Cls_DAL.Catalogos.Estados;
 //using Cls_DAL.Catalogos.Log_in;
-//using Cls_PL.Pantallas.Catalogos.Modificar;
+
 using Cls_BLL_FBB.Catalogos.Estados;
+using Cls_PL.Pantallas.Catalogos.Modificar;
+
+using Cls_DAL_FBB.Catalogos.Estados;
+
 
 namespace Cls_PL
 {
     public partial class Frm_Listar_Estados : Form
     {
         #region Variables Globales
+        
 
-        //private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
+
+
+        private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
         cls_Estados_BLL Obj_Cls_Estados_BLL = new cls_Estados_BLL();
-        //cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
+        cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
 
@@ -35,12 +42,12 @@ namespace Cls_PL
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
         {
-            //Obj_Cls_Estados_DAL.bAccion = true; // Es un insert
-            //Obj_Cls_Estados_DAL.chrIdEstado = ' ';
-            //Obj_Cls_Estados_DAL.sDescripcion = string.Empty;
-            //Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            //Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
-            //Obj_Pant_Mod_Estados.ShowDialog();
+            Obj_Cls_Estados_DAL.bAccion = true; // Es un insert
+            //Obj_Cls_Estados_DAL.iIdEstado = ' ';
+            Obj_Cls_Estados_DAL.sDescripcion = string.Empty;
+            Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
+            Obj_Pant_Mod_Estados.ShowDialog();
         }
 
         private void tlsbtn_Editar_Click(object sender, EventArgs e)
