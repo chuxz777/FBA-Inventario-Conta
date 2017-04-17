@@ -27,7 +27,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
         private void tlsbtn_Guardar_Click(object sender, EventArgs e)
         {
-            if (txt_Codigo_Estado.Text == string.Empty || txt_Descripcion.Text == string.Empty )
+            if (txt_Codigo_Estado.Text != string.Empty && txt_Descripcion.Text == string.Empty )
             {
                 MessageBox.Show("El esado no fue guardado. Hay datos incompletos.",
                     "Error", MessageBoxButtons.OK,
@@ -35,7 +35,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             }
             else
             {
-                Obj_Cls_Estado_DAL.iIdEstado = Convert.ToInt16(txt_Codigo_Estado.Text.Trim());
+                //Obj_Cls_Estado_DAL.iIdEstado = Convert.ToInt16(txt_Codigo_Estado.Text.Trim());
                 Obj_Cls_Estado_DAL.sDescripcion = txt_Descripcion.Text.Trim();
 
                 if (Obj_Cls_Estado_DAL.bAccion == true)
@@ -62,7 +62,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             if (Obj_Cls_Estado_DAL.bAccion) //  == true
             {
                 // No hay accion a realizar
-                txt_Codigo_Estado.Enabled = true;
+                txt_Codigo_Estado.Enabled = false;
                 txt_Codigo_Estado.Text = string.Empty;
                 txt_Descripcion.Text = string.Empty;
             }

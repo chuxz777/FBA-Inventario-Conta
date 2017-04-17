@@ -111,13 +111,13 @@ namespace Cls_BLL_FBB.Catalogos.Estados
 
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Insertar", Cnx_BD);
+                cmd = new SqlCommand("SP_Insertar_Estados", Cnx_BD);
                 //Define el tipo de ejec
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Agrega Parametros
-                cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iIdEstado;
-                cmd.Parameters.Add("@Descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Estados_DAL.sDescripcion;
+                //cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iIdEstado;
+                cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Estados_DAL.sDescripcion;
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {

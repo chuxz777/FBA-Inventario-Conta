@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseDatos\Script - Crear Base de Datos - FINAL.sql" />
+    <Content Include="BaseDatos\Script - SPS Base de Datos - FINAL.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cls_DAL_FBB\Cls_DAL_FBB.csproj">

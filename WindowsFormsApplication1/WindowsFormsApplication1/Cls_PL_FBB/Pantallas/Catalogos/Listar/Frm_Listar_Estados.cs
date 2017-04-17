@@ -43,7 +43,7 @@ namespace Cls_PL
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
         {
             Obj_Cls_Estados_DAL.bAccion = true; // Es un insert
-            //Obj_Cls_Estados_DAL.iIdEstado = ' ';
+            Obj_Cls_Estados_DAL.iIdEstado = ' ';
             Obj_Cls_Estados_DAL.sDescripcion = string.Empty;
             Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
@@ -148,33 +148,33 @@ namespace Cls_PL
 
         private void Cargar_Fila()
         {
-            //Obj_Cls_Estados_DAL.bAccion = false; //Update
-            ////Captura los valores del row para cargarlos en un objeto
-            //Obj_Cls_Estados_DAL.chrIdEstado = Convert.ToChar(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
-            //Obj_Cls_Estados_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
-            //Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            //// Carga los valores del row en un objeto y los envia a la pantalla de edicion
-            //Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
-            //Obj_Pant_Mod_Estados.ShowDialog();
+            Obj_Cls_Estados_DAL.bAccion = false; //Update
+            //Captura los valores del row para cargarlos en un objeto
+            Obj_Cls_Estados_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
+            Obj_Cls_Estados_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
+            Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            // Carga los valores del row en un objeto y los envia a la pantalla de edicion
+            Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
+            Obj_Pant_Mod_Estados.ShowDialog();
         }
 
         // Busqueda
         private void tlstrp_txt_Busqueda_TextChanged(object sender, EventArgs e)
         {
-            //DataTable dt_f = new DataTable();
+            DataTable dt_f = new DataTable();
 
-            //if (Obj_Cls_Estados_BLL.Filtrar_Estados_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
-            //{
-            //    dgv_Estados.DataSource = dt_f;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
-            //                    "Mensaje error: " + sMensajeError,
-            //                    "Error",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Error);
-            //}
+            if (Obj_Cls_Estados_BLL.Filtrar_Estados_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
+            {
+                dgv_Estados.DataSource = dt_f;
+            }
+            else
+            {
+                MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
+                                "Mensaje error: " + sMensajeError,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void Opciones()

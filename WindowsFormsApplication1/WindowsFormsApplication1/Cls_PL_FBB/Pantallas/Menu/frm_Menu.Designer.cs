@@ -36,7 +36,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -48,6 +47,7 @@
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -63,12 +63,11 @@
             this.toolStripButton2,
             this.toolStripButton5,
             this.toolStripButton6,
-            this.toolStripButton10,
-            this.toolStripButton16});
+            this.toolStripButton10});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(186, 177);
+            this.toolStrip1.Location = new System.Drawing.Point(176, 247);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(493, 54);
+            this.toolStrip1.Size = new System.Drawing.Size(386, 54);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -140,17 +139,6 @@
             this.toolStripButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
             // 
-            // toolStripButton16
-            // 
-            this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
-            this.toolStripButton16.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(107, 51);
-            this.toolStripButton16.Text = "Tipos Tratamiento";
-            this.toolStripButton16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton16.Click += new System.EventHandler(this.toolStripButton16_Click);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -163,9 +151,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(939, 49);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Clinica Odontológica Perla Blanca";
+            this.label1.Text = "Fundación Bandera Blanca - Inventario - Facturas ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // toolStrip2
             // 
@@ -181,11 +168,12 @@
             this.toolStripButton12,
             this.toolStripButton15,
             this.toolStripButton13,
-            this.toolStripButton14});
+            this.toolStripButton14,
+            this.toolStripButton3});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip2.Location = new System.Drawing.Point(126, 255);
+            this.toolStrip2.Location = new System.Drawing.Point(120, 383);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(638, 54);
+            this.toolStrip2.Size = new System.Drawing.Size(661, 54);
             this.toolStrip2.TabIndex = 7;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -288,13 +276,22 @@
             this.toolStripButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton14.Click += new System.EventHandler(this.toolStripButton14_Click);
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 51);
+            this.toolStripButton3.Text = "  Facturas ";
+            // 
             // Frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(939, 500);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.label1);
@@ -305,7 +302,7 @@
             this.MinimizeBox = false;
             this.Name = "Frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu";
+            this.Text = "Menú Principal";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -335,7 +332,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton13;
         private System.Windows.Forms.ToolStripButton toolStripButton14;
         private System.Windows.Forms.ToolStripButton toolStripButton15;
-        private System.Windows.Forms.ToolStripButton toolStripButton16;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }
 
