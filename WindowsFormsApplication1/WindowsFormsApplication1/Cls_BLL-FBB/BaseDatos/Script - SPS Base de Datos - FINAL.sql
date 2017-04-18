@@ -27,6 +27,16 @@ GO
 -- Tipo Articulo
 -----------------------------------------------------------------------------------------
 
+CREATE PROCEDURE SP_Seleccionar_Tipo_Articulo
+AS
+BEGIN
+	SELECT [id_tipo_articulo] AS 'Codigo del tipo de articulo',
+		   [descripcion] AS 'Descripcion del tipo de articulo'
+
+  FROM [dbo].[tipo_articulo]
+END
+GO
+
 CREATE PROCEDURE SP_Insertar_Tipo_Articulo
 @descripcion nvarchar(100)
 AS
@@ -64,15 +74,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_Seleccionar_Tipo_Articulo
-AS
-BEGIN
-	SELECT [id_tipo_articulo] AS 'Codigo del tipo de articulo',
-		   [descripcion] AS 'Descripcion del tipo de articulo'
 
-  FROM [dbo].[tipo_articulo]
-END
-GO
 
 
 -----------------------------------------------------------------------------------------
@@ -183,7 +185,7 @@ CREATE PROCEDURE SP_Insertar_Venta
 @cod_aticulo int,
 @precio_venta decimal,
 @fecha_venta datetime,
-@total decimal,
+@total decimal
 AS
 BEGIN
 	INSERT INTO [dbo].[venta]
