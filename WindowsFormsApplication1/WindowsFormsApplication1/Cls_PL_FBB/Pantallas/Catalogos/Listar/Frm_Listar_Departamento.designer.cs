@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Listar_Tipo_Articulo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Listar_Departamento));
             this.tbctrl_Principal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tlstrp_Funciones_Basicas = new System.Windows.Forms.ToolStrip();
@@ -246,10 +246,10 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(901, 49);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Clinica Odontológica Perla Blanca - Estados";
+            this.label1.Text = "Clinica Odontológica Perla Blanca - Departamentos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Frm_Listar_Estados
+            // Frm_Listar_Departamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +262,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_Listar_Estados";
+            this.Name = "Frm_Listar_Departamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Estados";
             this.Load += new System.EventHandler(this.Form1_Load);
