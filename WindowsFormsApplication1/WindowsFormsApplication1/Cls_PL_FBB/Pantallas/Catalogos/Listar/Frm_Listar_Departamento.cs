@@ -10,7 +10,7 @@ using Cls_PL.Pantallas.Catalogos.Modificar;
 
 namespace Cls_PL
 {
-    public partial class Frm_Listar_Estados : Form
+    public partial class Frm_Listar_Departamento : Form
     {
         #region Variables Globales
         private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
@@ -20,7 +20,7 @@ namespace Cls_PL
         private string sMensajeError;
         #endregion
 
-        public Frm_Listar_Estados()
+        public Frm_Listar_Departamento ()
         {
             InitializeComponent(); 
         }

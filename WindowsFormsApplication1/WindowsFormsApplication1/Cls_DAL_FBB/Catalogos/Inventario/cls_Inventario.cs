@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Catalogos.Inventario
 {
-    public class cls_Inventario
+    public class cls_Inventario_DAL : Acciones_Genericas.cls_Clase_Generica_DAL
     {
 
         #region Variables Privadas

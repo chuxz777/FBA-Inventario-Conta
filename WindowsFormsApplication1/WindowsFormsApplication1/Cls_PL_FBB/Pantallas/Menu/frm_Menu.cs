@@ -35,9 +35,12 @@ namespace Cls_PL
 
         private void toolStripButton9_Click(object sender, EventArgs e)//Activos
         {
-            //frm_Listar_Activos Obj_Pantalla_Listar_Activos = new frm_Listar_Activos();
-            //Obj_Pantalla_Listar_Activos.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Activos.ShowDialog();
+
+            Frm_Listar_Tipo_Articulo Obj_Pantalla_Listar_Tipo_Articulo = new Frm_Listar_Tipo_Articulo();
+            //Obj_Pantalla_Listar_Estados.Obj_Login_DAL = obj_Log_In_DAL;
+            Obj_Pantalla_Listar_Tipo_Articulo.ShowDialog();
+
+
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)//Productos

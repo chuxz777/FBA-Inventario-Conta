@@ -1,6 +1,6 @@
 ﻿namespace Cls_PL
 {
-    partial class Frm_Listar_Estados
+    partial class Frm_Listar_Tipo_Articulo
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -249,7 +249,7 @@
             this.label1.Text = "Clinica Odontológica Perla Blanca - Estados";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Frm_Listar_Estados
+            // Frm_Listar_Tipo_Articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +262,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_Listar_Estados";
+            this.Name = "Frm_Listar_Tipo_Articulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Estados";
             this.Load += new System.EventHandler(this.Form1_Load);

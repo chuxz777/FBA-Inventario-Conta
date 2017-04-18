@@ -1,6 +1,6 @@
 ﻿namespace Cls_PL
 {
-    partial class Frm_Listar_Estados
+    partial class Frm_Listar_Tipo_Articulo
     {
         /// <summary>
         /// Variable del diseñador requerida.

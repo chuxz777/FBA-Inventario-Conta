@@ -45,17 +45,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Departamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Departamento.designer.cs">
+      <DependentUpon>Frm_Listar_Departamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.designer.cs">
       <DependentUpon>Frm_Listar_Estados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Tipo_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Tipo_Articulo.designer.cs">
+      <DependentUpon>Frm_Listar_Tipo_Articulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.Designer.cs">
       <DependentUpon>Frm_Modificar_Estados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Tipo_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Tipo_Articulo.Designer.cs">
+      <DependentUpon>Frm_Modificar_Tipo_Articulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Login\Frm_Inicio.cs">
       <SubType>Form</SubType>
@@ -72,11 +90,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\Cls_Validaciones_PL.cs" />
+    <EmbeddedResource Include="Pantallas\Catalogos\Listar\Frm_Listar_Departamento.resx">
+      <DependentUpon>Frm_Listar_Departamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Catalogos\Listar\Frm_Listar_Estados.resx">
       <DependentUpon>Frm_Listar_Estados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Catalogos\Listar\Frm_Listar_Tipo_Articulo.resx">
+      <DependentUpon>Frm_Listar_Tipo_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Estados.resx">
       <DependentUpon>Frm_Modificar_Estados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Tipo_Articulo.resx">
+      <DependentUpon>Frm_Modificar_Tipo_Articulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Login\Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>

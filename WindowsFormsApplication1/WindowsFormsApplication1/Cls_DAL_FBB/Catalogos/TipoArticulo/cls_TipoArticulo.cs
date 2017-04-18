@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cls_DAL_FBB.Catalogos.TipoArticulo
 {
-    public class cls_TipoArticulo
+    public class cls_TipoArticulo_DAL : Acciones_Genericas.cls_Clase_Generica_DAL
     {
         #region Variables Privadas
         private int _id_tipo_articulo;
