@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
-using Cls_DAL_FBB.Catalogos.TipoArticulo;
+using Cls_BLL_FBB.Catalogos.Estados;
+using Cls_DAL_FBB.Catalogos.Estados;
 
 namespace Cls_PL.Pantallas.Catalogos.Modificar
 {
-    public partial class Frm_Modificar_Tipo_Articulo : Form
+    public partial class Frm_Modificar_Departamento : Form
     {
         #region Variables Globales
-            
-            
 
-            public cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
-            public cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
-
-
+            public cls_Estados_BLL Obj_Cls_Estado_BLL = new cls_Estados_BLL();
+            public cls_Estados_DAL Obj_Cls_Estado_DAL = new cls_Estados_DAL();
             private string sMensajeError;
 
         #endregion
 
-        public Frm_Modificar_Tipo_Articulo()
+        public Frm_Modificar_Departamento()
         {
             InitializeComponent();
         }
@@ -40,9 +36,9 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             else
             {
                 //Obj_Cls_Estado_DAL.iIdEstado = Convert.ToInt16(txt_Codigo_Estado.Text.Trim());
-                Obj_Cls_Tipo_Articulo_DAL.sDescripcion = txt_Descripcion.Text.Trim();
+                Obj_Cls_Estado_DAL.sDescripcion = txt_Descripcion.Text.Trim();
 
-                if (Obj_Cls_Tipo_Articulo_DAL.bAccion == true)
+                if (Obj_Cls_Estado_DAL.bAccion == true)
                 {
                     Guardar();
                     CargarDatosClasetipada();
@@ -63,7 +59,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
         // Metodos de los botones
         private void CargarDatosClasetipada()
         {
-            if (Obj_Cls_Tipo_Articulo_DAL.bAccion) //  == true
+            if (Obj_Cls_Estado_DAL.bAccion) //  == true
             {
                 // No hay accion a realizar
                 txt_Codigo_Estado.Enabled = false;
@@ -74,23 +70,23 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             {
                 // Cargar los datos del objeto en pantalla
                 txt_Codigo_Estado.Enabled = false;
-                //txt_Codigo_Estado.Text = Obj_Cls_Estado_DAL.iIdEstado.ToString().Trim();
-                txt_Descripcion.Text = Obj_Cls_Tipo_Articulo_DAL.sDescripcion.Trim();
+                txt_Codigo_Estado.Text = Obj_Cls_Estado_DAL.iIdEstado.ToString().Trim();
+                txt_Descripcion.Text = Obj_Cls_Estado_DAL.sDescripcion.Trim();
             }
         }
 
         private void Guardar()
         {
-            Obj_Cls_Tipo_Articulo_BLL.Insertar_Tipo_Articulo_SP(ref Obj_Cls_Tipo_Articulo_DAL, ref sMensajeError);
+            Obj_Cls_Estado_BLL.Insertar_Estados_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
 
-            if (Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec == true)
+            if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
             {
                 MessageBox.Show("El estado fue guardado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
 
-                Obj_Cls_Tipo_Articulo_DAL.bAccion = false;// update
+                Obj_Cls_Estado_DAL.bAccion = false;// update
             }
             else
             {
@@ -100,22 +96,22 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
 
-                Obj_Cls_Tipo_Articulo_DAL.bAccion = true; // insert
+                Obj_Cls_Estado_DAL.bAccion = true; // insert
             }
         }
 
         private void Modificar()
         {
-            Obj_Cls_Tipo_Articulo_BLL.Modificar_Tipo_Articulo_SP(ref Obj_Cls_Tipo_Articulo_DAL, ref sMensajeError);
+            Obj_Cls_Estado_BLL.ModificarEstados_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
 
-            if (Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec == true)
+            if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
             {
                 MessageBox.Show("El estado fue actualizado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
 
-                Obj_Cls_Tipo_Articulo_DAL.bAccion = false;
+                Obj_Cls_Estado_DAL.bAccion = false;
             }
             else
             {
@@ -125,7 +121,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
 
-                Obj_Cls_Tipo_Articulo_DAL.bAccion = true;
+                Obj_Cls_Estado_DAL.bAccion = true;
             }
         }
 

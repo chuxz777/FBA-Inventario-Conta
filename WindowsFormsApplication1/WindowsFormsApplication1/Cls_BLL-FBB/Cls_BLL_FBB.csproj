@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDatos\cls_Base_Datos_BLL.cs" />
+    <Compile Include="Catalogos\Color\cls_Color_BLL.cs" />
+    <Compile Include="Catalogos\Departamento\cls_Departamento_BLL.cs" />
     <Compile Include="Catalogos\Estados\cls_Estados_BLL.cs" />
+    <Compile Include="Catalogos\Inventario\cls_Inventario_BLL.cs" />
+    <Compile Include="Catalogos\Objetivo\cls_Objetivo_BLL.cs" />
     <Compile Include="Catalogos\TipoArticulos\cls_Tipo_Articulo_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\cls_Validaciones_BLL.cs" />
@@ -56,7 +60,9 @@
       <Name>Cls_DAL_FBB</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Catalogos\Venta\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

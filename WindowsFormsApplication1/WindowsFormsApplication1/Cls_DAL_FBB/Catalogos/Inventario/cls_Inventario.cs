@@ -47,7 +47,7 @@ namespace Cls_DAL_FBB.Catalogos.Inventario
             set { _precio_sugerido = value; }
         }
 
-        DateTime dFecha_entrada_inv
+        public DateTime dFecha_entrada_inv
         {
             get { return _fecha_entrada_inv; }
             set { _fecha_entrada_inv = value; }

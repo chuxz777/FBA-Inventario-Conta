@@ -1,12 +1,16 @@
 ----------------------------------------SP's---------------------------------------------
-
 -----------------------------------------------------------------------------------------
 -- Estados
 -----------------------------------------------------------------------------------------
 CREATE PROCEDURE SP_Estados_Seleccionar
 AS
 BEGIN
-	SELECT * from estado order by descripcion
+   SELECT id_estado AS 'Codigo del Estado',
+		   descripcion AS 'Descripcion del Estado'
+  FROM estado
+  ORDER BY descripcion
+
+
 END
 GO
 
@@ -67,15 +71,10 @@ CREATE PROCEDURE SP_Eliminar_Tipo_Articulo
 AS
 BEGIN
 	UPDATE [dbo].[tipo_articulo]
-
 	   SET [descripcion] = 'I'
-
 	 WHERE [id_tipo_articulo] = @id_tipo_articulo
 END
 GO
-
-
-
 
 -----------------------------------------------------------------------------------------
 -- Objetivo
@@ -93,6 +92,24 @@ BEGIN
 END
 GO
 
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+-- Departamento
+-----------------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Seleccionar_Departamento
+AS
+BEGIN
+	SELECT id_departamento AS 'Codigo del tipo de Departamento',
+		   [descripcion] AS 'Descripcion del Departamento'
+
+  FROM [dbo].[departamento]
+END
+GO
+
 CREATE PROCEDURE SP_Insertar_Departamento
 @descripcion nvarchar(100)
 AS
@@ -104,6 +121,26 @@ BEGIN
 			SELECT MAX([id_departamento]) FROM [departamento];
 END
 GO
+
+
+CREATE PROCEDURE SP_Modificar_Departamento
+@id_departamento int,
+@descripcion nvarchar(100)
+AS
+BEGIN
+	UPDATE [dbo].[departamento]
+	   SET [descripcion] = @descripcion
+	 WHERE id_departamento = @id_departamento
+END
+GO
+GO
+
+
+
+
+-----------------------------------------------------------------------------------------
+-- Color
+-----------------------------------------------------------------------------------------
 
 CREATE PROCEDURE SP_Insertar_Color
 @descripcion nvarchar(100)
@@ -119,9 +156,26 @@ GO
 
 
 
+
 -----------------------------------------------------------------------------------------
 -- Inventario
 -----------------------------------------------------------------------------------------
+
+CREATE PROCEDURE SP_Seleccionar_Inventario
+AS
+BEGIN
+	SELECT 
+		cod_tipo_articulo AS 'Codigo del tipo de articulo',
+		cod_departamento AS 'Codigo del Departamento',
+		precio_sugerido AS 'Precio',
+		fecha_entrada_inv AS 'Fecha de Entrada',
+		cod_color AS 'Codigo del Color',
+		cod_objetivo AS 'Codigo del Objetivo',
+		cod_estado AS 'Codigo del Estado'
+  FROM [dbo].[tipo_articulo]
+END
+GO
+
 
 CREATE PROCEDURE SP_Modificar_Inventario
 @id_articulo int,
@@ -145,6 +199,7 @@ BEGIN
 	 WHERE [id_articulo] = @id_articulo
 END
 GO
+
 
 
 CREATE PROCEDURE SP_Insertar_Inventario
@@ -201,15 +256,21 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_Insertar_Venta
+CREATE PROCEDURE SP_Actualizar_Venta
+@id_factura int,
+@cod_aticulo int,
+@precio_venta decimal,
+@fecha_venta datetime,
+@total decimal
 AS
 BEGIN
 	UPDATE [dbo].[venta]
-	   SET [cod_aticulo] = <cod_aticulo, int,>
-		  ,[precio_venta] = <precio_venta, decimal(18,0),>
-		  ,[fecha_venta] = <fecha_venta, datetime,>
-		  ,[total] = <total, decimal(18,0),>
-	 WHERE <Search Conditions,,>
+	   SET [cod_aticulo] = @cod_aticulo
+		  ,[precio_venta] = @precio_venta
+		  ,[fecha_venta] = @fecha_venta
+		  ,[total] = @total
+	 WHERE id_factura = @id_factura
+END
 GO
 
 -----------------------------------------------------------------------------------------
@@ -225,4 +286,5 @@ BEGIN
 		  ,[fecha_venta]
 		  ,[total]
 	  FROM [dbo].[venta]
+END
 GO

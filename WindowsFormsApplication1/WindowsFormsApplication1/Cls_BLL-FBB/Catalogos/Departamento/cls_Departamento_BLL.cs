@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cls_DAL_FBB.Catalogos.TipoArticulo;
+using Cls_DAL_FBB.Catalogos.Departamento;
 
-namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
+
+namespace Cls_BLL_FBB.Catalogos.Departamento
 {
-    public class cls_Tipo_Articulo_BLL
+    public class cls_Departamento_BLL
     {
         #region Variables Globales
 
@@ -19,17 +20,16 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
         #endregion
 
-        public bool Filtrar_Tipo_Articulo_SP(ref DataTable dt_Tipo_Articulo_Filtrados, string sBusqueda, ref string sMensajeError)
+        public bool Filtrar_Departamento_SP(ref DataTable dt_Estados_Filtrados, string sBusqueda, ref string sMensajeError)
         {
             try
             {
                 // Prepara cmd
-
                 DataSet DataSet = new DataSet();
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Filtrar", Cnx_BD);
+                cmd = new SqlCommand("SP_Departamento_Filtrar", Cnx_BD);
                 //Agrega Parametros
                 cmd.Parameters.Add("@Busqueda", SqlDbType.NVarChar).Value = sBusqueda.Trim();
 
@@ -44,7 +44,7 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
                 DataAdapter = new SqlDataAdapter(cmd);
                 DataAdapter.Fill(DataSet, "dt_Estados_filtr");
 
-                dt_Tipo_Articulo_Filtrados = DataSet.Tables["dt_Estados_filtr"];
+                dt_Estados_Filtrados = DataSet.Tables["dt_Estados_filtr"];
 
                 return true;
 
@@ -65,7 +65,7 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
             }
         }
 
-        public bool Listar_Tipo_Articulo_SP(ref DataTable dt_Tipo_Articulo, ref string sMensajeError)
+        public bool Listar_Departamento_SP(ref DataTable dt_Departamento, ref string sMensajeError)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Seleccionar_Tipo_Articulo", Cnx_BD);
+                cmd = new SqlCommand("SP_Seleccionar_Departamento", Cnx_BD);
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {
@@ -85,9 +85,9 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
                 DataAdapter = new SqlDataAdapter(cmd);
 
-                DataAdapter.Fill(DataSet, "dt_Tipo_Articulo");
+                DataAdapter.Fill(DataSet, "dt_Departamento");
 
-                dt_Tipo_Articulo = DataSet.Tables["dt_Tipo_Articulo"];
+                dt_Departamento = DataSet.Tables["dt_Departamento"];
 
                 return true;
                 #endregion
@@ -103,7 +103,7 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
             }
         }
 
-        public void Insertar_Tipo_Articulo_SP(ref cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL, ref string sMensajeError)
+        public void Insertar_Departamento_SP(ref cls_Departamento_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         {
             try
             {
@@ -111,13 +111,13 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Insertar_Tipo_Articulo", Cnx_BD);
+                cmd = new SqlCommand("SP_Insertar_Departamento", Cnx_BD);
                 //Define el tipo de ejec
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Agrega Parametros
                 //cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iIdEstado;
-                cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Tipo_Articulo_DAL.sDescripcion;
+                cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Estados_DAL.sDescripcion;
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {
@@ -127,17 +127,17 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = true;
+                    Obj_Cls_Estados_DAL.bEstado_Ejec = true;
                 }
                 else
                 {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;
+                    Obj_Cls_Estados_DAL.bEstado_Ejec = false;
                 }
             }
             catch (SqlException ex)
             {
                 sMensajeError = ex.Message;
-                Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false; // no se ejecuto 
+                Obj_Cls_Estados_DAL.bEstado_Ejec = false; // no se ejecuto 
             }
             catch (Exception ex)
             {
@@ -149,7 +149,7 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
             }
         }
 
-        public void Modificar_Tipo_Articulo_SP(ref cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL, ref string sMensajeError)
+        public void Modificar_Departamento_SP(ref cls_Departamento_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         {
             try
             {
@@ -157,13 +157,13 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Modificar_Tipo_Articulo", Cnx_BD);
+                cmd = new SqlCommand("SP_Modificar_Departamento", Cnx_BD);
                 //Define el tipo de ejec
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Agrega Parametros
-                //cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iIdEstado;
-                cmd.Parameters.Add("@Descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Tipo_Articulo_DAL.sDescripcion;
+                //cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iDepartamento;
+                cmd.Parameters.Add("@Descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Estados_DAL.sDescripcion;
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {
@@ -175,17 +175,17 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = true;
+                    Obj_Cls_Estados_DAL.bEstado_Ejec = true;
                 }
                 else
                 {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;
+                    Obj_Cls_Estados_DAL.bEstado_Ejec = false;
                 }
             }
             catch (SqlException ex)
             {
                 sMensajeError = ex.Message;
-                Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;
+                Obj_Cls_Estados_DAL.bEstado_Ejec = false;
             }
             catch (Exception ex)
             {
@@ -197,47 +197,47 @@ namespace Cls_BLL_FBB.Catalogos.Tipo_Articulo
             }
         }
 
-        public void Eliminar_Tipo_Articulo_SP(ref cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL, ref string sMensajeError)
-        {
-            try
-            {
-                #region Prepara cmd
+        //public void Eliminar_Departamento_SP(ref cls_Departamento_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
+        //{
+        //    try
+        //    {
+        //        #region Prepara cmd
 
-                Cnx_BD = Obj_BD_BLL.Traer_Cnx();
+        //        Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Eliminar", Cnx_BD);
+        //        cmd = new SqlCommand("SP_Estados_Eliminar", Cnx_BD);
 
-                if (Cnx_BD.State.ToString() == "Closed")
-                {
-                    Cnx_BD.Open();
-                }
+        //        if (Cnx_BD.State.ToString() == "Closed")
+        //        {
+        //            Cnx_BD.Open();
+        //        }
 
-                //Define el tipo de ejec
-                cmd.CommandType = CommandType.StoredProcedure;
+        //        //Define el tipo de ejec
+        //        cmd.CommandType = CommandType.StoredProcedure;
 
-                //Agrega Parametros
-                cmd.Parameters.Add("@Id_Estado", SqlDbType.NVarChar).Value = Obj_Cls_Tipo_Articulo_DAL.iTipoArticulo;
-                #endregion
+        //        //Agrega Parametros
+        //        cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iDepartamento;
+        //        #endregion
 
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = true;
-                }
-                else
-                {
-                    Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;
-                }
-            }
-            catch (SqlException ex)
-            {
-                sMensajeError = ex.Message;
-                Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;
-            }
-            finally
-            {
-                Cnx_BD = null;
-            }
-        }
+        //        if (cmd.ExecuteNonQuery() > 0)
+        //        {
+        //            Obj_Cls_Estados_DAL.bEstado_Ejec = true;
+        //        }
+        //        else
+        //        {
+        //            Obj_Cls_Estados_DAL.bEstado_Ejec = false;
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        sMensajeError = ex.Message;
+        //        Obj_Cls_Estados_DAL.bEstado_Ejec = false;
+        //    }
+        //    finally
+        //    {
+        //        Cnx_BD = null;
+        //    }
+        //}
 
 
     }

@@ -15,7 +15,7 @@ namespace Cls_DAL_FBB.Catalogos.Color
 
         #region Constructores
 
-        public int iDepartamento
+        public int iColor
         {
             get { return _id_color; }
             set { _id_color = value; }
