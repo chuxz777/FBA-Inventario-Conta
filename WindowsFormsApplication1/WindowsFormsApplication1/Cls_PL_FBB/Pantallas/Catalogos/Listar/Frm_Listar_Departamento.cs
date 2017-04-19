@@ -4,6 +4,11 @@ using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.Estados;
 using Cls_BLL_FBB.Catalogos.Estados;
+
+using Cls_DAL_FBB.Catalogos.Departamento;
+using Cls_BLL_FBB.Catalogos.Departamento;
+
+
 using Cls_PL.Pantallas.Catalogos.Modificar;
 
 
@@ -14,10 +19,25 @@ namespace Cls_PL
     {
         #region Variables Globales
         private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
-        cls_Estados_BLL Obj_Cls_Estados_BLL = new cls_Estados_BLL();
+
+        cls_Departamento_BLL Obj_Cls_Departamento_BLL = new cls_Departamento_BLL();
+
         cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
+
+        public cls_Departamento_BLL Obj_Cls_Estados_BLL1
+        {
+            get
+            {
+                return Obj_Cls_Departamento_BLL;
+            }
+
+            set
+            {
+                Obj_Cls_Departamento_BLL = value;
+            }
+        }
         #endregion
 
         public Frm_Listar_Departamento ()
@@ -96,7 +116,7 @@ namespace Cls_PL
             //    Obj_Cls_Estados_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[1].Value.ToString().Trim();
             //    if (MessageBox.Show("Está seguro de que desea eliminar el registro", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             //    {
-            //        Obj_Cls_Estados_BLL.EliminarEstados_SP(ref Obj_Cls_Estados_DAL, ref sMensajeError);
+            //        Obj_Cls_Departamento_BLL.EliminarEstados_SP(ref Obj_Cls_Estados_DAL, ref sMensajeError);
 
             //        if (Obj_Cls_Estados_DAL.bEstado_Ejec == true)
             //        {
@@ -123,7 +143,7 @@ namespace Cls_PL
         {
             DataTable dt = new DataTable();
 
-            if (Obj_Cls_Estados_BLL.Listar_Estados_SP(ref dt, ref sMensajeError))
+            if (Obj_Cls_Estados_BLL1.Listar_Departamento_SP(ref dt, ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt;
             }
@@ -154,7 +174,7 @@ namespace Cls_PL
         {
             DataTable dt_f = new DataTable();
 
-            if (Obj_Cls_Estados_BLL.Filtrar_Estados_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
+            if (Obj_Cls_Estados_BLL1.Filtrar_Departamento_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt_f;
             }

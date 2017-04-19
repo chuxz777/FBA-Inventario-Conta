@@ -123,7 +123,7 @@ namespace Cls_PL
         {
             DataTable dt = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Listar_Estados_SP(ref dt, ref sMensajeError))
+            if (Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt, ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt;
             }
@@ -154,7 +154,7 @@ namespace Cls_PL
         {
             DataTable dt_f = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Filtrar_Estados_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
+            if (Obj_Cls_Tipo_Articulo_BLL.Filtrar_Tipo_Articulo_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt_f;
             }

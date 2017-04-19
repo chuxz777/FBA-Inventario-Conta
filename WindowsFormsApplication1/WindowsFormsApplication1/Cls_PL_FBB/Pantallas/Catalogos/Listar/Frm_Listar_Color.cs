@@ -2,6 +2,9 @@
 using System.Data;
 using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
+using Cls_DAL_FBB.Catalogos.Color;
+using Cls_BLL_FBB.Catalogos.Color;
+
 using Cls_DAL_FBB.Catalogos.Estados;
 using Cls_BLL_FBB.Catalogos.Estados;
 using Cls_PL.Pantallas.Catalogos.Modificar;
@@ -14,7 +17,7 @@ namespace Cls_PL
     {
         #region Variables Globales
         private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
-        cls_Estados_BLL Obj_Cls_Estados_BLL = new cls_Estados_BLL();
+        cls_Estados_BLL   Obj_Cls_Estados_BLL = new cls_Estados_BLL();
         cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
