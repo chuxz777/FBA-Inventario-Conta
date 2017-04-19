@@ -19,7 +19,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
 
         #endregion
 
-        public bool Filtrar_Estados_SP(ref DataTable dt_Estados_Filtrados, string sBusqueda, ref string sMensajeError)
+        public bool Filtrar_Objetivo_SP(ref DataTable dt_Estados_Filtrados, string sBusqueda, ref string sMensajeError)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
             }
         }
 
-        public bool Listar_Estados_SP(ref DataTable dt_Estados, ref string sMensajeError)
+        public bool Listar_Objetivo_SP(ref DataTable dt_Estados, ref string sMensajeError)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
             }
         }
 
-        public void Insertar_Estados_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
+        public void Insertar_Objetivo_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         {
             try
             {
@@ -149,7 +149,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
             }
         }
 
-        public void ModificarEstados_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
+        public void Modificar_Objetivo_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         {
             try
             {

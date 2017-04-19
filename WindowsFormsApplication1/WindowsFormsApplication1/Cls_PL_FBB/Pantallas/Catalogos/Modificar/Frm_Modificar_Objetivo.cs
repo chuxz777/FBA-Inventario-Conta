@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cls_BLL_FBB.Catalogos.Estados;
-using Cls_DAL_FBB.Catalogos.Estados;
+using Cls_BLL_FBB.Catalogos.Objetivo;
+using Cls_DAL_FBB.Catalogos.Objetivo;
 
 namespace Cls_PL.Pantallas.Catalogos.Modificar
 {
@@ -9,8 +9,11 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
     {
         #region Variables Globales
 
-            public cls_Estados_BLL Obj_Cls_Estado_BLL = new cls_Estados_BLL();
-            public cls_Estados_DAL Obj_Cls_Estado_DAL = new cls_Estados_DAL();
+            public cls_Objetivo_BLL Obj_Cls_Estado_BLL = new cls_Objetivo_BLL();
+            public cls_Objetivo_DAL Obj_Cls_Estado_DAL = new cls_Objetivo_DAL();
+
+            
+
             private string sMensajeError;
 
         #endregion
@@ -70,14 +73,14 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             {
                 // Cargar los datos del objeto en pantalla
                 txt_Codigo_Estado.Enabled = false;
-                txt_Codigo_Estado.Text = Obj_Cls_Estado_DAL.iIdEstado.ToString().Trim();
+                txt_Codigo_Estado.Text = Obj_Cls_Estado_DAL.iObjetivo.ToString().Trim();
                 txt_Descripcion.Text = Obj_Cls_Estado_DAL.sDescripcion.Trim();
             }
         }
 
         private void Guardar()
         {
-            Obj_Cls_Estado_BLL.Insertar_Estados_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
+            Obj_Cls_Estado_BLL.Insertar_Objetivo_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
 
             if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
             {
@@ -102,7 +105,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
         private void Modificar()
         {
-            Obj_Cls_Estado_BLL.ModificarEstados_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
+            Obj_Cls_Estado_BLL.Modificar_Objetivo_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
 
             if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
             {
