@@ -74,7 +74,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Seleccionar", Cnx_BD);
+                cmd = new SqlCommand("SP_Seleccionar_Objetivo", Cnx_BD);
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {
@@ -111,7 +111,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
 
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Insertar_Estados", Cnx_BD);
+                cmd = new SqlCommand("SP_Insertar_Objetivo", Cnx_BD);
                 //Define el tipo de ejec
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -197,7 +197,7 @@ namespace Cls_BLL_FBB.Catalogos.Objetivo
             }
         }
 
-        public void EliminarEstados_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
+        public void Eliminar_Objetivo_SP(ref cls_Objetivo_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         {
             try
             {

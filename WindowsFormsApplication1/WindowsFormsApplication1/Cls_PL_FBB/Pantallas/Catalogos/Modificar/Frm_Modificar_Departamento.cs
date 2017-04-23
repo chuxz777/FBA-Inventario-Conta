@@ -11,7 +11,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
     public partial class Frm_Modificar_Departamento : Form
     {
         #region Variables Globales
-            public cls_Departamento_BLL Obj_Cls_Estado_BLL = new cls_Departamento_BLL();
+            public cls_Departamento_BLL Obj_Cls_Departamento_BLL = new cls_Departamento_BLL();
             public cls_Departamento_DAL Obj_Cls_Departamento_DAL = new cls_Departamento_DAL();
             private string sMensajeError;
         #endregion
@@ -27,6 +27,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
         }  
 
         private void tlsbtn_Guardar_Click(object sender, EventArgs e)
+
         {
             if (txt_Codigo_Estado.Text != string.Empty && txt_Descripcion.Text == string.Empty )
             {
@@ -78,11 +79,11 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
         private void Guardar()
         {
-            Obj_Cls_Estado_BLL.Insertar_Departamento_SP(ref Obj_Cls_Departamento_DAL, ref sMensajeError);
+            Obj_Cls_Departamento_BLL.Insertar_Departamento_SP(ref Obj_Cls_Departamento_DAL, ref sMensajeError);
 
             if (Obj_Cls_Departamento_DAL.bEstado_Ejec == true)
             {
-                MessageBox.Show("El estado fue guardado correctamente.",
+                MessageBox.Show("El departamento fue guardado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
@@ -103,7 +104,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
         private void Modificar()
         {
-            Obj_Cls_Estado_BLL.Modificar_Departamento_SP(ref Obj_Cls_Departamento_DAL, ref sMensajeError);
+            Obj_Cls_Departamento_BLL.Modificar_Departamento_SP(ref Obj_Cls_Departamento_DAL, ref sMensajeError);
 
             if (Obj_Cls_Departamento_DAL.bEstado_Ejec == true)
             {

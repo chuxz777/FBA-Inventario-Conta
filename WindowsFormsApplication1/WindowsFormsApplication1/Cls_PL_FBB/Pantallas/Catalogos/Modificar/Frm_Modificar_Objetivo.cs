@@ -9,8 +9,8 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
     {
         #region Variables Globales
 
-            public cls_Objetivo_BLL Obj_Cls_Estado_BLL = new cls_Objetivo_BLL();
-            public cls_Objetivo_DAL Obj_Cls_Estado_DAL = new cls_Objetivo_DAL();
+            public cls_Objetivo_BLL Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
+            public cls_Objetivo_DAL Obj_Cls_Objetivo_DAL = new cls_Objetivo_DAL();
 
             
 
@@ -39,9 +39,9 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             else
             {
                 //Obj_Cls_Estado_DAL.iIdEstado = Convert.ToInt16(txt_Codigo_Estado.Text.Trim());
-                Obj_Cls_Estado_DAL.sDescripcion = txt_Descripcion.Text.Trim();
+                Obj_Cls_Objetivo_DAL.sDescripcion = txt_Descripcion.Text.Trim();
 
-                if (Obj_Cls_Estado_DAL.bAccion == true)
+                if (Obj_Cls_Objetivo_DAL.bAccion == true)
                 {
                     Guardar();
                     CargarDatosClasetipada();
@@ -62,7 +62,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
         // Metodos de los botones
         private void CargarDatosClasetipada()
         {
-            if (Obj_Cls_Estado_DAL.bAccion) //  == true
+            if (Obj_Cls_Objetivo_DAL.bAccion) //  == true
             {
                 // No hay accion a realizar
                 txt_Codigo_Estado.Enabled = false;
@@ -73,23 +73,23 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             {
                 // Cargar los datos del objeto en pantalla
                 txt_Codigo_Estado.Enabled = false;
-                txt_Codigo_Estado.Text = Obj_Cls_Estado_DAL.iObjetivo.ToString().Trim();
-                txt_Descripcion.Text = Obj_Cls_Estado_DAL.sDescripcion.Trim();
+                txt_Codigo_Estado.Text = Obj_Cls_Objetivo_DAL.iObjetivo.ToString().Trim();
+                txt_Descripcion.Text = Obj_Cls_Objetivo_DAL.sDescripcion.Trim();
             }
         }
 
         private void Guardar()
         {
-            Obj_Cls_Estado_BLL.Insertar_Objetivo_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
+            Obj_Cls_Objetivo_BLL.Insertar_Objetivo_SP(ref Obj_Cls_Objetivo_DAL, ref sMensajeError);
 
-            if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
+            if (Obj_Cls_Objetivo_DAL.bEstado_Ejec == true)
             {
                 MessageBox.Show("El estado fue guardado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
 
-                Obj_Cls_Estado_DAL.bAccion = false;// update
+                Obj_Cls_Objetivo_DAL.bAccion = false;// update
             }
             else
             {
@@ -99,22 +99,22 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
 
-                Obj_Cls_Estado_DAL.bAccion = true; // insert
+                Obj_Cls_Objetivo_DAL.bAccion = true; // insert
             }
         }
 
         private void Modificar()
         {
-            Obj_Cls_Estado_BLL.Modificar_Objetivo_SP(ref Obj_Cls_Estado_DAL, ref sMensajeError);
+            Obj_Cls_Objetivo_BLL.Modificar_Objetivo_SP(ref Obj_Cls_Objetivo_DAL, ref sMensajeError);
 
-            if (Obj_Cls_Estado_DAL.bEstado_Ejec == true)
+            if (Obj_Cls_Objetivo_DAL.bEstado_Ejec == true)
             {
                 MessageBox.Show("El estado fue actualizado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
 
-                Obj_Cls_Estado_DAL.bAccion = false;
+                Obj_Cls_Objetivo_DAL.bAccion = false;
             }
             else
             {
@@ -124,7 +124,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
 
-                Obj_Cls_Estado_DAL.bAccion = true;
+                Obj_Cls_Objetivo_DAL.bAccion = true;
             }
         }
 

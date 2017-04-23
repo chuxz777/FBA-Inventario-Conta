@@ -74,7 +74,7 @@ namespace Cls_BLL_FBB.Catalogos.Color
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Seleccionar", Cnx_BD);
+                cmd = new SqlCommand("SP_Seleccionar_Color", Cnx_BD);
 
                 if (Cnx_BD.State.ToString() == "Closed")
                 {
@@ -157,7 +157,7 @@ namespace Cls_BLL_FBB.Catalogos.Color
 
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Modificar", Cnx_BD);
+                cmd = new SqlCommand("SP_Modificar_Color", Cnx_BD);
                 //Define el tipo de ejec
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -197,47 +197,47 @@ namespace Cls_BLL_FBB.Catalogos.Color
             }
         }
 
-        public void Eliminar_Color_SP(ref cls_Color_DAL Obj_Cls_Color_DAL, ref string sMensajeError)
-        {
-            try
-            {
-                #region Prepara cmd
+        //public void Eliminar_Color_SP(ref cls_Color_DAL Obj_Cls_Color_DAL, ref string sMensajeError)
+        //{
+        //    try
+        //    {
+        //        #region Prepara cmd
 
-                Cnx_BD = Obj_BD_BLL.Traer_Cnx();
+        //        Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Eliminar", Cnx_BD);
+        //        cmd = new SqlCommand("SP_Estados_Eliminar", Cnx_BD);
 
-                if (Cnx_BD.State.ToString() == "Closed")
-                {
-                    Cnx_BD.Open();
-                }
+        //        if (Cnx_BD.State.ToString() == "Closed")
+        //        {
+        //            Cnx_BD.Open();
+        //        }
 
-                //Define el tipo de ejec
-                cmd.CommandType = CommandType.StoredProcedure;
+        //        //Define el tipo de ejec
+        //        cmd.CommandType = CommandType.StoredProcedure;
 
-                //Agrega Parametros
-                cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Color_DAL.iColor;
-                #endregion
+        //        //Agrega Parametros
+        //        cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Color_DAL.iColor;
+        //        #endregion
 
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    Obj_Cls_Color_DAL.bEstado_Ejec = true;
-                }
-                else
-                {
-                    Obj_Cls_Color_DAL.bEstado_Ejec = false;
-                }
-            }
-            catch (SqlException ex)
-            {
-                sMensajeError = ex.Message;
-                Obj_Cls_Color_DAL.bEstado_Ejec = false;
-            }
-            finally
-            {
-                Cnx_BD = null;
-            }
-        }
+        //        if (cmd.ExecuteNonQuery() > 0)
+        //        {
+        //            Obj_Cls_Color_DAL.bEstado_Ejec = true;
+        //        }
+        //        else
+        //        {
+        //            Obj_Cls_Color_DAL.bEstado_Ejec = false;
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        sMensajeError = ex.Message;
+        //        Obj_Cls_Color_DAL.bEstado_Ejec = false;
+        //    }
+        //    finally
+        //    {
+        //        Cnx_BD = null;
+        //    }
+        //}
 
 
     }

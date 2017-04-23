@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Modificar_Estados));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Modificar_Objetivo));
             this.label1 = new System.Windows.Forms.Label();
             this.tbctrl_Principal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -49,7 +49,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.BackColor = System.Drawing.Color.DarkViolet;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -59,7 +59,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(642, 49);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Clinica Odontológica Perla Blanca - Estados";
+            this.label1.Text = "Objetivos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbctrl_Principal
@@ -176,7 +176,7 @@
             this.txt_Codigo_Estado.Size = new System.Drawing.Size(141, 20);
             this.txt_Codigo_Estado.TabIndex = 0;
             // 
-            // Frm_Modificar_Estados
+            // Frm_Modificar_Objetivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,9 +189,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_Modificar_Estados";
+            this.Name = "Frm_Modificar_Objetivo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estados";
+            this.Text = "Objetivos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Modificar_Estados_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Modificar_Estados_Load);
             this.tbctrl_Principal.ResumeLayout(false);

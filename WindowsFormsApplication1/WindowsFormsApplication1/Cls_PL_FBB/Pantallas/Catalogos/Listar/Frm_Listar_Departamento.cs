@@ -18,10 +18,8 @@ namespace Cls_PL
     public partial class Frm_Listar_Departamento : Form
     {
         #region Variables Globales
-        private Frm_Modificar_Estados Obj_Pant_Mod_Estados = new Frm_Modificar_Estados();
-
+        private Frm_Listar_Departamento Obj_Pant_Mod_Departamento = new Frm_Listar_Departamento();
         cls_Departamento_BLL Obj_Cls_Departamento_BLL = new cls_Departamento_BLL();
-
         cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
@@ -57,8 +55,8 @@ namespace Cls_PL
             Obj_Cls_Estados_DAL.iIdEstado = ' ';
             Obj_Cls_Estados_DAL.sDescripcion = string.Empty;
             Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
-            Obj_Pant_Mod_Estados.ShowDialog();
+            Obj_Pant_Mod_Departamento.Obj_Cls_Estados_DAL = Obj_Cls_Estados_DAL;
+            Obj_Pant_Mod_Departamento.ShowDialog();
         }
 
         private void tlsbtn_Editar_Click(object sender, EventArgs e)
@@ -165,8 +163,8 @@ namespace Cls_PL
             Obj_Cls_Estados_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
             Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             // Carga los valores del row en un objeto y los envia a la pantalla de edicion
-            Obj_Pant_Mod_Estados.Obj_Cls_Estado_DAL = Obj_Cls_Estados_DAL;
-            Obj_Pant_Mod_Estados.ShowDialog();
+            Obj_Pant_Mod_Departamento.Obj_Cls_Estados_DAL = Obj_Cls_Estados_DAL;
+            Obj_Pant_Mod_Departamento.ShowDialog();
         }
 
         // Busqueda

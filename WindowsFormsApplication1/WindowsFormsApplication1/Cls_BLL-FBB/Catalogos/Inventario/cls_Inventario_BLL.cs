@@ -29,7 +29,7 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Filtrar", Cnx_BD);
+                cmd = new SqlCommand("SP_Filtrar_Inventario", Cnx_BD);
                 //Agrega Parametros
                 cmd.Parameters.Add("@Busqueda", SqlDbType.NVarChar).Value = sBusqueda.Trim();
 

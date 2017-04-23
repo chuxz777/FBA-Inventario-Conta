@@ -41,7 +41,7 @@ create table departamento
 create table color
 (
 	id_color						int identity (1,1) constraint pk_color primary key NOT NULL,
-	descripcion					nvarchar(100) NOT NULL UNIQUE
+	[nombre_color]					nvarchar(100) NOT NULL UNIQUE
 
 )
 -----------------------------------------------------------------------------------------------------

@@ -28,9 +28,8 @@ namespace Cls_PL
 
         private void toolStripButton1_Click(object sender, EventArgs e)//Clientes
         {
-            //Frm_Listar_Clientes Obj_Pantalla_Listar_Clientes = new Frm_Listar_Clientes();
-            //Obj_Pantalla_Listar_Clientes.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Clientes.ShowDialog();
+            Frm_Listar_Color Obj_Pantalla_Listar_Color = new Frm_Listar_Color();
+            Obj_Pantalla_Listar_Color.ShowDialog();
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)//Activos
@@ -45,9 +44,7 @@ namespace Cls_PL
 
         private void toolStripButton6_Click(object sender, EventArgs e)//Productos
         {
-            //Frm_Listar_Productos Obj_Pantalla_Listar_Productos = new Frm_Listar_Productos();
-            //Obj_Pantalla_Listar_Productos.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Productos.ShowDialog();
+            
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)//Estados
@@ -73,9 +70,8 @@ namespace Cls_PL
 
         private void toolStripButton10_Click(object sender, EventArgs e)//Sucursales
         {
-            //Frm_Listar_Sucursales Obj_Pantalla_Listar_Sucursales = new Frm_Listar_Sucursales();
-            //Obj_Pantalla_Listar_Sucursales.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Sucursales.ShowDialog();
+            Frm_Listar_Tipo_Articulo Obj_Pantalla_Listar_Tipo_Articulo = new Frm_Listar_Tipo_Articulo();
+            Obj_Pantalla_Listar_Tipo_Articulo.ShowDialog();
         }
 
         private void toolStripButton13_Click(object sender, EventArgs e)//Usuario
@@ -129,9 +125,8 @@ namespace Cls_PL
 
         private void tlsbtn_Expediente_Click(object sender, EventArgs e)//Expediente
         {
-            //Frm_Listar_Expedientes Obj_Pantalla_Listar_Expedientes = new Frm_Listar_Expedientes();
-            //Obj_Pantalla_Listar_Expedientes.obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Expedientes.ShowDialog();
+            Frm_Listar_Departamento Obj_Pantalla_Listar_Departamento = new Frm_Listar_Departamento();
+            Obj_Pantalla_Listar_Departamento.ShowDialog();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)//Factura
@@ -147,5 +142,22 @@ namespace Cls_PL
             //Obj_Pantalla_Detalles_Facturas.ShowDialog();
         }
 
+        private void toolStripButton16_Click_1(object sender, EventArgs e)
+        {
+            Frm_Listar_Estados Obj_Pantalla_Listar_Estados = new Frm_Listar_Estados();
+            //Obj_Pantalla_Listar_Estados.Obj_Login_DAL = obj_Log_In_DAL;
+            Obj_Pantalla_Listar_Estados.ShowDialog();
+        }
+
+        private void Frm_Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            Frm_Listar_Objetivo Obj_Pantalla_Listar_Objetivo = new Frm_Listar_Objetivo();
+            Obj_Pantalla_Listar_Objetivo.ShowDialog();
+        }
     }
 }

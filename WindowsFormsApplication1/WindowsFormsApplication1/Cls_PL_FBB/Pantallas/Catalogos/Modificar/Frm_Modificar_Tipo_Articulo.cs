@@ -8,15 +8,9 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
     public partial class Frm_Modificar_Tipo_Articulo : Form
     {
         #region Variables Globales
-            
-            
-
             public cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
             public cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
-
-
             private string sMensajeError;
-
         #endregion
 
         public Frm_Modificar_Tipo_Articulo()

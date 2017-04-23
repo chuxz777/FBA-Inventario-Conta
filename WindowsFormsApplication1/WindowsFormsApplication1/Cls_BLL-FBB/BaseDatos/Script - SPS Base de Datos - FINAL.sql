@@ -80,6 +80,17 @@ GO
 -- Objetivo
 -----------------------------------------------------------------------------------------
 
+CREATE PROCEDURE SP_Seleccionar_Objetivo
+AS
+BEGIN
+	SELECT [id_objetivo] AS 'Codigo del tipo de Objetivo',
+		   [descripcion] AS 'Descripcion del objetivo para el artículo'
+
+  FROM [dbo].[objetivo]
+END
+GO
+
+
 CREATE PROCEDURE SP_Insertar_Objetivo
 @descripcion nvarchar(100)
 AS
@@ -133,7 +144,7 @@ BEGIN
 	 WHERE id_departamento = @id_departamento
 END
 GO
-GO
+
 
 
 
@@ -142,27 +153,66 @@ GO
 -- Color
 -----------------------------------------------------------------------------------------
 
+
+CREATE PROCEDURE SP_Seleccionar_Color
+AS
+BEGIN
+	SELECT [id_color] AS 'Codigo del Color',
+		   [nombre_color] AS 'Descripcion del Color'
+  FROM color
+END
+GO
+
+
 CREATE PROCEDURE SP_Insertar_Color
 @descripcion nvarchar(100)
 AS
 BEGIN
 	INSERT  INTO [dbo].[color]
-				([descripcion])
-			VALUES
+				([nombre_color])
+	8999999999999999		VALUES
 			(@descripcion)
 			SELECT MAX([id_color]) FROM [color];
 END
 GO
 
-
+CREATE PROCEDURE SP_Modificar_Color
+@id_color int,
+@descripcion nvarchar(100)
+AS
+BEGIN
+	UPDATE [dbo].[color]
+	   SET [nombre_color] = @descripcion
+	 WHERE [id_color] = @id_color
+END
+GO
 
 
 -----------------------------------------------------------------------------------------
 -- Inventario
 -----------------------------------------------------------------------------------------
 
-CREATE PROCEDURE SP_Seleccionar_Inventario
+-- Pendiente
+CREATE PROCEDURE SP_Filtrar_Inventario
+@valor nvarchar(100)
 AS
+BEGIN
+	SELECT 
+		cod_tipo_articulo AS 'Codigo del tipo de articulo',
+		cod_departamento AS 'Codigo del Departamento',
+		precio_sugerido AS 'Precio',
+		fecha_entrada_inv AS 'Fecha de Entrada',
+		cod_color AS 'Codigo del Color',
+		cod_objetivo AS 'Codigo del Objetivo',
+		cod_estado AS 'Codigo del Estado'
+  FROM [dbo].[tipo_articulo]
+  where cod_tipo_articulo = @valor
+END
+GO
+
+
+CREATE PROCEDURE SP_Seleccionar_Inventario
+AS	
 BEGIN
 	SELECT 
 		cod_tipo_articulo AS 'Codigo del tipo de articulo',

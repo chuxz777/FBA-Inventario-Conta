@@ -2,10 +2,9 @@
 using System.Data;
 using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
-using Cls_DAL_FBB.Catalogos.TipoArticulo;
-using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
+using Cls_DAL_FBB.Catalogos.Objetivo;
+using Cls_BLL_FBB.Catalogos.Objetivo;
 using Cls_PL.Pantallas.Catalogos.Modificar;
-
 
 
 namespace Cls_PL
@@ -13,9 +12,9 @@ namespace Cls_PL
     public partial class Frm_Listar_Objetivo : Form
     {
         #region Variables Globales
-        private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
-        cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
-        cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
+        private Frm_Listar_Objetivo Obj_Pant_Mod_Objetivo = new Frm_Listar_Objetivo();
+        cls_Objetivo_BLL Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
+        cls_Objetivo_DAL Obj_Cls_Objetivo_DAL = new cls_Objetivo_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
         #endregion
@@ -33,12 +32,12 @@ namespace Cls_PL
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
         {
-            Obj_Cls_Tipo_Articulo_DAL.bAccion = true; // Es un insert
-           // Obj_Cls_Tipo_Articulo_DAL.iIdEstado = ' ';
-            Obj_Cls_Tipo_Articulo_DAL.sDescripcion = string.Empty;
-            Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
-            Obj_Pant_Mod_Tipo_Articulo.ShowDialog();
+            Obj_Cls_Objetivo_DAL.bAccion = true; // Es un insert
+           // Obj_Cls_Objetivo_DAL.iIdEstado = ' ';
+            Obj_Cls_Objetivo_DAL.sDescripcion = string.Empty;
+            Obj_Cls_Objetivo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            Obj_Pant_Mod_Objetivo.Obj_Cls_Objetivo_DAL = Obj_Cls_Objetivo_DAL;
+            Obj_Pant_Mod_Objetivo.ShowDialog();
         }
 
         private void tlsbtn_Editar_Click(object sender, EventArgs e)
@@ -123,7 +122,7 @@ namespace Cls_PL
         {
             DataTable dt = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt, ref sMensajeError))
+            if (Obj_Cls_Objetivo_BLL.Listar_Objetivo_SP(ref dt, ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt;
             }
@@ -139,14 +138,14 @@ namespace Cls_PL
 
         private void Cargar_Fila()
         {
-            Obj_Cls_Tipo_Articulo_DAL.bAccion = false; //Update
+            Obj_Cls_Objetivo_DAL.bAccion = false; //Update
             //Captura los valores del row para cargarlos en un objeto
-            //Obj_Cls_Tipo_Articulo_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
-            Obj_Cls_Tipo_Articulo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
-            Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            //Obj_Cls_Objetivo_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
+            Obj_Cls_Objetivo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
+            Obj_Cls_Objetivo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             // Carga los valores del row en un objeto y los envia a la pantalla de edicion
-            Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
-            Obj_Pant_Mod_Tipo_Articulo.ShowDialog();
+            Obj_Pant_Mod_Objetivo.Obj_Cls_Objetivo_DAL = Obj_Cls_Objetivo_DAL;
+            Obj_Pant_Mod_Objetivo.ShowDialog();
         }
 
         // Busqueda
@@ -154,7 +153,7 @@ namespace Cls_PL
         {
             DataTable dt_f = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Filtrar_Tipo_Articulo_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
+            if (Obj_Cls_Objetivo_BLL.Filtrar_Objetivo_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt_f;
             }
