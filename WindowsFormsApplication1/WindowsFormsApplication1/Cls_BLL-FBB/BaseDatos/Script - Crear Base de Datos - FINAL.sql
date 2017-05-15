@@ -57,30 +57,45 @@ create table inventario
 	cod_estado							int constraint fk_inv_estado foreign key references estado(id_estado) NOT NULL
 )
 -----------------------------------------------------------------------------------------------------
+
+create table detalle_factura
+(
+	num_factura
+	id_articulo
+)
+
+
 create table venta
 (
     id_factura              	        int identity(1,1) constraint pk_Tbl_Roles primary key NOT NULL,
-	cod_aticulo							int,
+	cod_acod_tipo_articuloticulo		int,
 	precio_venta						decimal,
 	fecha_venta							datetime NOT NULL,
 	total								decimal
 )
 
+
+-----------------------------------------------------------------------------------------------------
+--create table categoria_gastos
+--(
+--  id_categoria
+--  descripcion
+--)
+
 -----------------------------------------------------------------------------------------------------
 --create table facturas_gastos
 --(
+--  id_factura
 --	moto
 --	detalle
-
-
-
+--  cod_categoria
 --)
+
 -----------------------------------------------------------------------------------------------------
 --create table donaciones_ingresos
 --(
-
-
-
+-- id_donacion
+-- detalle
 --)
 -----------------------------------------------------------------------------------------------------
 

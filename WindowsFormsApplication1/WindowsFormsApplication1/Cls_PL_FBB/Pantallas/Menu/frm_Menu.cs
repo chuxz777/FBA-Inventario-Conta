@@ -159,5 +159,11 @@ namespace Cls_PL
             Frm_Listar_Objetivo Obj_Pantalla_Listar_Objetivo = new Frm_Listar_Objetivo();
             Obj_Pantalla_Listar_Objetivo.ShowDialog();
         }
+
+        private void toolStripButton3_Click_1(object sender, EventArgs e)
+        {
+            Frm_Listar_Facturacion Obj_Pantalla_Listar_Facturacion = new Frm_Listar_Facturacion();
+            Obj_Pantalla_Listar_Facturacion.Show();
+        }
     }
 }
