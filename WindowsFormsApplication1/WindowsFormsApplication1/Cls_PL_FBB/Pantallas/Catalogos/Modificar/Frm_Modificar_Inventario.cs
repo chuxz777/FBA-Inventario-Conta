@@ -10,17 +10,17 @@ using Cls_PL.Pantallas.Catalogos.Modificar;
 
 namespace Cls_PL
 {
-    public partial class Frm_Listar_Inventario : Form
+    public partial class Frm_Modificar_Inventario : Form
     {
         #region Variables Globales
-        private Frm_Modificar_Inventario Obj_Pant_Mod_Inventario = new Frm_Modificar_Inventario();
+        private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
         #endregion
 
-        public Frm_Listar_Inventario()
+        public Frm_Modificar_Inventario()
         {
             InitializeComponent(); 
         }
@@ -37,23 +37,23 @@ namespace Cls_PL
            // Obj_Cls_Tipo_Articulo_DAL.iIdEstado = ' ';
             Obj_Cls_Tipo_Articulo_DAL.sDescripcion = string.Empty;
             Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            //Obj_Pant_Mod_Inventario.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
-            Obj_Pant_Mod_Inventario.ShowDialog();
+            Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
+            Obj_Pant_Mod_Tipo_Articulo.ShowDialog();
         }
 
         private void tlsbtn_Editar_Click(object sender, EventArgs e)
         {
-            if (dgv_Estados.RowCount == 0)
-            {
-                MessageBox.Show("No ha seleccionado un Estado para ser modificado.",
-                                "Información",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-            }
-            else
-            {
-                Cargar_Fila();
-            }
+            //if (dgv_Estados.RowCount == 0)
+            //{
+            //    MessageBox.Show("No ha seleccionado un Estado para ser modificado.",
+            //                    "Información",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    Cargar_Fila();
+            //}
         }
 
         private void tlsbtn_Salir_Click(object sender, EventArgs e)
@@ -68,17 +68,17 @@ namespace Cls_PL
 
         private void dgv_Estados_DoubleClick(object sender, EventArgs e)
         {
-            if (dgv_Estados.RowCount == 0)
-            {
-                MessageBox.Show("No ha seleccionado un Estado para ser modificado.",
-                                "Información",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-            }
-            else
-            {
-                Cargar_Fila();
-            }
+            //if (dgv_Estados.RowCount == 0)
+            //{
+            //    MessageBox.Show("No ha seleccionado un Estado para ser modificado.",
+            //                    "Información",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    Cargar_Fila();
+            //}
         }
 
         private void tlsbtn_Eliminar_Click(object sender, EventArgs e)
@@ -123,18 +123,18 @@ namespace Cls_PL
         {
             DataTable dt = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt, ref sMensajeError))
-            {
-                dgv_Estados.DataSource = dt;
-            }
-            else
-            {
-                MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
-                                "Mensaje del SQL: " + sMensajeError,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
+            //if (Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt, ref sMensajeError))
+            //{
+            //    dgv_Estados.DataSource = dt;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
+            //                    "Mensaje del SQL: " + sMensajeError,
+            //                    "Error",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Error);
+            //}
         }
 
         private void Cargar_Fila()
@@ -142,11 +142,11 @@ namespace Cls_PL
             Obj_Cls_Tipo_Articulo_DAL.bAccion = false; //Update
             //Captura los valores del row para cargarlos en un objeto
             //Obj_Cls_Tipo_Articulo_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
-            Obj_Cls_Tipo_Articulo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
+           // Obj_Cls_Tipo_Articulo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
             Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             // Carga los valores del row en un objeto y los envia a la pantalla de edicion
-           // Obj_Pant_Mod_Inventario.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
-            Obj_Pant_Mod_Inventario.ShowDialog();
+            Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
+            Obj_Pant_Mod_Tipo_Articulo.ShowDialog();
         }
 
         // Busqueda
@@ -154,18 +154,18 @@ namespace Cls_PL
         {
             DataTable dt_f = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Filtrar_Tipo_Articulo_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
-            {
-                dgv_Estados.DataSource = dt_f;
-            }
-            else
-            {
-                MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
-                                "Mensaje error: " + sMensajeError,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
+            //if (Obj_Cls_Tipo_Articulo_BLL.Filtrar_Tipo_Articulo_SP(ref dt_f, tlstrp_txt_Busqueda.Text.Trim(), ref sMensajeError))
+            //{
+            //    dgv_Estados.DataSource = dt_f;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Problemas a la hora de la carga de la información.\n" +
+            //                    "Mensaje error: " + sMensajeError,
+            //                    "Error",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Error);
+            //}
         }
 
         private void Opciones()
@@ -202,6 +202,11 @@ namespace Cls_PL
             //        break;
 
             //}
+        }
+
+        private void dgv_Estados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

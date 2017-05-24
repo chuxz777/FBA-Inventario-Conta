@@ -44,7 +44,8 @@ namespace Cls_PL
 
         private void toolStripButton6_Click(object sender, EventArgs e)//Productos
         {
-            
+            Frm_Listar_Inventario Obj_Pantalla_Listar_Inventario = new Frm_Listar_Inventario();
+            Obj_Pantalla_Listar_Inventario.ShowDialog();
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)//Estados
