@@ -66,34 +66,36 @@ create table venta
 )
 -----------------------------------------------------------------------------------------------------
 create table detalle_factura
+(	
+	id_detalle_factura					int identity(1,1) constraint pk_deta_fact primary key NOT NULL,
+	num_factura							int constraint fk_fact_venta foreign key references venta(id_factura),
+	id_articulo							int constraint fk_fact_articulo foreign key references inventario(id_articulo)
+)
+
+---------------------------------------------------------------------------------------------------
+create table categoria_gastos
 (
-	num_factura
-	id_articulo
+  id_categoria							int identity (1,1) constraint pk_cat_gastos primary key,
+  descripcion							nvarchar(150) UNIQUE
+)
+
+---------------------------------------------------------------------------------------------------
+create table facturas_gastos
+(
+  id_factura							int identity(1,1) constraint pk_factura_gastos primary key,
+  moto									decimal NOT NULL,
+  detalle								nvarchar(150),
+  cod_categoria							int 
 )
 
 -----------------------------------------------------------------------------------------------------
---create table categoria_gastos
---(
---  id_categoria
---  descripcion
---)
-
------------------------------------------------------------------------------------------------------
---create table facturas_gastos
---(
---  id_factura
---	moto
---	detalle
---  cod_categoria
---)
-
------------------------------------------------------------------------------------------------------
---create table donaciones_ingresos
---(
--- id_donacion
--- detalle
---)
------------------------------------------------------------------------------------------------------
+create table donaciones_ingresos
+(
+ id_donacion						int identity (1,1) constraint pk_donacion primary key NOT NULL,
+fecha_entrada_inv                   datetime NOT NULL,
+ detalle							nvarchar(150) UNIQUE
+)
+-------------------------------------------------------------------------------------------------
 
 create table roles
 (
