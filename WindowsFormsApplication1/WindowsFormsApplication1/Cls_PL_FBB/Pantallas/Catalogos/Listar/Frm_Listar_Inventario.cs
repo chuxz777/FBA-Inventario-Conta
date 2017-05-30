@@ -4,6 +4,7 @@ using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
+using Cls_BLL_FBB.Catalogos.Inventario;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 
 
@@ -14,6 +15,12 @@ namespace Cls_PL
     {
         #region Variables Globales
         private Frm_Modificar_Inventario Obj_Pant_Mod_Inventario = new Frm_Modificar_Inventario();
+
+
+
+        cls_Inventario_BLL Obj_Cls_Invenario_BLL = new cls_Inventario_BLL();
+
+
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
@@ -123,7 +130,7 @@ namespace Cls_PL
         {
             DataTable dt = new DataTable();
 
-            if (Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt, ref sMensajeError))
+            if (Obj_Cls_Invenario_BLL.Listar_Inventario_SP(ref dt, ref sMensajeError))
             {
                 dgv_Estados.DataSource = dt;
             }

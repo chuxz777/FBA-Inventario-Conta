@@ -109,7 +109,7 @@ create table usuarios
 	nombre_usuario						nvarchar(70) UNIQUE, 
 	email								nvarchar(150) UNIQUE,
 	contraseña							nvarchar(10),
-	cod_rol								int
+	cod_rol								int constraint fk_usuario_rol foreign key references roles(id_rol)
 )
 GO
 -----------------------------------------------------------------------------------------------------

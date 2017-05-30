@@ -32,11 +32,6 @@
             this.tbctrl_Principal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tlstrp_Funciones_Basicas = new System.Windows.Forms.ToolStrip();
-            this.tlsbtn_Buscar = new System.Windows.Forms.ToolStripButton();
-            this.tlstrp_txt_Busqueda = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tlsbtn_Refrescar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Editar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Nuevo = new System.Windows.Forms.ToolStripButton();
@@ -45,32 +40,31 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Salir = new System.Windows.Forms.ToolStripButton();
             this.grpbx_Estados = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cbx_Estado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbx_Objetivo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbx_Color = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbx_Departamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cbx_Articulo = new System.Windows.Forms.ComboBox();
+            this.nud_Cantidad = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtPicker_Mes_Año = new System.Windows.Forms.DateTimePicker();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tbctrl_Principal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tlstrp_Funciones_Basicas.SuspendLayout();
             this.grpbx_Estados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // tbctrl_Principal
@@ -103,11 +97,6 @@
             this.tlstrp_Funciones_Basicas.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tlstrp_Funciones_Basicas.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tlstrp_Funciones_Basicas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tlsbtn_Buscar,
-            this.tlstrp_txt_Busqueda,
-            this.toolStripSeparator4,
-            this.tlsbtn_Refrescar,
-            this.toolStripSeparator1,
             this.tlsbtn_Editar,
             this.toolStripSeparator2,
             this.tlsbtn_Nuevo,
@@ -120,41 +109,6 @@
             this.tlstrp_Funciones_Basicas.Size = new System.Drawing.Size(933, 86);
             this.tlstrp_Funciones_Basicas.TabIndex = 0;
             this.tlstrp_Funciones_Basicas.Text = "toolStrip1";
-            // 
-            // tlsbtn_Buscar
-            // 
-            this.tlsbtn_Buscar.Image = ((System.Drawing.Image)(resources.GetObject("tlsbtn_Buscar.Image")));
-            this.tlsbtn_Buscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tlsbtn_Buscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbtn_Buscar.Name = "tlsbtn_Buscar";
-            this.tlsbtn_Buscar.Size = new System.Drawing.Size(88, 83);
-            this.tlsbtn_Buscar.Text = "Buscar";
-            // 
-            // tlstrp_txt_Busqueda
-            // 
-            this.tlstrp_txt_Busqueda.Name = "tlstrp_txt_Busqueda";
-            this.tlstrp_txt_Busqueda.Size = new System.Drawing.Size(265, 86);
-            this.tlstrp_txt_Busqueda.TextChanged += new System.EventHandler(this.tlstrp_txt_Busqueda_TextChanged);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 86);
-            // 
-            // tlsbtn_Refrescar
-            // 
-            this.tlsbtn_Refrescar.Image = ((System.Drawing.Image)(resources.GetObject("tlsbtn_Refrescar.Image")));
-            this.tlsbtn_Refrescar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tlsbtn_Refrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tlsbtn_Refrescar.Name = "tlsbtn_Refrescar";
-            this.tlsbtn_Refrescar.Size = new System.Drawing.Size(106, 83);
-            this.tlsbtn_Refrescar.Text = "Refrescar";
-            this.tlsbtn_Refrescar.Click += new System.EventHandler(this.tlsbtn_Refrescar_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 86);
             // 
             // tlsbtn_Editar
             // 
@@ -217,110 +171,113 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpbx_Estados.AutoSize = true;
-            this.grpbx_Estados.Controls.Add(this.comboBox7);
+            this.grpbx_Estados.Controls.Add(this.maskedTextBox1);
+            this.grpbx_Estados.Controls.Add(this.dtPicker_Mes_Año);
+            this.grpbx_Estados.Controls.Add(this.cbx_Estado);
             this.grpbx_Estados.Controls.Add(this.label8);
-            this.grpbx_Estados.Controls.Add(this.comboBox6);
+            this.grpbx_Estados.Controls.Add(this.cbx_Objetivo);
             this.grpbx_Estados.Controls.Add(this.label7);
-            this.grpbx_Estados.Controls.Add(this.comboBox5);
+            this.grpbx_Estados.Controls.Add(this.cbx_Color);
             this.grpbx_Estados.Controls.Add(this.label6);
-            this.grpbx_Estados.Controls.Add(this.comboBox4);
+            this.grpbx_Estados.Controls.Add(this.cbx_Departamento);
             this.grpbx_Estados.Controls.Add(this.label2);
             this.grpbx_Estados.Controls.Add(this.button3);
             this.grpbx_Estados.Controls.Add(this.button1);
-            this.grpbx_Estados.Controls.Add(this.comboBox3);
-            this.grpbx_Estados.Controls.Add(this.comboBox2);
-            this.grpbx_Estados.Controls.Add(this.comboBox1);
-            this.grpbx_Estados.Controls.Add(this.numericUpDown1);
+            this.grpbx_Estados.Controls.Add(this.cbx_Articulo);
+            this.grpbx_Estados.Controls.Add(this.nud_Cantidad);
             this.grpbx_Estados.Controls.Add(this.label5);
             this.grpbx_Estados.Controls.Add(this.label4);
             this.grpbx_Estados.Controls.Add(this.label3);
-            this.grpbx_Estados.Controls.Add(this.textBox1);
             this.grpbx_Estados.Controls.Add(this.lblTotal);
             this.grpbx_Estados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.grpbx_Estados.Location = new System.Drawing.Point(59, 191);
+            this.grpbx_Estados.Location = new System.Drawing.Point(72, 225);
             this.grpbx_Estados.Margin = new System.Windows.Forms.Padding(4);
             this.grpbx_Estados.Name = "grpbx_Estados";
             this.grpbx_Estados.Padding = new System.Windows.Forms.Padding(4);
-            this.grpbx_Estados.Size = new System.Drawing.Size(818, 399);
+            this.grpbx_Estados.Size = new System.Drawing.Size(818, 348);
             this.grpbx_Estados.TabIndex = 2;
             this.grpbx_Estados.TabStop = false;
             this.grpbx_Estados.Text = "Lista de Artículos";
             // 
-            // comboBox7
+            // cbx_Estado
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(381, 232);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 24);
-            this.comboBox7.TabIndex = 27;
-            this.comboBox7.Text = "Seleccionar";
+            this.cbx_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Estado.FormattingEnabled = true;
+            this.cbx_Estado.Location = new System.Drawing.Point(575, 131);
+            this.cbx_Estado.Name = "cbx_Estado";
+            this.cbx_Estado.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Estado.TabIndex = 27;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(217, 235);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(472, 134);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 17);
+            this.label8.Size = new System.Drawing.Size(58, 17);
             this.label8.TabIndex = 26;
             this.label8.Text = "Estado";
             // 
-            // comboBox6
+            // cbx_Objetivo
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(377, 205);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 24);
-            this.comboBox6.TabIndex = 25;
-            this.comboBox6.Text = "Seleccionar";
+            this.cbx_Objetivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Objetivo.FormattingEnabled = true;
+            this.cbx_Objetivo.Location = new System.Drawing.Point(575, 89);
+            this.cbx_Objetivo.Name = "cbx_Objetivo";
+            this.cbx_Objetivo.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Objetivo.TabIndex = 25;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 208);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(472, 92);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 17);
+            this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 24;
             this.label7.Text = "Objetivo";
             // 
-            // comboBox5
+            // cbx_Color
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(377, 174);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(206, 24);
-            this.comboBox5.TabIndex = 23;
-            this.comboBox5.Text = "Seleccionar";
+            this.cbx_Color.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Color.FormattingEnabled = true;
+            this.cbx_Color.Location = new System.Drawing.Point(575, 48);
+            this.cbx_Color.Name = "cbx_Color";
+            this.cbx_Color.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Color.TabIndex = 23;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(217, 174);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(472, 51);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 17);
+            this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 22;
             this.label6.Text = "Color";
             // 
-            // comboBox4
+            // cbx_Departamento
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(377, 70);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(206, 24);
-            this.comboBox4.TabIndex = 21;
-            this.comboBox4.Text = "Seleccionar";
+            this.cbx_Departamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Departamento.FormattingEnabled = true;
+            this.cbx_Departamento.Location = new System.Drawing.Point(213, 92);
+            this.cbx_Departamento.Name = "cbx_Departamento";
+            this.cbx_Departamento.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Departamento.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(217, 70);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(75, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(110, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Departamento";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(377, 307);
+            this.button3.Location = new System.Drawing.Point(268, 252);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 53);
             this.button3.TabIndex = 19;
@@ -329,53 +286,36 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(523, 307);
+            this.button1.Location = new System.Drawing.Point(420, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 53);
             this.button1.TabIndex = 17;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cbx_Articulo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(506, 134);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 15;
-            this.comboBox3.Text = "Año";
+            this.cbx_Articulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Articulo.FormattingEnabled = true;
+            this.cbx_Articulo.Location = new System.Drawing.Point(214, 51);
+            this.cbx_Articulo.Name = "cbx_Articulo";
+            this.cbx_Articulo.Size = new System.Drawing.Size(205, 24);
+            this.cbx_Articulo.TabIndex = 13;
             // 
-            // comboBox2
+            // nud_Cantidad
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(378, 134);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 14;
-            this.comboBox2.Text = "Mes";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(378, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(205, 24);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.Text = "Seleccionar";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(381, 272);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 12;
+            this.nud_Cantidad.Location = new System.Drawing.Point(575, 173);
+            this.nud_Cantidad.Name = "nud_Cantidad";
+            this.nud_Cantidad.Size = new System.Drawing.Size(206, 22);
+            this.nud_Cantidad.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 137);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(68, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 17);
+            this.label5.Size = new System.Drawing.Size(140, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Fecha de Etiqueta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -383,35 +323,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(213, 277);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(468, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cantidad";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(217, 31);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(75, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
+            this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Articulo";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(378, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 22);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Introducir Precio";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(217, 103);
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblTotal.Location = new System.Drawing.Point(75, 138);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(48, 17);
+            this.lblTotal.Size = new System.Drawing.Size(54, 17);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "Precio";
             // 
@@ -440,6 +375,24 @@
             this.label1.Text = "Registrar Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dtPicker_Mes_Año
+            // 
+            this.dtPicker_Mes_Año.CustomFormat = "MM-yyyy";
+            this.dtPicker_Mes_Año.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPicker_Mes_Año.Location = new System.Drawing.Point(214, 173);
+            this.dtPicker_Mes_Año.Name = "dtPicker_Mes_Año";
+            this.dtPicker_Mes_Año.Size = new System.Drawing.Size(205, 22);
+            this.dtPicker_Mes_Año.TabIndex = 28;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Culture = new System.Globalization.CultureInfo("es-CR");
+            this.maskedTextBox1.Location = new System.Drawing.Point(214, 134);
+            this.maskedTextBox1.Mask = "$9999999";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(205, 22);
+            this.maskedTextBox1.TabIndex = 29;
+            // 
             // Frm_Modificar_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -465,7 +418,7 @@
             this.tlstrp_Funciones_Basicas.PerformLayout();
             this.grpbx_Estados.ResumeLayout(false);
             this.grpbx_Estados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,38 +430,32 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ToolStrip tlstrp_Funciones_Basicas;
         private System.Windows.Forms.ToolStripButton tlsbtn_Editar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tlsbtn_Refrescar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tlsbtn_Nuevo;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton tlsbtn_Salir;
         private System.Windows.Forms.GroupBox grpbx_Estados;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripButton tlsbtn_Buscar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton tlsbtn_Eliminar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripTextBox tlstrp_txt_Busqueda;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox cbx_Articulo;
+        private System.Windows.Forms.NumericUpDown nud_Cantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbx_Objetivo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbx_Color;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbx_Departamento;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbx_Estado;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtPicker_Mes_Año;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

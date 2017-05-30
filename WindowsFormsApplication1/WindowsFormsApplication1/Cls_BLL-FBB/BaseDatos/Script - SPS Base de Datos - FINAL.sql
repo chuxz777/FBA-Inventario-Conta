@@ -170,7 +170,7 @@ AS
 BEGIN
 	INSERT  INTO [dbo].[color]
 				([nombre_color])
-	8999999999999999		VALUES
+ VALUES
 			(@descripcion)
 			SELECT MAX([id_color]) FROM [color];
 END
@@ -192,23 +192,23 @@ GO
 -- Inventario
 -----------------------------------------------------------------------------------------
 
--- Pendiente
-CREATE PROCEDURE SP_Filtrar_Inventario
-@valor nvarchar(100)
-AS
-BEGIN
-	SELECT 
-		cod_tipo_articulo AS 'Codigo del tipo de articulo',
-		cod_departamento AS 'Codigo del Departamento',
-		precio_sugerido AS 'Precio',
-		fecha_entrada_inv AS 'Fecha de Entrada',
-		cod_color AS 'Codigo del Color',
-		cod_objetivo AS 'Codigo del Objetivo',
-		cod_estado AS 'Codigo del Estado'
-  FROM [dbo].[tipo_articulo]
-  where cod_tipo_articulo = @valor
-END
-GO
+---- Pendiente
+--CREATE PROCEDURE SP_Filtrar_Inventario
+--@valor nvarchar(100)
+--AS
+--BEGIN
+--	SELECT 
+--		cod_tipo_articulo AS 'Codigo del tipo de articulo',
+--		cod_departamento AS 'Codigo del Departamento',
+--		precio_sugerido AS 'Precio',
+--		fecha_entrada_inv AS 'Fecha de Entrada',
+--		cod_color AS 'Codigo del Color',
+--		cod_objetivo AS 'Codigo del Objetivo',
+--		cod_estado AS 'Codigo del Estado'
+--  FROM [dbo].[tipo_articulo]
+--  where cod_tipo_articulo = @valor
+--END
+--GO
 
 
 CREATE PROCEDURE SP_Seleccionar_Inventario
@@ -222,9 +222,13 @@ BEGIN
 		cod_color AS 'Codigo del Color',
 		cod_objetivo AS 'Codigo del Objetivo',
 		cod_estado AS 'Codigo del Estado'
-  FROM [dbo].[tipo_articulo]
+  FROM [dbo].[inventario]
 END
 GO
+
+
+
+exec SP_Seleccionar_Inventario
 
 
 CREATE PROCEDURE SP_Modificar_Inventario
@@ -327,14 +331,14 @@ GO
 -- Factura
 -----------------------------------------------------------------------------------------
 
-CREATE PROCEDURE SP_Insertar_Factura
-AS
-BEGIN
-	SELECT [id_factura]
-		  ,[cod_aticulo]
-		  ,[precio_venta]
-		  ,[fecha_venta]
-		  ,[total]
-	  FROM [dbo].[venta]
-END
-GO
+--CREATE PROCEDURE SP_Insertar_Factura
+--AS
+--BEGIN
+--	SELECT [id_factura]
+--		  ,[cod_aticulo]
+--		  ,[precio_venta]
+--		  ,[fecha_venta]
+--		  ,[total]
+--	  FROM [dbo].[venta]
+--END
+--GO

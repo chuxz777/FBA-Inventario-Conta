@@ -3,7 +3,12 @@ using System.Data;
 using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
+using Cls_DAL_FBB.Catalogos.Inventario;
+using Cls_BLL_FBB.Catalogos.Departamento;
+using Cls_BLL_FBB.Catalogos.Objetivo;
+using Cls_BLL_FBB.Catalogos.Estados;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
+using Cls_BLL_FBB.Catalogos.Color;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 
 
@@ -15,8 +20,20 @@ namespace Cls_PL
         #region Variables Globales
         private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
+        cls_Departamento_BLL Obj_Cls_Departamento_BLL = new cls_Departamento_BLL();
+        cls_Objetivo_BLL  Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
+        cls_Estados_BLL Obj_Cls_Estado_BLL = new cls_Estados_BLL();
+        cls_Color_BLL Obj_Cls_Color_BLL = new cls_Color_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
+        cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
+
+        DataTable dt_Tipo_Articulo = new DataTable();
+        DataTable dt_color = new DataTable();
+        DataTable dt_Estado = new DataTable();
+        DataTable dt_Objetivo = new DataTable();
+
+
         private string sMensajeError;
         #endregion
 
@@ -29,6 +46,12 @@ namespace Cls_PL
         {
             Opciones();
             Cargar();
+            Cargar_Combo_Tipo_Articulo();
+            Cargar_Combo_Departamento();
+            Cargar_Combo_Objetivo();
+            Cargar_Combo_Estado();
+            Cargar_Combo_Color();
+
         }
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
@@ -203,6 +226,126 @@ namespace Cls_PL
 
             //}
         }
+
+        private void Cargar_Combo_Tipo_Articulo()
+        {
+            try
+            {
+                Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt_Tipo_Articulo, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Articulo.DataSource = dt_Tipo_Articulo;
+                    cbx_Articulo.ValueMember = dt_Tipo_Articulo.Columns["Codigo del tipo de articulo"].ToString().Trim();
+                    cbx_Articulo.DisplayMember = dt_Tipo_Articulo.Columns["Descripcion del tipo de articulo"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Cargar_Combo_Departamento()
+        {
+            try
+            {
+                Obj_Cls_Departamento_BLL.Listar_Departamento_SP(ref dt_Tipo_Articulo, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Departamento.DataSource = dt_Tipo_Articulo;
+                    cbx_Departamento.ValueMember = dt_Tipo_Articulo.Columns["Codigo del tipo de Departamento"].ToString().Trim();
+                    cbx_Departamento.DisplayMember = dt_Tipo_Articulo.Columns["Descripcion del Departamento"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Cargar_Combo_Objetivo()
+        {
+            try
+            {
+                Obj_Cls_Objetivo_BLL.Listar_Objetivo_SP(ref dt_Objetivo, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Objetivo.DataSource = dt_Objetivo;
+                    cbx_Objetivo.ValueMember = dt_Objetivo.Columns["Codigo del tipo de Objetivo"].ToString().Trim();
+                    cbx_Objetivo.DisplayMember = dt_Objetivo.Columns["Descripcion del objetivo para el artículo"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Cargar_Combo_Estado()
+        {
+            try
+            {
+                Obj_Cls_Estado_BLL.Listar_Estados_SP(ref dt_Estado, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Estado.DataSource = dt_Estado;
+                    cbx_Estado.ValueMember = dt_Estado.Columns["Codigo del Estado"].ToString().Trim();
+                    cbx_Estado.DisplayMember = dt_Estado.Columns["Descripcion del Estado"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Cargar_Combo_Color()
+        {
+            try
+            {
+                Obj_Cls_Color_BLL.Listar_Color_SP(ref dt_color, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Color.DataSource = dt_color;
+                    cbx_Color.ValueMember = dt_color.Columns["Codigo del Color"].ToString().Trim();
+                    cbx_Color.DisplayMember = dt_color.Columns["Descripcion del Color"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void Ingresar_Productos()
+        {
+
+            //Obj_Cls_Inventario_DAL.fPrecio_sugerido  
+
+
+        }
+
+
 
         private void dgv_Estados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
