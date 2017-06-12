@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System;
+using System.Globalization;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
 using Cls_DAL_FBB.Catalogos.Inventario;
@@ -9,6 +11,7 @@ using Cls_BLL_FBB.Catalogos.Objetivo;
 using Cls_BLL_FBB.Catalogos.Estados;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
 using Cls_BLL_FBB.Catalogos.Color;
+using Cls_BLL_FBB.Catalogos.Inventario;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 
 
@@ -24,6 +27,7 @@ namespace Cls_PL
         cls_Objetivo_BLL  Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
         cls_Estados_BLL Obj_Cls_Estado_BLL = new cls_Estados_BLL();
         cls_Color_BLL Obj_Cls_Color_BLL = new cls_Color_BLL();
+        cls_Inventario_BLL Obj_Cls_Inventario_BLL = new cls_Inventario_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
@@ -339,10 +343,58 @@ namespace Cls_PL
 
         private void Ingresar_Productos()
         {
+            int cantidad = int.Parse(nud_Cantidad.Value.ToString());
 
-            //Obj_Cls_Inventario_DAL.fPrecio_sugerido  
+            //string dt_Picker_Text;
+
+            //DateTime datee = dtPicker_Mes_Año.Value;
+
+            //string a;
+            
+            //a = datee.Year.ToString()
+            //b = DateTime.ParseExact()
+
+            //DateTime yyy = a;
+            //Datetime mmm = datee.Month;
 
 
+            //string format = "MM-yyyy";
+            //dt_Picker_Text = dtPicker_Mes_Año.Value.ToString("MM-yyyy");
+
+
+            //DateTime Fecha = new DateTime();
+
+            //DateTime.ParseExact(dt_Picker_Text, format, CultureInfo.InvariantCulture);
+
+            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = int.Parse(cbx_Articulo.SelectedItem.ToString());
+
+            Obj_Cls_Inventario_DAL.iCod_departamento = int.Parse(cbx_Departamento.SelectedItem.ToString());
+            Obj_Cls_Inventario_DAL.fPrecio_sugerido = float.Parse(mskTxT_Precio.Text);
+            //Obj_Cls_Inventario_DAL.dFecha_entrada_inv = dtPicker_Mes_Año.Value;
+            Obj_Cls_Inventario_DAL.iCod_color = int.Parse(cbx_Color.SelectedItem.ToString());
+            Obj_Cls_Inventario_DAL.iCod_Objetivo = 
+            Obj_Cls_Inventario_DAL.iCod_Estado = int.Parse(cbx_Estado.ToString());
+
+           if (cantidad > 1 )
+           {
+                for (int i = 0; i < cantidad; i++)
+                {
+                    // Registrar productos las veces que indica el contador 
+                    Obj_Cls_Inventario_BLL.Insertar_Inventario_SP(ref  Obj_Cls_Inventario_DAL, ref sMensajeError);
+
+                }
+            }
+            else if (cantidad == 1)
+            {
+                Obj_Cls_Inventario_BLL.Insertar_Inventario_SP(ref Obj_Cls_Inventario_DAL, ref sMensajeError);
+            }
+            else
+            {
+                MessageBox.Show("No ha indicado la cantidad de productos para ser registrados.",
+                                "Información",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
 
@@ -350,6 +402,12 @@ namespace Cls_PL
         private void dgv_Estados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Ingresar_Productos();
         }
     }
 }

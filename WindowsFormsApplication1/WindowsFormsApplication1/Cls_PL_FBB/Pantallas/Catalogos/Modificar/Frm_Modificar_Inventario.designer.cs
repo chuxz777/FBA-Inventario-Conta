@@ -40,6 +40,8 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Salir = new System.Windows.Forms.ToolStripButton();
             this.grpbx_Estados = new System.Windows.Forms.GroupBox();
+            this.mskTxT_Precio = new System.Windows.Forms.MaskedTextBox();
+            this.dtPicker_Mes_Año = new System.Windows.Forms.DateTimePicker();
             this.cbx_Estado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbx_Objetivo = new System.Windows.Forms.ComboBox();
@@ -48,7 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbx_Departamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Añadir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbx_Articulo = new System.Windows.Forms.ComboBox();
             this.nud_Cantidad = new System.Windows.Forms.NumericUpDown();
@@ -58,8 +60,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtPicker_Mes_Año = new System.Windows.Forms.DateTimePicker();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tbctrl_Principal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tlstrp_Funciones_Basicas.SuspendLayout();
@@ -171,7 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpbx_Estados.AutoSize = true;
-            this.grpbx_Estados.Controls.Add(this.maskedTextBox1);
+            this.grpbx_Estados.Controls.Add(this.mskTxT_Precio);
             this.grpbx_Estados.Controls.Add(this.dtPicker_Mes_Año);
             this.grpbx_Estados.Controls.Add(this.cbx_Estado);
             this.grpbx_Estados.Controls.Add(this.label8);
@@ -181,7 +181,7 @@
             this.grpbx_Estados.Controls.Add(this.label6);
             this.grpbx_Estados.Controls.Add(this.cbx_Departamento);
             this.grpbx_Estados.Controls.Add(this.label2);
-            this.grpbx_Estados.Controls.Add(this.button3);
+            this.grpbx_Estados.Controls.Add(this.btn_Añadir);
             this.grpbx_Estados.Controls.Add(this.button1);
             this.grpbx_Estados.Controls.Add(this.cbx_Articulo);
             this.grpbx_Estados.Controls.Add(this.nud_Cantidad);
@@ -198,6 +198,24 @@
             this.grpbx_Estados.TabIndex = 2;
             this.grpbx_Estados.TabStop = false;
             this.grpbx_Estados.Text = "Lista de Artículos";
+            // 
+            // mskTxT_Precio
+            // 
+            this.mskTxT_Precio.Culture = new System.Globalization.CultureInfo("es-CR");
+            this.mskTxT_Precio.Location = new System.Drawing.Point(214, 134);
+            this.mskTxT_Precio.Mask = "$9999999";
+            this.mskTxT_Precio.Name = "mskTxT_Precio";
+            this.mskTxT_Precio.Size = new System.Drawing.Size(205, 22);
+            this.mskTxT_Precio.TabIndex = 29;
+            // 
+            // dtPicker_Mes_Año
+            // 
+            this.dtPicker_Mes_Año.CustomFormat = "MM-yyyy";
+            this.dtPicker_Mes_Año.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPicker_Mes_Año.Location = new System.Drawing.Point(214, 173);
+            this.dtPicker_Mes_Año.Name = "dtPicker_Mes_Año";
+            this.dtPicker_Mes_Año.Size = new System.Drawing.Size(205, 22);
+            this.dtPicker_Mes_Año.TabIndex = 28;
             // 
             // cbx_Estado
             // 
@@ -275,14 +293,15 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Departamento";
             // 
-            // button3
+            // btn_Añadir
             // 
-            this.button3.Location = new System.Drawing.Point(268, 252);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 53);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Anadir al Inventario";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Añadir.Location = new System.Drawing.Point(268, 252);
+            this.btn_Añadir.Name = "btn_Añadir";
+            this.btn_Añadir.Size = new System.Drawing.Size(104, 53);
+            this.btn_Añadir.TabIndex = 19;
+            this.btn_Añadir.Text = "Anadir al Inventario";
+            this.btn_Añadir.UseVisualStyleBackColor = true;
+            this.btn_Añadir.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -375,24 +394,6 @@
             this.label1.Text = "Registrar Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dtPicker_Mes_Año
-            // 
-            this.dtPicker_Mes_Año.CustomFormat = "MM-yyyy";
-            this.dtPicker_Mes_Año.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPicker_Mes_Año.Location = new System.Drawing.Point(214, 173);
-            this.dtPicker_Mes_Año.Name = "dtPicker_Mes_Año";
-            this.dtPicker_Mes_Año.Size = new System.Drawing.Size(205, 22);
-            this.dtPicker_Mes_Año.TabIndex = 28;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Culture = new System.Globalization.CultureInfo("es-CR");
-            this.maskedTextBox1.Location = new System.Drawing.Point(214, 134);
-            this.maskedTextBox1.Mask = "$9999999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(205, 22);
-            this.maskedTextBox1.TabIndex = 29;
-            // 
             // Frm_Modificar_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -440,7 +441,7 @@
         private System.Windows.Forms.ToolStripButton tlsbtn_Eliminar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Añadir;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbx_Articulo;
         private System.Windows.Forms.NumericUpDown nud_Cantidad;
@@ -456,6 +457,6 @@
         private System.Windows.Forms.ComboBox cbx_Estado;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtPicker_Mes_Año;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskTxT_Precio;
     }
 }
