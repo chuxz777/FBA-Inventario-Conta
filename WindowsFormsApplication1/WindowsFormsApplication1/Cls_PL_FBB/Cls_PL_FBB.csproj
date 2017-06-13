@@ -123,10 +123,10 @@
     <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Tipo_Articulo.Designer.cs">
       <DependentUpon>Frm_Modificar_Tipo_Articulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Login\Frm_Inicio.cs">
+    <Compile Include="Pantallas\Catalogos\Modificar\Login\Frm_Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Login\Frm_Inicio.Designer.cs">
+    <Compile Include="Pantallas\Catalogos\Modificar\Login\Frm_Inicio.Designer.cs">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Menu\frm_Menu.cs">
@@ -177,7 +177,7 @@
     <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Tipo_Articulo.resx">
       <DependentUpon>Frm_Modificar_Tipo_Articulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Login\Frm_Inicio.resx">
+    <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Login\Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Menu\frm_Menu.resx">

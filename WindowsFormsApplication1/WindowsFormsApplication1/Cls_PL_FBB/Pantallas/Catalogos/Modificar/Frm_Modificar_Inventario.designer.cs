@@ -40,7 +40,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Salir = new System.Windows.Forms.ToolStripButton();
             this.grpbx_Estados = new System.Windows.Forms.GroupBox();
-            this.mskTxT_Precio = new System.Windows.Forms.MaskedTextBox();
             this.dtPicker_Mes_Año = new System.Windows.Forms.DateTimePicker();
             this.cbx_Estado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
             this.tbctrl_Principal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tlstrp_Funciones_Basicas.SuspendLayout();
@@ -72,21 +72,19 @@
             this.tbctrl_Principal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbctrl_Principal.Controls.Add(this.tabPage1);
-            this.tbctrl_Principal.Location = new System.Drawing.Point(7, 60);
-            this.tbctrl_Principal.Margin = new System.Windows.Forms.Padding(4);
+            this.tbctrl_Principal.Location = new System.Drawing.Point(5, 49);
             this.tbctrl_Principal.Name = "tbctrl_Principal";
             this.tbctrl_Principal.SelectedIndex = 0;
-            this.tbctrl_Principal.Size = new System.Drawing.Size(949, 123);
+            this.tbctrl_Principal.Size = new System.Drawing.Size(712, 100);
             this.tbctrl_Principal.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tlstrp_Funciones_Basicas);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(941, 94);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(704, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Principal";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -104,9 +102,9 @@
             this.tlsbtn_Eliminar,
             this.toolStripSeparator6,
             this.tlsbtn_Salir});
-            this.tlstrp_Funciones_Basicas.Location = new System.Drawing.Point(4, 4);
+            this.tlstrp_Funciones_Basicas.Location = new System.Drawing.Point(3, 3);
             this.tlstrp_Funciones_Basicas.Name = "tlstrp_Funciones_Basicas";
-            this.tlstrp_Funciones_Basicas.Size = new System.Drawing.Size(933, 86);
+            this.tlstrp_Funciones_Basicas.Size = new System.Drawing.Size(698, 68);
             this.tlstrp_Funciones_Basicas.TabIndex = 0;
             this.tlstrp_Funciones_Basicas.Text = "toolStrip1";
             // 
@@ -116,14 +114,14 @@
             this.tlsbtn_Editar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Editar.Name = "tlsbtn_Editar";
-            this.tlsbtn_Editar.Size = new System.Drawing.Size(84, 83);
+            this.tlsbtn_Editar.Size = new System.Drawing.Size(73, 65);
             this.tlsbtn_Editar.Text = "Editar";
             this.tlsbtn_Editar.Click += new System.EventHandler(this.tlsbtn_Editar_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Nuevo
             // 
@@ -131,14 +129,14 @@
             this.tlsbtn_Nuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Nuevo.Name = "tlsbtn_Nuevo";
-            this.tlsbtn_Nuevo.Size = new System.Drawing.Size(88, 83);
+            this.tlsbtn_Nuevo.Size = new System.Drawing.Size(78, 65);
             this.tlsbtn_Nuevo.Text = "Nuevo";
             this.tlsbtn_Nuevo.Click += new System.EventHandler(this.tlsbtn_Nuevo_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Eliminar
             // 
@@ -146,14 +144,14 @@
             this.tlsbtn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Eliminar.Name = "tlsbtn_Eliminar";
-            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(99, 83);
+            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(86, 65);
             this.tlsbtn_Eliminar.Text = "Eliminar";
             this.tlsbtn_Eliminar.Click += new System.EventHandler(this.tlsbtn_Eliminar_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Salir
             // 
@@ -161,7 +159,7 @@
             this.tlsbtn_Salir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Salir.Name = "tlsbtn_Salir";
-            this.tlsbtn_Salir.Size = new System.Drawing.Size(74, 83);
+            this.tlsbtn_Salir.Size = new System.Drawing.Size(65, 65);
             this.tlsbtn_Salir.Text = "Salir";
             this.tlsbtn_Salir.Click += new System.EventHandler(this.tlsbtn_Salir_Click);
             // 
@@ -171,7 +169,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpbx_Estados.AutoSize = true;
-            this.grpbx_Estados.Controls.Add(this.mskTxT_Precio);
+            this.grpbx_Estados.Controls.Add(this.txt_Precio);
             this.grpbx_Estados.Controls.Add(this.dtPicker_Mes_Año);
             this.grpbx_Estados.Controls.Add(this.cbx_Estado);
             this.grpbx_Estados.Controls.Add(this.label8);
@@ -190,49 +188,41 @@
             this.grpbx_Estados.Controls.Add(this.label3);
             this.grpbx_Estados.Controls.Add(this.lblTotal);
             this.grpbx_Estados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.grpbx_Estados.Location = new System.Drawing.Point(72, 225);
-            this.grpbx_Estados.Margin = new System.Windows.Forms.Padding(4);
+            this.grpbx_Estados.Location = new System.Drawing.Point(54, 183);
             this.grpbx_Estados.Name = "grpbx_Estados";
-            this.grpbx_Estados.Padding = new System.Windows.Forms.Padding(4);
-            this.grpbx_Estados.Size = new System.Drawing.Size(818, 348);
+            this.grpbx_Estados.Size = new System.Drawing.Size(614, 283);
             this.grpbx_Estados.TabIndex = 2;
             this.grpbx_Estados.TabStop = false;
             this.grpbx_Estados.Text = "Lista de Artículos";
-            // 
-            // mskTxT_Precio
-            // 
-            this.mskTxT_Precio.Culture = new System.Globalization.CultureInfo("es-CR");
-            this.mskTxT_Precio.Location = new System.Drawing.Point(214, 134);
-            this.mskTxT_Precio.Mask = "$9999999";
-            this.mskTxT_Precio.Name = "mskTxT_Precio";
-            this.mskTxT_Precio.Size = new System.Drawing.Size(205, 22);
-            this.mskTxT_Precio.TabIndex = 29;
             // 
             // dtPicker_Mes_Año
             // 
             this.dtPicker_Mes_Año.CustomFormat = "MM-yyyy";
             this.dtPicker_Mes_Año.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPicker_Mes_Año.Location = new System.Drawing.Point(214, 173);
+            this.dtPicker_Mes_Año.Location = new System.Drawing.Point(160, 141);
+            this.dtPicker_Mes_Año.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtPicker_Mes_Año.Name = "dtPicker_Mes_Año";
-            this.dtPicker_Mes_Año.Size = new System.Drawing.Size(205, 22);
+            this.dtPicker_Mes_Año.Size = new System.Drawing.Size(155, 20);
             this.dtPicker_Mes_Año.TabIndex = 28;
             // 
             // cbx_Estado
             // 
             this.cbx_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Estado.FormattingEnabled = true;
-            this.cbx_Estado.Location = new System.Drawing.Point(575, 131);
+            this.cbx_Estado.Location = new System.Drawing.Point(431, 106);
+            this.cbx_Estado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Estado.Name = "cbx_Estado";
-            this.cbx_Estado.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Estado.Size = new System.Drawing.Size(156, 21);
             this.cbx_Estado.TabIndex = 27;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(472, 134);
+            this.label8.Location = new System.Drawing.Point(354, 109);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 17);
+            this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "Estado";
             // 
@@ -240,18 +230,20 @@
             // 
             this.cbx_Objetivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Objetivo.FormattingEnabled = true;
-            this.cbx_Objetivo.Location = new System.Drawing.Point(575, 89);
+            this.cbx_Objetivo.Location = new System.Drawing.Point(431, 72);
+            this.cbx_Objetivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Objetivo.Name = "cbx_Objetivo";
-            this.cbx_Objetivo.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Objetivo.Size = new System.Drawing.Size(156, 21);
             this.cbx_Objetivo.TabIndex = 25;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(472, 92);
+            this.label7.Location = new System.Drawing.Point(354, 75);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 17);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "Objetivo";
             // 
@@ -259,18 +251,20 @@
             // 
             this.cbx_Color.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Color.FormattingEnabled = true;
-            this.cbx_Color.Location = new System.Drawing.Point(575, 48);
+            this.cbx_Color.Location = new System.Drawing.Point(431, 39);
+            this.cbx_Color.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Color.Name = "cbx_Color";
-            this.cbx_Color.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Color.Size = new System.Drawing.Size(156, 21);
             this.cbx_Color.TabIndex = 23;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(472, 51);
+            this.label6.Location = new System.Drawing.Point(354, 41);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 22;
             this.label6.Text = "Color";
             // 
@@ -278,26 +272,29 @@
             // 
             this.cbx_Departamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Departamento.FormattingEnabled = true;
-            this.cbx_Departamento.Location = new System.Drawing.Point(213, 92);
+            this.cbx_Departamento.Location = new System.Drawing.Point(160, 75);
+            this.cbx_Departamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Departamento.Name = "cbx_Departamento";
-            this.cbx_Departamento.Size = new System.Drawing.Size(206, 24);
+            this.cbx_Departamento.Size = new System.Drawing.Size(156, 21);
             this.cbx_Departamento.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(75, 92);
+            this.label2.Location = new System.Drawing.Point(56, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 17);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Departamento";
             // 
             // btn_Añadir
             // 
-            this.btn_Añadir.Location = new System.Drawing.Point(268, 252);
+            this.btn_Añadir.Location = new System.Drawing.Point(201, 205);
+            this.btn_Añadir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Añadir.Name = "btn_Añadir";
-            this.btn_Añadir.Size = new System.Drawing.Size(104, 53);
+            this.btn_Añadir.Size = new System.Drawing.Size(78, 43);
             this.btn_Añadir.TabIndex = 19;
             this.btn_Añadir.Text = "Anadir al Inventario";
             this.btn_Añadir.UseVisualStyleBackColor = true;
@@ -305,9 +302,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(420, 252);
+            this.button1.Location = new System.Drawing.Point(315, 205);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 53);
+            this.button1.Size = new System.Drawing.Size(78, 43);
             this.button1.TabIndex = 17;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
@@ -316,25 +314,28 @@
             // 
             this.cbx_Articulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Articulo.FormattingEnabled = true;
-            this.cbx_Articulo.Location = new System.Drawing.Point(214, 51);
+            this.cbx_Articulo.Location = new System.Drawing.Point(160, 41);
+            this.cbx_Articulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Articulo.Name = "cbx_Articulo";
-            this.cbx_Articulo.Size = new System.Drawing.Size(205, 24);
+            this.cbx_Articulo.Size = new System.Drawing.Size(155, 21);
             this.cbx_Articulo.TabIndex = 13;
             // 
             // nud_Cantidad
             // 
-            this.nud_Cantidad.Location = new System.Drawing.Point(575, 173);
+            this.nud_Cantidad.Location = new System.Drawing.Point(431, 141);
+            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nud_Cantidad.Name = "nud_Cantidad";
-            this.nud_Cantidad.Size = new System.Drawing.Size(206, 22);
+            this.nud_Cantidad.Size = new System.Drawing.Size(154, 20);
             this.nud_Cantidad.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(68, 173);
+            this.label5.Location = new System.Drawing.Point(51, 141);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 17);
+            this.label5.Size = new System.Drawing.Size(111, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Fecha de Etiqueta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -343,9 +344,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(468, 178);
+            this.label4.Location = new System.Drawing.Point(351, 145);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 17);
+            this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cantidad";
             // 
@@ -353,9 +355,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(75, 51);
+            this.label3.Location = new System.Drawing.Point(56, 41);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Articulo";
             // 
@@ -363,18 +366,18 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.lblTotal.Location = new System.Drawing.Point(75, 138);
+            this.lblTotal.Location = new System.Drawing.Point(56, 112);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(54, 17);
+            this.lblTotal.Size = new System.Drawing.Size(43, 13);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "Precio";
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(0, 60);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitter1.Location = new System.Drawing.Point(0, 49);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 538);
+            this.splitter1.Size = new System.Drawing.Size(3, 437);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -387,25 +390,30 @@
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(955, 60);
+            this.label1.Size = new System.Drawing.Size(716, 49);
             this.label1.TabIndex = 4;
             this.label1.Text = "Registrar Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txt_Precio
+            // 
+            this.txt_Precio.Location = new System.Drawing.Point(160, 109);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(155, 20);
+            this.txt_Precio.TabIndex = 30;
+            // 
             // Frm_Modificar_Inventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(955, 598);
+            this.ClientSize = new System.Drawing.Size(716, 486);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.grpbx_Estados);
             this.Controls.Add(this.tbctrl_Principal);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Modificar_Inventario";
@@ -457,6 +465,6 @@
         private System.Windows.Forms.ComboBox cbx_Estado;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtPicker_Mes_Año;
-        private System.Windows.Forms.MaskedTextBox mskTxT_Precio;
+        private System.Windows.Forms.TextBox txt_Precio;
     }
 }

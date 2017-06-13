@@ -132,9 +132,9 @@ namespace Cls_PL
 
         private void toolStripButton5_Click(object sender, EventArgs e)//Factura
         {
-            //frm_Listar_Factura Obj_Pantalla_Listar_Facturas = new frm_Listar_Factura();
+            Frm_Listar_Facturacion Obj_Pantalla_Listar_Facturas = new Frm_Listar_Facturacion();
             //Obj_Pantalla_Listar_Facturas.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Facturas.ShowDialog();
+            Obj_Pantalla_Listar_Facturas.ShowDialog();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

@@ -119,7 +119,7 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
                 //cmd.Parameters.Add("@Id_Estado", SqlDbType.Char).Value = Obj_Cls_Estados_DAL.iIdEstado;
                 cmd.Parameters.Add("@cod_tipo_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_tipo_articulo;
                 cmd.Parameters.Add("@cod_departamento", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_departamento;
-                cmd.Parameters.Add("@precio_sugerido", SqlDbType.Float).Value = Obj_Cls_Inventario_DAL.fPrecio_sugerido;
+                cmd.Parameters.Add("@precio_sugerido", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iPrecio_sugerido;
                 cmd.Parameters.Add("@fecha_entrada_inv", SqlDbType.DateTime).Value = Obj_Cls_Inventario_DAL.dFecha_entrada_inv;
                 cmd.Parameters.Add("@cod_color", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_color;
                 cmd.Parameters.Add("@cod_objetivo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_Objetivo;
@@ -171,7 +171,7 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
                 cmd.Parameters.Add("@id_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iIid_articulo;
                 cmd.Parameters.Add("@cod_tipo_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_tipo_articulo;
                 cmd.Parameters.Add("@cod_departamento", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_departamento;
-                cmd.Parameters.Add("@precio_sugerido", SqlDbType.Float).Value = Obj_Cls_Inventario_DAL.fPrecio_sugerido;
+                cmd.Parameters.Add("@precio_sugerido", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iPrecio_sugerido;
                 cmd.Parameters.Add("@fecha_entrada_inv", SqlDbType.DateTime).Value = Obj_Cls_Inventario_DAL.dFecha_entrada_inv;
                 cmd.Parameters.Add("@cod_color", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_color;
                 cmd.Parameters.Add("@cod_objetivo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCod_Objetivo;

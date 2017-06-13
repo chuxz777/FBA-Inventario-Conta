@@ -13,7 +13,7 @@ namespace Cls_DAL_FBB.Catalogos.Inventario
         private int _id_articulo;
         private int _cod_tipo_articulo;
         private int _cod_departamento;
-        private float _precio_sugerido;
+        private int _precio_sugerido;
         private DateTime _fecha_entrada_inv;
         private int _cod_color;
         private int _cod_objetivo;
@@ -41,7 +41,7 @@ namespace Cls_DAL_FBB.Catalogos.Inventario
             set { _cod_departamento = value; }
         }
 
-        public float fPrecio_sugerido
+        public int iPrecio_sugerido
         {
             get { return _precio_sugerido; }
             set { _precio_sugerido = value; }

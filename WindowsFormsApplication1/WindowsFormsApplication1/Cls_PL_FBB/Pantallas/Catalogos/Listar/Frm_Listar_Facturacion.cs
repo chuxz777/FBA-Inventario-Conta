@@ -18,6 +18,10 @@ namespace Cls_PL
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
+
+        DataTable dt_Tipo_Articulo = new DataTable();
+        DataTable dt_Factura_Temporal = new DataTable();
+
         #endregion
 
         public Frm_Listar_Facturacion()
@@ -29,6 +33,7 @@ namespace Cls_PL
         {
             Opciones();
             Cargar();
+            Cargar_Combo_Tipo_Articulo();
         }
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
@@ -204,9 +209,78 @@ namespace Cls_PL
             //}
         }
 
+
+        private void Cargar_Combo_Tipo_Articulo()
+        {
+            try
+            {
+                Obj_Cls_Tipo_Articulo_BLL.Listar_Tipo_Articulo_SP(ref dt_Tipo_Articulo, ref sMensajeError);
+                if (dt_Tipo_Articulo != null)
+                {
+                    cbx_Articulo.DataSource = dt_Tipo_Articulo;
+                    cbx_Articulo.ValueMember = dt_Tipo_Articulo.Columns["Codigo del tipo de articulo"].ToString().Trim();
+                    cbx_Articulo.DisplayMember = dt_Tipo_Articulo.Columns["Descripcion del tipo de articulo"].ToString().Trim();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los datos, contacte con el Administrador del Sistema" + sMensajeError,
+                                "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+
+
         private void dgv_Estados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+
+            // Declare DataColumn and DataRow variables.
+            DataColumn column;
+            DataRow row;
+            DataView view;
+
+            // Create new DataColumn, set DataType, ColumnName and add to DataTable.    
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.ColumnName = "id";
+            dt_Factura_Temporal.Columns.Add(column);
+
+            // Create second column.
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "item";
+            dt_Factura_Temporal.Columns.Add(column);
+
+            // Create new DataRow objects and add to DataTable.    
+            for (int i = 0; i < 10; i++)
+            {
+                row = dt_Factura_Temporal.NewRow();
+                row["id"] = i;
+                row["item"] = "item " + i.ToString();
+                dt_Factura_Temporal.Rows.Add(row);
+            }
+
+            //// Create a DataView using the DataTable.
+            //view = new DataView(tdt_Factura_Temporal);
+
+            dgv_Factura.DataSource = dt_Factura_Temporal;
+
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int sum2 = Convert.ToInt32(dt_Factura_Temporal.Compute("SUM(id)", string.Empty));
+            txt_Total.Text = sum2.ToString();
         }
     }
 }

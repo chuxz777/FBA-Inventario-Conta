@@ -350,7 +350,7 @@ namespace Cls_PL
             //DateTime datee = dtPicker_Mes_Año.Value;
 
             //string a;
-            
+
             //a = datee.Year.ToString()
             //b = DateTime.ParseExact()
 
@@ -363,19 +363,19 @@ namespace Cls_PL
 
 
             //DateTime Fecha = new DateTime();
-
             //DateTime.ParseExact(dt_Picker_Text, format, CultureInfo.InvariantCulture);
 
-            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = int.Parse(cbx_Articulo.SelectedItem.ToString());
 
-            Obj_Cls_Inventario_DAL.iCod_departamento = int.Parse(cbx_Departamento.SelectedItem.ToString());
-            Obj_Cls_Inventario_DAL.fPrecio_sugerido = float.Parse(mskTxT_Precio.Text);
-            //Obj_Cls_Inventario_DAL.dFecha_entrada_inv = dtPicker_Mes_Año.Value;
-            Obj_Cls_Inventario_DAL.iCod_color = int.Parse(cbx_Color.SelectedItem.ToString());
-            Obj_Cls_Inventario_DAL.iCod_Objetivo = 
-            Obj_Cls_Inventario_DAL.iCod_Estado = int.Parse(cbx_Estado.ToString());
 
-           if (cantidad > 1 )
+            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = Convert.ToInt32(cbx_Articulo.SelectedValue.ToString());
+            Obj_Cls_Inventario_DAL.iCod_departamento = Convert.ToInt32(cbx_Departamento.SelectedValue.ToString());
+            Obj_Cls_Inventario_DAL.iPrecio_sugerido = Convert.ToInt32(txt_Precio.Text.ToString());
+            Obj_Cls_Inventario_DAL.dFecha_entrada_inv = dtPicker_Mes_Año.Value;
+            Obj_Cls_Inventario_DAL.iCod_color = Convert.ToInt32(cbx_Color.SelectedValue.ToString());
+            Obj_Cls_Inventario_DAL.iCod_Objetivo = Convert.ToInt32(cbx_Objetivo.SelectedValue.ToString());
+            Obj_Cls_Inventario_DAL.iCod_Estado = Convert.ToInt32(cbx_Estado.SelectedValue.ToString());
+
+            if (cantidad > 1 )
            {
                 for (int i = 0; i < cantidad; i++)
                 {
@@ -395,6 +395,8 @@ namespace Cls_PL
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+
+
         }
 
 

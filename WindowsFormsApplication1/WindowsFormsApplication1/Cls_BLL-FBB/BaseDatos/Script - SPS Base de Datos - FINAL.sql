@@ -1,3 +1,6 @@
+use fbb_inventario_contabiliad
+go
+
 ----------------------------------------SP's---------------------------------------------
 -----------------------------------------------------------------------------------------
 -- Estados
@@ -228,8 +231,8 @@ GO
 
 
 
-exec SP_Seleccionar_Inventario
-
+--exec SP_Seleccionar_Inventario
+--GO
 
 CREATE PROCEDURE SP_Modificar_Inventario
 @id_articulo int,
@@ -290,42 +293,42 @@ GO
 -----------------------------------------------------------------------------------------
 
 
-CREATE PROCEDURE SP_Insertar_Venta
-@cod_aticulo int,
-@precio_venta decimal,
-@fecha_venta datetime,
-@total decimal
-AS
-BEGIN
-	INSERT INTO [dbo].[venta]
-			   ([cod_aticulo]
-			   ,[precio_venta]
-			   ,[fecha_venta]
-			   ,[total])
-		 VALUES
-			( @cod_aticulo,
-			  @precio_venta,
-			  @fecha_venta,
-			  @total)
-END
-GO
+--CREATE PROCEDURE SP_Insertar_Venta
+--@cod_aticulo int,
+--@precio_venta decimal,
+--@fecha_venta datetime,
+--@total decimal
+--AS
+--BEGIN
+--	INSERT INTO [dbo].[venta]
+--			   ([cod_aticulo]
+--			   ,[precio_venta]
+--			   ,[fecha_venta]
+--			   ,[total])
+--		 VALUES
+--			( @cod_aticulo,
+--			  @precio_venta,
+--			  @fecha_venta,
+--			  @total)
+--END
+--GO
 
-CREATE PROCEDURE SP_Actualizar_Venta
-@id_factura int,
-@cod_aticulo int,
-@precio_venta decimal,
-@fecha_venta datetime,
-@total decimal
-AS
-BEGIN
-	UPDATE [dbo].[venta]
-	   SET [cod_aticulo] = @cod_aticulo
-		  ,[precio_venta] = @precio_venta
-		  ,[fecha_venta] = @fecha_venta
-		  ,[total] = @total
-	 WHERE id_factura = @id_factura
-END
-GO
+--CREATE PROCEDURE SP_Actualizar_Venta
+--@id_factura int,
+--@cod_aticulo int,
+--@precio_venta decimal,
+--@fecha_venta datetime,
+--@total decimal
+--AS
+--BEGIN
+--	UPDATE [dbo].[venta]
+--	   SET [cod_aticulo] = @cod_aticulo
+--		  ,[precio_venta] = @precio_venta
+--		  ,[fecha_venta] = @fecha_venta
+--		  ,[total] = @total
+--	 WHERE id_factura = @id_factura
+--END
+--GO
 
 -----------------------------------------------------------------------------------------
 -- Factura
