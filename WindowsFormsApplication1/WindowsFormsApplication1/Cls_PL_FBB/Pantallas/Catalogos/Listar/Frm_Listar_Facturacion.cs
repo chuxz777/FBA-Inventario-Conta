@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
 using Cls_PL.Pantallas.Catalogos.Modificar;
+using Cls_BLL_FBB.Catalogos.Inventario;
 
 
 
@@ -16,6 +17,8 @@ namespace Cls_PL
         private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
+        cls_Tipo_Articulo_BLL Obj_Cls_Articulo = new cls_Tipo_Articulo_BLL();
+        
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
 
@@ -240,6 +243,13 @@ namespace Cls_PL
 
         private void button3_Click(object sender, EventArgs e)
         {
+            int iArticulo;
+            int iCantidad;
+            int iAño;
+            int iMes;
+
+
+            Obj_Cls_Articulo.Productos_Id_Venta_SP();
 
 
             // Declare DataColumn and DataRow variables.

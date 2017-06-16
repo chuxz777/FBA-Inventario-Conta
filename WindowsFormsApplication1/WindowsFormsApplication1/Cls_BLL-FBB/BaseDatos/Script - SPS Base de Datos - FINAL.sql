@@ -288,6 +288,23 @@ BEGIN
 END
 GO
 
+
+
+CREATE PROCEDURE SP_Seleccionar_ProdID_Venta
+@cant int,
+@año int,
+@mes int,
+@cod_articulo int
+BEGIN
+SELECT TOP @cant * FROM inventario 
+WHERE inventario.cod_tipo_articulo = @cod_articulo and 
+	YEAR(fecha_entrada_inv) = @año and 
+	MONTH(fecha_entrada_inv) = @mes
+
+END
+GO
+
+
 -----------------------------------------------------------------------------------------
 -- Venta
 -----------------------------------------------------------------------------------------

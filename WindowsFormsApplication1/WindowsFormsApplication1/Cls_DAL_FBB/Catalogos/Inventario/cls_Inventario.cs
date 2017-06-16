@@ -18,7 +18,9 @@ namespace Cls_DAL_FBB.Catalogos.Inventario
         private int _cod_color;
         private int _cod_objetivo;
         private int _cod_estado;
-
+        private int _cantidad;
+        private int _año;
+        private int _mes;
         #endregion
 
         #region Constructores
@@ -71,6 +73,26 @@ namespace Cls_DAL_FBB.Catalogos.Inventario
             get { return _cod_estado; }
             set { _cod_estado = value; }
         }
+
+        public int iCantidad
+        {
+            get { return _cantidad; }
+            set { _cantidad = value; }
+        }
+
+        public int iAño
+        {
+            get { return _año; }
+            set { _año = value; }
+        }
+
+        public int iMes
+        {
+            get { return _mes; }
+            set { _mes = value; }
+        }
+
+
         #endregion
     }
 }

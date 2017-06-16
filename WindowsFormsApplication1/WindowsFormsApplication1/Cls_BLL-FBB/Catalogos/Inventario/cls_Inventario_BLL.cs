@@ -103,6 +103,55 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
             }
         }
 
+        public bool Productos_Id_Venta_SP(ref DataTable dt_Producto, ref cls_Inventario_DAL Obj_Cls_Inventario_DAL, ref string sMensajeError)
+        {
+            try
+            {
+                // Prepara cmd
+
+                DataSet DataSet = new DataSet();
+                SqlDataAdapter DataAdapter;
+                Cnx_BD = Obj_BD_BLL.Traer_Cnx();
+
+                cmd = new SqlCommand("SP_Filtrar_Inventario", Cnx_BD);
+                //Agrega Parametros
+                cmd.Parameters.Add("@cant", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
+                cmd.Parameters.Add("@año", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
+                cmd.Parameters.Add("@mes", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
+                cmd.Parameters.Add("@cod_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                if (Cnx_BD.State.ToString() == "Closed")
+                {
+                    Cnx_BD.Open();
+                }
+
+                DataAdapter = new SqlDataAdapter(cmd);
+                DataAdapter.Fill(DataSet, "dt_Producto");
+
+                dt_Producto = DataSet.Tables["dt_Producto"];
+
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                sMensajeError = ex.Message;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                sMensajeError = ex.Message;
+                return false;
+            }
+            finally
+            {
+                Cnx_BD = null;
+            }
+
+        }
+
         public void Insertar_Inventario_SP(ref cls_Inventario_DAL Obj_Cls_Inventario_DAL, ref string sMensajeError)
         {
             try
@@ -212,6 +261,7 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
                 Cnx_BD = null;
             }
         }
+
 
         //public void Eliminar_Inventario_SP(ref cls_Inventario_DAL Obj_Cls_Estados_DAL, ref string sMensajeError)
         //{
