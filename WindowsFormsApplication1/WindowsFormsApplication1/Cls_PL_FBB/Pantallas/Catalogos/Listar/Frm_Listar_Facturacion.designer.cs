@@ -52,9 +52,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgv_Factura = new System.Windows.Forms.DataGridView();
             this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbx_Mes = new System.Windows.Forms.ComboBox();
             this.cbx_Articulo = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nud_Cantidad = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.tlstrp_Funciones_Basicas.SuspendLayout();
             this.grpbx_Estados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // tbctrl_Principal
@@ -222,9 +222,9 @@
             this.grpbx_Estados.Controls.Add(this.button2);
             this.grpbx_Estados.Controls.Add(this.button1);
             this.grpbx_Estados.Controls.Add(this.dgv_Factura);
-            this.grpbx_Estados.Controls.Add(this.comboBox2);
+            this.grpbx_Estados.Controls.Add(this.cbx_Mes);
             this.grpbx_Estados.Controls.Add(this.cbx_Articulo);
-            this.grpbx_Estados.Controls.Add(this.numericUpDown1);
+            this.grpbx_Estados.Controls.Add(this.nud_Cantidad);
             this.grpbx_Estados.Controls.Add(this.label5);
             this.grpbx_Estados.Controls.Add(this.label4);
             this.grpbx_Estados.Controls.Add(this.label3);
@@ -304,17 +304,18 @@
             this.dgv_Factura.RowTemplate.Height = 24;
             this.dgv_Factura.Size = new System.Drawing.Size(485, 272);
             this.dgv_Factura.TabIndex = 16;
+            this.dgv_Factura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Factura_CellContentClick);
             // 
             // Articulo
             // 
             this.Articulo.HeaderText = "Column1";
             this.Articulo.Name = "Articulo";
             // 
-            // comboBox2
+            // cbx_Mes
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbx_Mes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Mes.FormattingEnabled = true;
+            this.cbx_Mes.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -327,11 +328,11 @@
             "10",
             "11",
             "12"});
-            this.comboBox2.Location = new System.Drawing.Point(179, 116);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 14;
+            this.cbx_Mes.Location = new System.Drawing.Point(179, 116);
+            this.cbx_Mes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Mes.Name = "cbx_Mes";
+            this.cbx_Mes.Size = new System.Drawing.Size(121, 24);
+            this.cbx_Mes.TabIndex = 14;
             // 
             // cbx_Articulo
             // 
@@ -343,13 +344,13 @@
             this.cbx_Articulo.Size = new System.Drawing.Size(121, 24);
             this.cbx_Articulo.TabIndex = 13;
             // 
-            // numericUpDown1
+            // nud_Cantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(179, 78);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 12;
+            this.nud_Cantidad.Location = new System.Drawing.Point(179, 78);
+            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nud_Cantidad.Name = "nud_Cantidad";
+            this.nud_Cantidad.Size = new System.Drawing.Size(120, 22);
+            this.nud_Cantidad.TabIndex = 12;
             // 
             // label5
             // 
@@ -464,7 +465,7 @@
             this.grpbx_Estados.ResumeLayout(false);
             this.grpbx_Estados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Cantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,9 +499,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgv_Factura;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbx_Mes;
         private System.Windows.Forms.ComboBox cbx_Articulo;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nud_Cantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

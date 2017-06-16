@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
+using Cls_DAL_FBB.Catalogos.Inventario;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 using Cls_BLL_FBB.Catalogos.Inventario;
@@ -18,12 +19,16 @@ namespace Cls_PL
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         cls_Tipo_Articulo_BLL Obj_Cls_Articulo = new cls_Tipo_Articulo_BLL();
+        cls_Inventario_BLL Obj_Cls_Inventario_BLL = new cls_Inventario_BLL();
+        cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
+
         
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
 
         DataTable dt_Tipo_Articulo = new DataTable();
         DataTable dt_Factura_Temporal = new DataTable();
+        DataTable dt_Producto = new DataTable();
 
         #endregion
 
@@ -243,13 +248,14 @@ namespace Cls_PL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int iArticulo;
-            int iCantidad;
-            int iAño;
-            int iMes;
+            // Cargar objeto Inventario DAL
+            Obj_Cls_Inventario_DAL.iCantidad = Convert.ToInt16(nud_Cantidad.Value);
+            Obj_Cls_Inventario_DAL.iAño = Convert.ToInt16(mTxt_Año.Text);
+            Obj_Cls_Inventario_DAL.iMes = Convert.ToInt16(cbx_Mes.SelectedValue.ToString());
+            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = Convert.ToInt16('2');
 
 
-            Obj_Cls_Articulo.Productos_Id_Venta_SP();
+            Obj_Cls_Inventario_BLL.Productos_Id_Venta_SP (ref  dt_Producto, ref  Obj_Cls_Inventario_DAL, ref  sMensajeError);
 
 
             // Declare DataColumn and DataRow variables.
@@ -291,6 +297,11 @@ namespace Cls_PL
         {
             int sum2 = Convert.ToInt32(dt_Factura_Temporal.Compute("SUM(id)", string.Empty));
             txt_Total.Text = sum2.ToString();
+        }
+
+        private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
