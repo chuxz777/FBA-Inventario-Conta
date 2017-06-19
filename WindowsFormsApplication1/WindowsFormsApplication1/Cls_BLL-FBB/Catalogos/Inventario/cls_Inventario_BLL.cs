@@ -115,10 +115,10 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
 
                 cmd = new SqlCommand("SP_Filtrar_Inventario", Cnx_BD);
                 //Agrega Parametros
-                cmd.Parameters.Add("@cant", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
-                cmd.Parameters.Add("@año", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
-                cmd.Parameters.Add("@mes", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
-                cmd.Parameters.Add("@cod_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.();
+                cmd.Parameters.Add("@cant", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iCantidad;
+                cmd.Parameters.Add("@año", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iAño;
+                cmd.Parameters.Add("@mes", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iMes;
+                cmd.Parameters.Add("@cod_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iIid_articulo;
                 cmd.CommandType = CommandType.StoredProcedure;
 
 

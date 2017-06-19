@@ -290,19 +290,23 @@ GO
 
 
 
-CREATE PROCEDURE SP_Seleccionar_ProdID_Venta
+ALTER PROCEDURE SP_Seleccionar_ProdID_Venta
 @cant int,
 @año int,
 @mes int,
 @cod_articulo int
+AS
 BEGIN
-SELECT TOP @cant * FROM inventario 
+SET ROWCOUNT @cant
+SELECT  * FROM inventario 
 WHERE inventario.cod_tipo_articulo = @cod_articulo and 
+	cod_objetivo = 1 and -- codigo para vender
 	YEAR(fecha_entrada_inv) = @año and 
 	MONTH(fecha_entrada_inv) = @mes
-
+SELECT @@ROWCOUNT
 END
 GO
+
 
 
 -----------------------------------------------------------------------------------------
