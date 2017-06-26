@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using System;
 using System.Globalization;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;

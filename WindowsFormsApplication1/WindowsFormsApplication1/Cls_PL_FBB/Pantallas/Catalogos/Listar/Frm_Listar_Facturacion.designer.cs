@@ -51,7 +51,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgv_Factura = new System.Windows.Forms.DataGridView();
-            this.Articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbx_Mes = new System.Windows.Forms.ComboBox();
             this.cbx_Articulo = new System.Windows.Forms.ComboBox();
             this.nud_Cantidad = new System.Windows.Forms.NumericUpDown();
@@ -77,21 +76,19 @@
             this.tbctrl_Principal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbctrl_Principal.Controls.Add(this.tabPage1);
-            this.tbctrl_Principal.Location = new System.Drawing.Point(7, 60);
-            this.tbctrl_Principal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbctrl_Principal.Location = new System.Drawing.Point(5, 49);
             this.tbctrl_Principal.Name = "tbctrl_Principal";
             this.tbctrl_Principal.SelectedIndex = 0;
-            this.tbctrl_Principal.Size = new System.Drawing.Size(1195, 123);
+            this.tbctrl_Principal.Size = new System.Drawing.Size(896, 100);
             this.tbctrl_Principal.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tlstrp_Funciones_Basicas);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1187, 94);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(888, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Principal";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -114,9 +111,9 @@
             this.tlsbtn_Eliminar,
             this.toolStripSeparator6,
             this.tlsbtn_Salir});
-            this.tlstrp_Funciones_Basicas.Location = new System.Drawing.Point(4, 4);
+            this.tlstrp_Funciones_Basicas.Location = new System.Drawing.Point(3, 3);
             this.tlstrp_Funciones_Basicas.Name = "tlstrp_Funciones_Basicas";
-            this.tlstrp_Funciones_Basicas.Size = new System.Drawing.Size(1179, 86);
+            this.tlstrp_Funciones_Basicas.Size = new System.Drawing.Size(882, 68);
             this.tlstrp_Funciones_Basicas.TabIndex = 0;
             this.tlstrp_Funciones_Basicas.Text = "toolStrip1";
             // 
@@ -126,19 +123,19 @@
             this.tlsbtn_Buscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Buscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Buscar.Name = "tlsbtn_Buscar";
-            this.tlsbtn_Buscar.Size = new System.Drawing.Size(88, 83);
+            this.tlsbtn_Buscar.Size = new System.Drawing.Size(88, 65);
             this.tlsbtn_Buscar.Text = "Buscar";
             // 
             // tlstrp_txt_Busqueda
             // 
             this.tlstrp_txt_Busqueda.Name = "tlstrp_txt_Busqueda";
-            this.tlstrp_txt_Busqueda.Size = new System.Drawing.Size(265, 86);
+            this.tlstrp_txt_Busqueda.Size = new System.Drawing.Size(200, 68);
             this.tlstrp_txt_Busqueda.TextChanged += new System.EventHandler(this.tlstrp_txt_Busqueda_TextChanged);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Refrescar
             // 
@@ -146,14 +143,14 @@
             this.tlsbtn_Refrescar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Refrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Refrescar.Name = "tlsbtn_Refrescar";
-            this.tlsbtn_Refrescar.Size = new System.Drawing.Size(106, 83);
+            this.tlsbtn_Refrescar.Size = new System.Drawing.Size(106, 65);
             this.tlsbtn_Refrescar.Text = "Refrescar";
             this.tlsbtn_Refrescar.Click += new System.EventHandler(this.tlsbtn_Refrescar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Editar
             // 
@@ -161,14 +158,14 @@
             this.tlsbtn_Editar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Editar.Name = "tlsbtn_Editar";
-            this.tlsbtn_Editar.Size = new System.Drawing.Size(84, 83);
+            this.tlsbtn_Editar.Size = new System.Drawing.Size(84, 65);
             this.tlsbtn_Editar.Text = "Editar";
             this.tlsbtn_Editar.Click += new System.EventHandler(this.tlsbtn_Editar_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Nuevo
             // 
@@ -176,14 +173,14 @@
             this.tlsbtn_Nuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Nuevo.Name = "tlsbtn_Nuevo";
-            this.tlsbtn_Nuevo.Size = new System.Drawing.Size(88, 83);
+            this.tlsbtn_Nuevo.Size = new System.Drawing.Size(88, 65);
             this.tlsbtn_Nuevo.Text = "Nuevo";
             this.tlsbtn_Nuevo.Click += new System.EventHandler(this.tlsbtn_Nuevo_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Eliminar
             // 
@@ -191,14 +188,14 @@
             this.tlsbtn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Eliminar.Name = "tlsbtn_Eliminar";
-            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(99, 83);
+            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(99, 65);
             this.tlsbtn_Eliminar.Text = "Eliminar";
             this.tlsbtn_Eliminar.Click += new System.EventHandler(this.tlsbtn_Eliminar_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 86);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 68);
             // 
             // tlsbtn_Salir
             // 
@@ -206,7 +203,7 @@
             this.tlsbtn_Salir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Salir.Name = "tlsbtn_Salir";
-            this.tlsbtn_Salir.Size = new System.Drawing.Size(74, 83);
+            this.tlsbtn_Salir.Size = new System.Drawing.Size(74, 65);
             this.tlsbtn_Salir.Text = "Salir";
             this.tlsbtn_Salir.Click += new System.EventHandler(this.tlsbtn_Salir_Click);
             // 
@@ -233,30 +230,27 @@
             this.grpbx_Estados.Controls.Add(this.txt_Total);
             this.grpbx_Estados.Controls.Add(this.lblTotal);
             this.grpbx_Estados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.grpbx_Estados.Location = new System.Drawing.Point(15, 209);
-            this.grpbx_Estados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpbx_Estados.Location = new System.Drawing.Point(11, 155);
             this.grpbx_Estados.Name = "grpbx_Estados";
-            this.grpbx_Estados.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpbx_Estados.Size = new System.Drawing.Size(1183, 389);
+            this.grpbx_Estados.Size = new System.Drawing.Size(887, 337);
             this.grpbx_Estados.TabIndex = 2;
             this.grpbx_Estados.TabStop = false;
             this.grpbx_Estados.Text = "Lista de Artículos";
             // 
             // mTxt_Año
             // 
-            this.mTxt_Año.Location = new System.Drawing.Point(328, 116);
-            this.mTxt_Año.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mTxt_Año.Location = new System.Drawing.Point(246, 94);
             this.mTxt_Año.Mask = "9999";
             this.mTxt_Año.Name = "mTxt_Año";
-            this.mTxt_Año.Size = new System.Drawing.Size(80, 22);
+            this.mTxt_Año.Size = new System.Drawing.Size(61, 20);
             this.mTxt_Año.TabIndex = 21;
+            this.mTxt_Año.Text = "2017";
             // 
             // btn_Total
             // 
-            this.btn_Total.Location = new System.Drawing.Point(190, 185);
-            this.btn_Total.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Total.Location = new System.Drawing.Point(142, 150);
             this.btn_Total.Name = "btn_Total";
-            this.btn_Total.Size = new System.Drawing.Size(119, 53);
+            this.btn_Total.Size = new System.Drawing.Size(89, 43);
             this.btn_Total.TabIndex = 20;
             this.btn_Total.Text = "Calcular Total";
             this.btn_Total.UseVisualStyleBackColor = true;
@@ -264,10 +258,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(35, 185);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(26, 150);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 53);
+            this.button3.Size = new System.Drawing.Size(78, 43);
             this.button3.TabIndex = 19;
             this.button3.Text = "Anadir a la Factura";
             this.button3.UseVisualStyleBackColor = true;
@@ -275,20 +269,20 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(832, 322);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(501, 265);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 42);
+            this.button2.Size = new System.Drawing.Size(75, 34);
             this.button2.TabIndex = 18;
             this.button2.Text = "Generar Factura";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(677, 322);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(385, 265);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 42);
+            this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 17;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
@@ -296,20 +290,15 @@
             // dgv_Factura
             // 
             this.dgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Factura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Articulo});
-            this.dgv_Factura.Location = new System.Drawing.Point(472, 36);
-            this.dgv_Factura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_Factura.Location = new System.Drawing.Point(350, 18);
+            this.dgv_Factura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_Factura.Name = "dgv_Factura";
             this.dgv_Factura.RowTemplate.Height = 24;
-            this.dgv_Factura.Size = new System.Drawing.Size(485, 272);
+            this.dgv_Factura.ShowEditingIcon = false;
+            this.dgv_Factura.Size = new System.Drawing.Size(518, 221);
             this.dgv_Factura.TabIndex = 16;
             this.dgv_Factura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Factura_CellContentClick);
-            // 
-            // Articulo
-            // 
-            this.Articulo.HeaderText = "Column1";
-            this.Articulo.Name = "Articulo";
             // 
             // cbx_Mes
             // 
@@ -328,36 +317,37 @@
             "10",
             "11",
             "12"});
-            this.cbx_Mes.Location = new System.Drawing.Point(179, 116);
-            this.cbx_Mes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Mes.Location = new System.Drawing.Point(134, 94);
+            this.cbx_Mes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Mes.Name = "cbx_Mes";
-            this.cbx_Mes.Size = new System.Drawing.Size(121, 24);
+            this.cbx_Mes.Size = new System.Drawing.Size(92, 21);
             this.cbx_Mes.TabIndex = 14;
             // 
             // cbx_Articulo
             // 
             this.cbx_Articulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Articulo.FormattingEnabled = true;
-            this.cbx_Articulo.Location = new System.Drawing.Point(179, 36);
-            this.cbx_Articulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Articulo.Location = new System.Drawing.Point(134, 29);
+            this.cbx_Articulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbx_Articulo.Name = "cbx_Articulo";
-            this.cbx_Articulo.Size = new System.Drawing.Size(121, 24);
+            this.cbx_Articulo.Size = new System.Drawing.Size(92, 21);
             this.cbx_Articulo.TabIndex = 13;
             // 
             // nud_Cantidad
             // 
-            this.nud_Cantidad.Location = new System.Drawing.Point(179, 78);
-            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nud_Cantidad.Location = new System.Drawing.Point(134, 63);
+            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nud_Cantidad.Name = "nud_Cantidad";
-            this.nud_Cantidad.Size = new System.Drawing.Size(120, 22);
+            this.nud_Cantidad.Size = new System.Drawing.Size(90, 20);
             this.nud_Cantidad.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 116);
+            this.label5.Location = new System.Drawing.Point(23, 94);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 17);
+            this.label5.Size = new System.Drawing.Size(106, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Fecha de Etiqueta";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -365,61 +355,64 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 78);
+            this.label4.Location = new System.Drawing.Point(23, 63);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cantidad";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 46);
+            this.label3.Location = new System.Drawing.Point(23, 37);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
+            this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 9;
             this.label3.Text = "Articulo";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(1075, 213);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Location = new System.Drawing.Point(681, 255);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.Size = new System.Drawing.Size(76, 20);
             this.textBox2.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(975, 213);
+            this.label2.Location = new System.Drawing.Point(606, 255);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(66, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Descuento";
             // 
             // txt_Total
             // 
-            this.txt_Total.Location = new System.Drawing.Point(1075, 252);
-            this.txt_Total.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_Total.Location = new System.Drawing.Point(681, 287);
+            this.txt_Total.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Total.Name = "txt_Total";
-            this.txt_Total.Size = new System.Drawing.Size(100, 22);
+            this.txt_Total.Size = new System.Drawing.Size(76, 20);
             this.txt_Total.TabIndex = 5;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(975, 255);
+            this.lblTotal.Location = new System.Drawing.Point(606, 289);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(40, 17);
+            this.lblTotal.Size = new System.Drawing.Size(34, 15);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "Total";
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(0, 60);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Location = new System.Drawing.Point(0, 49);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 538);
+            this.splitter1.Size = new System.Drawing.Size(3, 437);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -432,25 +425,23 @@
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1201, 60);
+            this.label1.Size = new System.Drawing.Size(901, 49);
             this.label1.TabIndex = 4;
             this.label1.Text = "Venta";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm_Listar_Facturacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1201, 598);
+            this.ClientSize = new System.Drawing.Size(901, 486);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.grpbx_Estados);
             this.Controls.Add(this.tbctrl_Principal);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Listar_Facturacion";
@@ -505,7 +496,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Articulo;
         private System.Windows.Forms.Button btn_Total;
         private System.Windows.Forms.MaskedTextBox mTxt_Año;
     }

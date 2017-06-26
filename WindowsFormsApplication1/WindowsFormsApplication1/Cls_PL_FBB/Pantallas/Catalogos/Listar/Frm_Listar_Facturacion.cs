@@ -22,7 +22,7 @@ namespace Cls_PL
         cls_Inventario_BLL Obj_Cls_Inventario_BLL = new cls_Inventario_BLL();
         cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
 
-        
+
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
 
@@ -34,7 +34,7 @@ namespace Cls_PL
 
         public Frm_Listar_Facturacion()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,12 +42,13 @@ namespace Cls_PL
             Opciones();
             Cargar();
             Cargar_Combo_Tipo_Articulo();
+            Formatear_Dgv_Productos();
         }
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
         {
             Obj_Cls_Tipo_Articulo_DAL.bAccion = true; // Es un insert
-           // Obj_Cls_Tipo_Articulo_DAL.iIdEstado = ' ';
+                                                      // Obj_Cls_Tipo_Articulo_DAL.iIdEstado = ' ';
             Obj_Cls_Tipo_Articulo_DAL.sDescripcion = string.Empty;
             Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
@@ -153,9 +154,9 @@ namespace Cls_PL
         private void Cargar_Fila()
         {
             Obj_Cls_Tipo_Articulo_DAL.bAccion = false; //Update
-            //Captura los valores del row para cargarlos en un objeto
-            //Obj_Cls_Tipo_Articulo_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
-           // Obj_Cls_Tipo_Articulo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
+                                                       //Captura los valores del row para cargarlos en un objeto
+                                                       //Obj_Cls_Tipo_Articulo_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
+                                                       // Obj_Cls_Tipo_Articulo_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
             Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             // Carga los valores del row en un objeto y los envia a la pantalla de edicion
             Obj_Pant_Mod_Tipo_Articulo.Obj_Cls_Tipo_Articulo_DAL = Obj_Cls_Tipo_Articulo_DAL;
@@ -217,7 +218,6 @@ namespace Cls_PL
             //}
         }
 
-
         private void Cargar_Combo_Tipo_Articulo()
         {
             try
@@ -239,8 +239,6 @@ namespace Cls_PL
             }
         }
 
-
-
         private void dgv_Estados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -248,54 +246,101 @@ namespace Cls_PL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Cargar objeto Inventario DAL
+            string Articulo;
+            string MesAño;
+            int VerificarCantidad;
+
+            MesAño = cbx_Mes.Text + "-" + mTxt_Año.Text;
+            Articulo = cbx_Articulo.Text;
+
+            // Cargar objeto Inventario DAL con informacion de los controles del formulario
             Obj_Cls_Inventario_DAL.iCantidad = Convert.ToInt16(nud_Cantidad.Value);
-            Obj_Cls_Inventario_DAL.iAño = Convert.ToInt16(mTxt_Año.Text);
-            Obj_Cls_Inventario_DAL.iMes = Convert.ToInt16(cbx_Mes.SelectedValue.ToString());
-            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = Convert.ToInt16('2');
+            Obj_Cls_Inventario_DAL.iAño = Convert.ToInt16(mTxt_Año.Text.ToString());
+            Obj_Cls_Inventario_DAL.iMes = Convert.ToInt16(cbx_Mes.SelectedItem.ToString());
+            Obj_Cls_Inventario_DAL.iCod_tipo_articulo = Convert.ToInt16(cbx_Articulo.SelectedValue.ToString());
+
+            // Revisar disponibilidad en BD
+            Obj_Cls_Inventario_BLL.Productos_Id_Venta_SP(ref dt_Producto, ref Obj_Cls_Inventario_DAL, ref sMensajeError);
+
+            VerificarCantidad = dt_Producto.Rows.Count;
+
+            bool Procesar;
+            Procesar = false;
 
 
-            Obj_Cls_Inventario_BLL.Productos_Id_Venta_SP (ref  dt_Producto, ref  Obj_Cls_Inventario_DAL, ref  sMensajeError);
+            if (VerificarCantidad > 0 && VerificarCantidad == Obj_Cls_Inventario_DAL.iCantidad)
+            { Procesar = true; }
 
+            MessageBox.Show("Si hay suficientes productos en el inventario", "Productos Disponibles",  
+                MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+            if (Procesar == true)
+            {
+
+                for (int i = 0; i < Obj_Cls_Inventario_DAL.iCantidad; i++)
+                {
+                    DataRow row;
+                    row = dt_Factura_Temporal.NewRow();
+
+                    Obj_Cls_Inventario_DAL.iIid_articulo = Convert.ToInt16(dt_Producto.Rows[i]["id_articulo"].ToString());
+                    row["ID en Inventario"] = Obj_Cls_Inventario_DAL.iIid_articulo; // Carga de BD
+                    row["Articulo"] = Articulo;
+                    row["Precio"] = Convert.ToInt16(dt_Producto.Rows[i]["precio_sugerido"].ToString()); // Carga de BD
+                    row["Fecha"] = MesAño;
+                    dt_Factura_Temporal.Rows.Add(row);
+                }
+                dgv_Factura.DataSource = dt_Factura_Temporal;
+            }
+            // No hay la cantidad de productos especificada con los parametros dados
+            else
+            {
+                MessageBox.Show("No existen ninguno o suficientes productos en el inventario con las etiquetas especificadas " + MesAño,
+                 "Producto(s) No Disponibles, todo producto debe ser registrado antes de ser vendido",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Error);
+            }
+        }
+
+        private void Formatear_Dgv_Productos()
+        {
+            // Si esta disponible anadir a la factura
             // Declare DataColumn and DataRow variables.
             DataColumn column;
-            DataRow row;
-            DataView view;
 
             // Create new DataColumn, set DataType, ColumnName and add to DataTable.    
             column = new DataColumn();
             column.DataType = System.Type.GetType("System.Int32");
-            column.ColumnName = "id";
+            column.ColumnName = "ID en Inventario";
+            dt_Factura_Temporal.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Articulo";
+            dt_Factura_Temporal.Columns.Add(column);
+
+            //// Create second column.
+            //column = new DataColumn();
+            //column.DataType = Type.GetType("System.Int32");
+            //column.ColumnName = "Cantidad";
+            //dt_Factura_Temporal.Columns.Add(column);
+
+            // Create second column.
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.Int32");
+            column.ColumnName = "Precio";
             dt_Factura_Temporal.Columns.Add(column);
 
             // Create second column.
             column = new DataColumn();
             column.DataType = Type.GetType("System.String");
-            column.ColumnName = "item";
+            column.ColumnName = "Fecha";
             dt_Factura_Temporal.Columns.Add(column);
-
-            // Create new DataRow objects and add to DataTable.    
-            for (int i = 0; i < 10; i++)
-            {
-                row = dt_Factura_Temporal.NewRow();
-                row["id"] = i;
-                row["item"] = "item " + i.ToString();
-                dt_Factura_Temporal.Rows.Add(row);
-            }
-
-            //// Create a DataView using the DataTable.
-            //view = new DataView(tdt_Factura_Temporal);
-
-            dgv_Factura.DataSource = dt_Factura_Temporal;
-
-
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int sum2 = Convert.ToInt32(dt_Factura_Temporal.Compute("SUM(id)", string.Empty));
+            int sum2 = Convert.ToInt32(dt_Factura_Temporal.Compute("SUM(Precio)", string.Empty));
             txt_Total.Text = sum2.ToString();
         }
 

@@ -290,7 +290,7 @@ GO
 
 
 
-ALTER PROCEDURE SP_Seleccionar_ProdID_Venta
+CREATE PROCEDURE SP_Seleccionar_ProdID_Venta
 @cant int,
 @año int,
 @mes int,
@@ -298,15 +298,15 @@ ALTER PROCEDURE SP_Seleccionar_ProdID_Venta
 AS
 BEGIN
 SET ROWCOUNT @cant
-SELECT  * FROM inventario 
-WHERE inventario.cod_tipo_articulo = @cod_articulo and 
-	cod_objetivo = 1 and -- codigo para vender
-	YEAR(fecha_entrada_inv) = @año and 
-	MONTH(fecha_entrada_inv) = @mes
-SELECT @@ROWCOUNT
+SELECT  * FROM inventario as t1
+INNER JOIN tipo_articulo as t2 
+on t1.cod_tipo_articulo = t2.id_tipo_articulo
+WHERE t1.cod_tipo_articulo = @cod_articulo and 
+	t1.cod_objetivo = 1 and -- codigo para vender
+	YEAR(t1.fecha_entrada_inv) = @año and 
+	MONTH(t1.fecha_entrada_inv) = @mes
 END
 GO
-
 
 
 -----------------------------------------------------------------------------------------
