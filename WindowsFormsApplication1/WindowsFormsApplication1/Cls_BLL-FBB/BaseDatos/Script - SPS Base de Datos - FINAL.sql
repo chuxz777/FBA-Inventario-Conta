@@ -12,8 +12,6 @@ BEGIN
 		   descripcion AS 'Descripcion del Estado'
   FROM estado
   ORDER BY descripcion
-
-
 END
 GO
 
@@ -310,59 +308,40 @@ GO
 
 
 -----------------------------------------------------------------------------------------
--- Venta
+-- Venta y Factura
 -----------------------------------------------------------------------------------------
 
+USE [fbb_inventario_contabiliad]
+GO
+CREATE PROCEDURE SP_Detalle_Factura
+@factura int,
+@id_articulo int
+AS
+BEGIN
+	INSERT INTO [dbo].[detalle_factura]
+			   ([num_factura]
+			   ,[id_articulo])
+		 VALUES
+			   (@factura, @id_articulo)
+END
+GO
 
---CREATE PROCEDURE SP_Insertar_Venta
---@cod_aticulo int,
---@precio_venta decimal,
---@fecha_venta datetime,
---@total decimal
---AS
---BEGIN
---	INSERT INTO [dbo].[venta]
---			   ([cod_aticulo]
---			   ,[precio_venta]
---			   ,[fecha_venta]
---			   ,[total])
---		 VALUES
---			( @cod_aticulo,
---			  @precio_venta,
---			  @fecha_venta,
---			  @total)
---END
---GO
 
---CREATE PROCEDURE SP_Actualizar_Venta
---@id_factura int,
---@cod_aticulo int,
---@precio_venta decimal,
---@fecha_venta datetime,
---@total decimal
---AS
---BEGIN
---	UPDATE [dbo].[venta]
---	   SET [cod_aticulo] = @cod_aticulo
---		  ,[precio_venta] = @precio_venta
---		  ,[fecha_venta] = @fecha_venta
---		  ,[total] = @total
---	 WHERE id_factura = @id_factura
---END
---GO
+USE [fbb_inventario_contabiliad]
+GO
 
------------------------------------------------------------------------------------------
--- Factura
------------------------------------------------------------------------------------------
-
---CREATE PROCEDURE SP_Insertar_Factura
---AS
---BEGIN
---	SELECT [id_factura]
---		  ,[cod_aticulo]
---		  ,[precio_venta]
---		  ,[fecha_venta]
---		  ,[total]
---	  FROM [dbo].[venta]
---END
---GO
+ALTER PROCEDURE SP_Crear_Venta_Blanca
+@total int
+AS
+BEGIN
+INSERT INTO [dbo].[venta]
+           ([fecha_venta]
+           ,[total]
+           ,[estado_factura])
+     VALUES
+           (GETDATE(),
+           @total, -- total
+           3 )-- Estado
+SELECT MAX(id_factura) FROM [dbo].[venta]
+END
+GO

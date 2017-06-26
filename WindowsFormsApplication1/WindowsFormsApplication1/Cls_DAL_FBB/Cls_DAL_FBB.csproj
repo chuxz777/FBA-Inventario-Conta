@@ -47,11 +47,10 @@
     <Compile Include="Catalogos\Inventario\cls_Inventario.cs" />
     <Compile Include="Catalogos\Objetivo\cls_Objetivo.cs" />
     <Compile Include="Catalogos\TipoArticulo\cls_TipoArticulo.cs" />
+    <Compile Include="Catalogos\Venta\cls_Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Catalogos\Venta\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,9 +4,11 @@ using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
 using Cls_DAL_FBB.Catalogos.Inventario;
+using Cls_DAL_FBB.Catalogos.Venta;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 using Cls_BLL_FBB.Catalogos.Inventario;
+using Cls_BLL_FBB.Catalogos.Venta;
 
 
 
@@ -16,19 +18,19 @@ namespace Cls_PL
     {
         #region Variables Globales
         private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
+        private string sMensajeError;
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         cls_Tipo_Articulo_BLL Obj_Cls_Articulo = new cls_Tipo_Articulo_BLL();
         cls_Inventario_BLL Obj_Cls_Inventario_BLL = new cls_Inventario_BLL();
         cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
-
-
+        cls_Venta_BLL Obj_Cls_Venta_BLL = new cls_Venta_BLL();
+        cls_Venta_DAL Obj_Cls_Venta_DAL = new cls_Venta_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
-        private string sMensajeError;
-
         DataTable dt_Tipo_Articulo = new DataTable();
         DataTable dt_Factura_Temporal = new DataTable();
         DataTable dt_Producto = new DataTable();
+        DataTable dt_Venta_Id = new DataTable();
 
         #endregion
 
@@ -276,12 +278,10 @@ namespace Cls_PL
 
             if (Procesar == true)
             {
-
                 for (int i = 0; i < Obj_Cls_Inventario_DAL.iCantidad; i++)
                 {
                     DataRow row;
                     row = dt_Factura_Temporal.NewRow();
-
                     Obj_Cls_Inventario_DAL.iIid_articulo = Convert.ToInt16(dt_Producto.Rows[i]["id_articulo"].ToString());
                     row["ID en Inventario"] = Obj_Cls_Inventario_DAL.iIid_articulo; // Carga de BD
                     row["Articulo"] = Articulo;
@@ -346,6 +346,21 @@ namespace Cls_PL
 
         private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Crea Factura en Blanco - Estado : Pendiente
+            Obj_Cls_Venta_BLL.Insertar_Venta_En_Blanco_SP(ref  dt_Venta_Id, ref  Obj_Cls_Venta_DAL, ref  sMensajeError);
+            Obj_Cls_Venta_DAL.iId_Factura = Convert.ToInt16(dt_Venta_Id.Rows[0][1]);
+
+            // Actualiza la factura en blanco - Estado : Pagado
+
+            for (int i = 0; i < dt_Factura_Temporal.Rows.Count; i++)
+            {
+
+            }
 
         }
     }

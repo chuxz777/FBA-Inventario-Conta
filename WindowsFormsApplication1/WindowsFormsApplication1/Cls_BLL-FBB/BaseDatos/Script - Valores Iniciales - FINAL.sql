@@ -7,6 +7,18 @@ INSERT INTO [dbo].[color]
            ('Azul')
 GO
 
+INSERT INTO [dbo].[color]
+           ([nombre_color])
+     VALUES
+           ('Rojo')
+GO
+
+INSERT INTO [dbo].[color]
+           ([nombre_color])
+     VALUES
+           ('Verde')
+GO
+
 USE [fbb_inventario_contabiliad]
 GO
 
@@ -16,6 +28,30 @@ INSERT INTO [dbo].[departamento]
            ('Hombre')
 GO
 
+INSERT INTO [dbo].[departamento]
+           ([descripcion])
+     VALUES
+           ('Mujer')
+GO
+
+
+INSERT INTO [dbo].[departamento]
+           ([descripcion])
+     VALUES
+           ('Bebe')
+GO
+
+INSERT INTO [dbo].[departamento]
+           ([descripcion])
+     VALUES
+           ('Zapatos')
+GO
+
+INSERT INTO [dbo].[departamento]
+           ([descripcion])
+     VALUES
+           ('Juguetes')
+GO
 
 USE [fbb_inventario_contabiliad]
 GO
@@ -24,6 +60,18 @@ INSERT INTO [dbo].[estado]
            ([descripcion])
      VALUES
            ('Nuevo')
+GO
+
+INSERT INTO [dbo].[estado]
+           ([descripcion])
+     VALUES
+           ('Creado')
+GO
+
+INSERT INTO [dbo].[estado]
+           ([descripcion])
+     VALUES
+           ('Pagado')
 GO
 
 
@@ -37,6 +85,19 @@ INSERT INTO [dbo].[objetivo]
 GO
 
 
+INSERT INTO [dbo].[objetivo]
+           ([descripcion])
+     VALUES
+           ('Donar')
+GO
+
+
+INSERT INTO [dbo].[objetivo]
+           ([descripcion])
+     VALUES
+           ('Desechar')
+GO
+
 USE [fbb_inventario_contabiliad]
 GO
 
@@ -44,6 +105,24 @@ INSERT INTO [dbo].[tipo_articulo]
            ([descripcion])
      VALUES
            ('Camisa Polo')
+GO
+
+INSERT INTO [dbo].[tipo_articulo]
+           ([descripcion])
+     VALUES
+           ('Blusa')
+GO
+
+INSERT INTO [dbo].[tipo_articulo]
+           ([descripcion])
+     VALUES
+           ('Pantalon')
+GO
+
+INSERT INTO [dbo].[tipo_articulo]
+           ([descripcion])
+     VALUES
+           ('Sudadera')
 GO
 
 USE [fbb_inventario_contabiliad]
