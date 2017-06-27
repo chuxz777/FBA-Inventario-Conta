@@ -43,6 +43,7 @@
     <Compile Include="Acciones Genericas\cls_Clase_Generica_DAL.cs" />
     <Compile Include="Catalogos\Color\cls_Color.cs" />
     <Compile Include="Catalogos\Departamento\cls_Departamento.cs" />
+    <Compile Include="Catalogos\DetalleFactura\DetalleFactura_DAL.cs" />
     <Compile Include="Catalogos\Estados\cls_Estados_DAL.cs" />
     <Compile Include="Catalogos\Inventario\cls_Inventario.cs" />
     <Compile Include="Catalogos\Objetivo\cls_Objetivo.cs" />

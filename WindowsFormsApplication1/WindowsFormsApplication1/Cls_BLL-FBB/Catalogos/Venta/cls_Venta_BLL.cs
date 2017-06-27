@@ -72,7 +72,7 @@ namespace Cls_BLL_FBB.Catalogos.Venta
                 SqlDataAdapter DataAdapter;
                 Cnx_BD = Obj_BD_BLL.Traer_Cnx();
 
-                cmd = new SqlCommand("SP_Estados_Filtrar", Cnx_BD);
+                cmd = new SqlCommand("SP_Crear_Venta_Blanca", Cnx_BD);
                 //Agrega Parametros
                 cmd.Parameters.Add("@total", SqlDbType.Int).Value = Obj_Cls_Venta_DAL.iTotal;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -104,6 +104,7 @@ namespace Cls_BLL_FBB.Catalogos.Venta
                 Cnx_BD = null;
             }
         }
+
 
         //public bool Listar_Venta_SP(ref DataTable dt_Venta, ref string sMensajeError)
         //{

@@ -43,6 +43,7 @@
     <Compile Include="BaseDatos\cls_Base_Datos_BLL.cs" />
     <Compile Include="Catalogos\Color\cls_Color_BLL.cs" />
     <Compile Include="Catalogos\Departamento\cls_Departamento_BLL.cs" />
+    <Compile Include="Catalogos\DetalleFactura\Detalle_Factura_BLL.cs" />
     <Compile Include="Catalogos\Estados\cls_Estados_BLL.cs" />
     <Compile Include="Catalogos\Inventario\cls_Inventario_BLL.cs" />
     <Compile Include="Catalogos\Objetivo\cls_Objetivo_BLL.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Validaciones\cls_Validaciones_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseDatos\Temp.sql" />
     <Content Include="BaseDatos\Script - Crear Base de Datos - FINAL.sql" />
     <Content Include="BaseDatos\Script - SPS Base de Datos - FINAL.sql" />
     <Content Include="BaseDatos\Script - Valores Iniciales - FINAL.sql" />

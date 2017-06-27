@@ -5,10 +5,13 @@ using System.Windows.Forms;
 using Cls_DAL_FBB.Catalogos.TipoArticulo;
 using Cls_DAL_FBB.Catalogos.Inventario;
 using Cls_DAL_FBB.Catalogos.Venta;
+using Cls_DAL_FBB.Catalogos.DetalleFactura;
 using Cls_BLL_FBB.Catalogos.Tipo_Articulo;
 using Cls_PL.Pantallas.Catalogos.Modificar;
 using Cls_BLL_FBB.Catalogos.Inventario;
 using Cls_BLL_FBB.Catalogos.Venta;
+using Cls_BLL_FBB.Catalogos.DetalleFactura;
+
 
 
 
@@ -22,8 +25,10 @@ namespace Cls_PL
         cls_Tipo_Articulo_BLL Obj_Cls_Tipo_Articulo_BLL = new cls_Tipo_Articulo_BLL();
         cls_TipoArticulo_DAL Obj_Cls_Tipo_Articulo_DAL = new cls_TipoArticulo_DAL();
         cls_Tipo_Articulo_BLL Obj_Cls_Articulo = new cls_Tipo_Articulo_BLL();
+        cls_Detalle_Factura_BLL Obj_Cls_DetalleFactura_BLL = new cls_Detalle_Factura_BLL();
         cls_Inventario_BLL Obj_Cls_Inventario_BLL = new cls_Inventario_BLL();
         cls_Inventario_DAL Obj_Cls_Inventario_DAL = new cls_Inventario_DAL();
+        cls_DetalleFactura_DAL Obj_Cls_Detalle_Factura_DAL = new cls_DetalleFactura_DAL(); 
         cls_Venta_BLL Obj_Cls_Venta_BLL = new cls_Venta_BLL();
         cls_Venta_DAL Obj_Cls_Venta_DAL = new cls_Venta_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
@@ -351,16 +356,31 @@ namespace Cls_PL
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int id_factura;
+
+            Obj_Cls_Venta_DAL.iTotal = Convert.ToInt16(txt_Total.Text.ToString());
+
             // Crea Factura en Blanco - Estado : Pendiente
             Obj_Cls_Venta_BLL.Insertar_Venta_En_Blanco_SP(ref  dt_Venta_Id, ref  Obj_Cls_Venta_DAL, ref  sMensajeError);
-            Obj_Cls_Venta_DAL.iId_Factura = Convert.ToInt16(dt_Venta_Id.Rows[0][1]);
+            Obj_Cls_Venta_DAL.iId_Factura = Convert.ToInt16(dt_Venta_Id.Rows[0][0]);
 
             // Actualiza la factura en blanco - Estado : Pagado
 
             for (int i = 0; i < dt_Factura_Temporal.Rows.Count; i++)
             {
-
+                // Rows[i]["precio_sugerido"].ToString()                
+                Obj_Cls_Detalle_Factura_DAL.iCodArticulo = Convert.ToInt16(dt_Producto.Rows[i]["id_articulo"].ToString());
+                Obj_Cls_Detalle_Factura_DAL.iId_Factura = Obj_Cls_Venta_DAL.iId_Factura;
+                // Insertar en tabla detalle de factura los datos id factura - id producto
+                Obj_Cls_DetalleFactura_BLL.Actualizar_Factura_SP(ref Obj_Cls_Detalle_Factura_DAL, ref sMensajeError);
             }
+
+            MessageBox.Show("Factura creada exitosamente, consecutivo #: " + Obj_Cls_Venta_DAL.iId_Factura,
+                 "Producto(s) No Disponibles, todo producto debe ser registrado antes de ser vendido",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Information);
+
+            // Marcar la factura como pagada y los articulos cambiar de estado a "Vendido"
 
         }
     }

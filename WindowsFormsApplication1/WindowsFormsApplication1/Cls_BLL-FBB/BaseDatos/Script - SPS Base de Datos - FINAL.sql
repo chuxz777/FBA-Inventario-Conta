@@ -287,6 +287,17 @@ END
 GO
 
 
+CREATE PROCEDURE SP_Marcar_Productos_Vendidos
+@id_articulo int
+AS
+BEGIN
+	UPDATE [dbo].[inventario]
+	   SET 
+	   [cod_estado] = 4
+	 WHERE [id_articulo] = @id_articulo
+END 
+GO
+
 
 CREATE PROCEDURE SP_Seleccionar_ProdID_Venta
 @cant int,

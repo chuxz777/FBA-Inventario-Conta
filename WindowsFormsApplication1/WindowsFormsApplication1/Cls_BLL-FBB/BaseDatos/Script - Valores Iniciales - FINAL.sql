@@ -59,19 +59,25 @@ GO
 INSERT INTO [dbo].[estado]
            ([descripcion])
      VALUES
-           ('Nuevo')
+           ('Nuevo') -- 1
 GO
 
 INSERT INTO [dbo].[estado]
            ([descripcion])
      VALUES
-           ('Creado')
+           ('Creado') -- 2
 GO
 
 INSERT INTO [dbo].[estado]
            ([descripcion])
      VALUES
-           ('Pagado')
+           ('Pagado') --3
+GO
+
+INSERT INTO [dbo].[estado]
+           ([descripcion])
+     VALUES
+           ('Vendido') -- 4
 GO
 
 
