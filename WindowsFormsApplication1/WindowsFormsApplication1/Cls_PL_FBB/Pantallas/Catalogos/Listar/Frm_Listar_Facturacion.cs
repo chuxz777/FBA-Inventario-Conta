@@ -295,6 +295,7 @@ namespace Cls_PL
                     dt_Factura_Temporal.Rows.Add(row);
                 }
                 dgv_Factura.DataSource = dt_Factura_Temporal;
+                Calcular_Total();
             }
             // No hay la cantidad de productos especificada con los parametros dados
             else
@@ -343,10 +344,16 @@ namespace Cls_PL
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void Calcular_Total()
         {
             int sum2 = Convert.ToInt32(dt_Factura_Temporal.Compute("SUM(Precio)", string.Empty));
             txt_Total.Text = sum2.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Calcular_Total();
         }
 
         private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e)

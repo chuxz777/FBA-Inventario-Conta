@@ -235,6 +235,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recursos\1424757172.png" />
+    <Content Include="Recursos\1424758916.png" />
     <Content Include="Recursos\DevExpress.Images\Office2013\Actions\AddFile_16x16.png" />
     <Content Include="Recursos\DevExpress.Images\Office2013\Actions\AddFile_32x32.png" />
     <Content Include="Recursos\DevExpress.Images\Office2013\Actions\AddItem_16x16.png" />
@@ -959,6 +961,7 @@
     <Content Include="Recursos\DevExpress.Images\Office2013\Zoom\ZoomOut_32x32.png" />
     <Content Include="Recursos\DevExpress.Images\Office2013\Zoom\Zoom_16x16.png" />
     <Content Include="Recursos\DevExpress.Images\Office2013\Zoom\Zoom_32x32.png" />
+    <Content Include="Recursos\fbb.ico" />
     <Content Include="Recursos\fondo-color-trazos-azul.jpg" />
   </ItemGroup>
   <ItemGroup />
