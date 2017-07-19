@@ -276,10 +276,13 @@ namespace Cls_PL
 
 
             if (VerificarCantidad > 0 && VerificarCantidad == Obj_Cls_Inventario_DAL.iCantidad)
-            { Procesar = true; }
+            { Procesar = true;
+                MessageBox.Show("Si hay suficientes productos en el inventario", "Productos Disponibles",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show("Si hay suficientes productos en el inventario", "Productos Disponibles",  
-                MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
+
 
             if (Procesar == true)
             {

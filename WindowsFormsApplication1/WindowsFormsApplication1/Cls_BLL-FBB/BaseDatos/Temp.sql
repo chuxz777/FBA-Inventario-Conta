@@ -61,6 +61,8 @@ exec SP_Marcar_Productos_Vendidos 1
 select * from venta
 
 
+
+-- Ver Facturas
 select 
 t1.num_factura, 
 t2.fecha_venta, 
@@ -77,3 +79,4 @@ inner join tipo_articulo as t4
 on t1.id_articulo = t4.id_tipo_articulo
 inner join departamento as t5
 on t3.cod_departamento = t5.id_departamento
+
