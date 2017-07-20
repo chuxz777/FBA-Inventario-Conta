@@ -75,6 +75,12 @@
     <Compile Include="Pantallas\Catalogos\Listar\Frm_Listar_Inventario.designer.cs">
       <DependentUpon>Frm_Listar_Inventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Donacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Donacion.designer.cs">
+      <DependentUpon>Frm_Modificar_Donacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Catalogos\Listar\Frm_Listar_Inventario.resx">
       <DependentUpon>Frm_Listar_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Donacion.resx">
+      <DependentUpon>Frm_Modificar_Donacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Catalogos\Modificar\Frm_Modificar_Inventario.resx">
       <DependentUpon>Frm_Modificar_Inventario.cs</DependentUpon>
