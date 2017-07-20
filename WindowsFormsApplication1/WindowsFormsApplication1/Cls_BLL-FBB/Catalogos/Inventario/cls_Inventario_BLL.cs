@@ -262,6 +262,59 @@ namespace Cls_BLL_FBB.Catalogos.Inventario
             }
         }
 
+        public void Marcar_Vendido_Inventario_SP(ref cls_Inventario_DAL Obj_Cls_Inventario_DAL, ref string sMensajeError)
+        {
+            int iCodigoVendido = 4;
+
+            try
+            {
+                #region Prepara cmd
+
+                Cnx_BD = Obj_BD_BLL.Traer_Cnx();
+
+                cmd = new SqlCommand("SP_Marcar_Vendido", Cnx_BD);
+                //Define el tipo de ejec
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Agrega Parametros
+                cmd.Parameters.Add("@id_articulo", SqlDbType.Int).Value = Obj_Cls_Inventario_DAL.iIid_articulo;
+                cmd.Parameters.Add("@cod_estado", SqlDbType.Int).Value = iCodigoVendido;
+
+
+                // Definir atributos a cambiar dentro de esta clase TODO
+                // cmd.Parameters.Add("@Descripcion", SqlDbType.NVarChar).Value = Obj_Cls_Estados_DAL.;
+
+                if (Cnx_BD.State.ToString() == "Closed")
+                {
+                    Cnx_BD.Open();
+                }
+
+                #endregion
+                // exec non query
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    Obj_Cls_Inventario_DAL.bEstado_Ejec = true;
+                }
+                else
+                {
+                    Obj_Cls_Inventario_DAL.bEstado_Ejec = false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                sMensajeError = ex.Message;
+                Obj_Cls_Inventario_DAL.bEstado_Ejec = false;
+            }
+            catch (Exception ex)
+            {
+                sMensajeError = ex.Message;
+            }
+            finally
+            {
+                Cnx_BD = null;
+            }
+        }
 
 
 

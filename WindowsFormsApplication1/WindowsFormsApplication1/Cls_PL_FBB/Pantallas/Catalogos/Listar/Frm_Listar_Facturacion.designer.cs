@@ -75,7 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbctrl_Principal.Controls.Add(this.tabPage1);
             this.tbctrl_Principal.Location = new System.Drawing.Point(7, 60);
-            this.tbctrl_Principal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbctrl_Principal.Margin = new System.Windows.Forms.Padding(4);
             this.tbctrl_Principal.Name = "tbctrl_Principal";
             this.tbctrl_Principal.SelectedIndex = 0;
             this.tbctrl_Principal.Size = new System.Drawing.Size(1195, 123);
@@ -85,9 +85,9 @@
             // 
             this.tabPage1.Controls.Add(this.tlstrp_Funciones_Basicas);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1187, 94);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Principal";
@@ -170,7 +170,7 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 60);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 538);
             this.splitter1.TabIndex = 3;
@@ -189,7 +189,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1201, 60);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Venta";
+            this.label1.Text = "Realizar Venta";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTotal
@@ -423,12 +423,12 @@
             this.Controls.Add(this.tbctrl_Principal);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Listar_Facturacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar Artículos";
+            this.Text = "Venta de Articulos";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tbctrl_Principal.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

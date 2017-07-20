@@ -392,6 +392,21 @@ namespace Cls_PL
 
             // Marcar la factura como pagada y los articulos cambiar de estado a "Vendido"
 
+            for (int i = 0; i < dt_Factura_Temporal.Rows.Count; i++)
+            {
+                Obj_Cls_Inventario_DAL.iIid_articulo = Convert.ToInt16(dt_Producto.Rows[i]["id_articulo"].ToString());
+                // Insertar en tabla detalle de factura los datos id factura - id producto
+                Obj_Cls_Inventario_BLL.Marcar_Vendido_Inventario_SP(ref Obj_Cls_Inventario_DAL, ref sMensajeError);
+            }
+
+            MessageBox.Show("Articulos  exitosamente cambiados a estado \"Vendido\" " + Obj_Cls_Venta_DAL.iId_Factura,
+             "Producto(s) No Disponibles, todo producto debe ser registrado antes de ser vendido",
+              MessageBoxButtons.OK,
+              MessageBoxIcon.Information);
+
+            // Limpiar el Datagrid
+
+            dgv_Factura.DataSource = null;
         }
     }
 }

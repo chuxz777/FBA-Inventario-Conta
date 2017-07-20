@@ -216,6 +216,7 @@ CREATE PROCEDURE SP_Seleccionar_Inventario
 AS	
 BEGIN
 	SELECT 
+		id_articulo AS 'Codigo del Articulo',
 		cod_tipo_articulo AS 'Codigo del tipo de articulo',
 		cod_departamento AS 'Codigo del Departamento',
 		precio_sugerido AS 'Precio',
@@ -254,6 +255,19 @@ BEGIN
 	 WHERE [id_articulo] = @id_articulo
 END
 GO
+
+
+CREATE PROCEDURE SP_Marcar_Vendido
+@id_articulo int,
+@cod_estado int
+AS
+BEGIN
+	UPDATE [dbo].[inventario]
+	   SET [cod_estado] = @cod_estado 
+	 WHERE [id_articulo] = @id_articulo
+END
+GO
+
 
 
 
@@ -314,6 +328,8 @@ WHERE t1.cod_tipo_articulo = @cod_articulo and
 	t1.cod_objetivo = 1 and -- codigo para vender
 	YEAR(t1.fecha_entrada_inv) = @año and 
 	MONTH(t1.fecha_entrada_inv) = @mes
+	and cod_estado <> 4
+
 END
 GO
 
