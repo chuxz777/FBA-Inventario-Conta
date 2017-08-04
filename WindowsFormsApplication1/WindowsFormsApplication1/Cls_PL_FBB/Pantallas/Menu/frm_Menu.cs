@@ -119,9 +119,9 @@ namespace Cls_PL
 
         private void toolStripButton2_Click(object sender, EventArgs e)//Citas
         {
-            //frm_Listar_Citas Obj_Pantalla_Listar_Citas = new frm_Listar_Citas();
+            Frm_Modificar_Gastos Obj_Pantalla_Listar_Gastos = new Frm_Modificar_Gastos();
             //Obj_Pantalla_Listar_Citas.Obj_Login_DAL = obj_Log_In_DAL;
-            //Obj_Pantalla_Listar_Citas.ShowDialog();
+            Obj_Pantalla_Listar_Gastos.ShowDialog();
         }
 
         private void tlsbtn_Expediente_Click(object sender, EventArgs e)//Expediente
@@ -132,9 +132,9 @@ namespace Cls_PL
 
         private void toolStripButton5_Click(object sender, EventArgs e)//Factura
         {
-            Frm_Listar_Facturacion Obj_Pantalla_Listar_Facturas = new Frm_Listar_Facturacion();
+            Frm_Modificar_Donacion Obj_Pantalla_Listar_Donacion = new Frm_Modificar_Donacion();
             //Obj_Pantalla_Listar_Facturas.Obj_Login_DAL = obj_Log_In_DAL;
-            Obj_Pantalla_Listar_Facturas.ShowDialog();
+            Obj_Pantalla_Listar_Donacion.ShowDialog();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

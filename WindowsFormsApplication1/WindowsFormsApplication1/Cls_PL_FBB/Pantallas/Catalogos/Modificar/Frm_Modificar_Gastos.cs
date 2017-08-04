@@ -17,7 +17,7 @@ using Cls_PL.Pantallas.Catalogos.Modificar;
 
 namespace Cls_PL
 {
-    public partial class Frm_Modificar_Donacion : Form
+    public partial class Frm_Modificar_Gastos : Form
     {
         #region Variables Globales
         private Frm_Modificar_Tipo_Articulo Obj_Pant_Mod_Tipo_Articulo = new Frm_Modificar_Tipo_Articulo();
@@ -40,7 +40,7 @@ namespace Cls_PL
         private string sMensajeError;
         #endregion
 
-        public Frm_Modificar_Donacion()
+        public Frm_Modificar_Gastos()
         {
             InitializeComponent(); 
         }
