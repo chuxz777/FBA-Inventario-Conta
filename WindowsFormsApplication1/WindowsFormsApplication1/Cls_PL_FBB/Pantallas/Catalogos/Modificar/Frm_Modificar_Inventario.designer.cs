@@ -40,6 +40,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tlsbtn_Salir = new System.Windows.Forms.ToolStripButton();
             this.grpbx_Estados = new System.Windows.Forms.GroupBox();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
             this.dtPicker_Mes_Año = new System.Windows.Forms.DateTimePicker();
             this.cbx_Estado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_Precio = new System.Windows.Forms.TextBox();
             this.tbctrl_Principal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tlstrp_Funciones_Basicas.SuspendLayout();
@@ -83,7 +83,7 @@
             this.tabPage1.Controls.Add(this.tlstrp_Funciones_Basicas);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(704, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Principal";
@@ -144,8 +144,8 @@
             this.tlsbtn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tlsbtn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tlsbtn_Eliminar.Name = "tlsbtn_Eliminar";
-            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(86, 65);
-            this.tlsbtn_Eliminar.Text = "Eliminar";
+            this.tlsbtn_Eliminar.Size = new System.Drawing.Size(140, 65);
+            this.tlsbtn_Eliminar.Text = "Limpiar Fomulario";
             this.tlsbtn_Eliminar.Click += new System.EventHandler(this.tlsbtn_Eliminar_Click);
             // 
             // toolStripSeparator6
@@ -195,12 +195,19 @@
             this.grpbx_Estados.TabStop = false;
             this.grpbx_Estados.Text = "Lista de Artículos";
             // 
+            // txt_Precio
+            // 
+            this.txt_Precio.Location = new System.Drawing.Point(160, 109);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(155, 20);
+            this.txt_Precio.TabIndex = 30;
+            // 
             // dtPicker_Mes_Año
             // 
             this.dtPicker_Mes_Año.CustomFormat = "MM-yyyy";
             this.dtPicker_Mes_Año.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtPicker_Mes_Año.Location = new System.Drawing.Point(160, 141);
-            this.dtPicker_Mes_Año.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtPicker_Mes_Año.Margin = new System.Windows.Forms.Padding(2);
             this.dtPicker_Mes_Año.Name = "dtPicker_Mes_Año";
             this.dtPicker_Mes_Año.Size = new System.Drawing.Size(155, 20);
             this.dtPicker_Mes_Año.TabIndex = 28;
@@ -210,7 +217,7 @@
             this.cbx_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Estado.FormattingEnabled = true;
             this.cbx_Estado.Location = new System.Drawing.Point(431, 106);
-            this.cbx_Estado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_Estado.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Estado.Name = "cbx_Estado";
             this.cbx_Estado.Size = new System.Drawing.Size(156, 21);
             this.cbx_Estado.TabIndex = 27;
@@ -231,7 +238,7 @@
             this.cbx_Objetivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Objetivo.FormattingEnabled = true;
             this.cbx_Objetivo.Location = new System.Drawing.Point(431, 72);
-            this.cbx_Objetivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_Objetivo.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Objetivo.Name = "cbx_Objetivo";
             this.cbx_Objetivo.Size = new System.Drawing.Size(156, 21);
             this.cbx_Objetivo.TabIndex = 25;
@@ -252,7 +259,7 @@
             this.cbx_Color.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Color.FormattingEnabled = true;
             this.cbx_Color.Location = new System.Drawing.Point(431, 39);
-            this.cbx_Color.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_Color.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Color.Name = "cbx_Color";
             this.cbx_Color.Size = new System.Drawing.Size(156, 21);
             this.cbx_Color.TabIndex = 23;
@@ -273,7 +280,7 @@
             this.cbx_Departamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Departamento.FormattingEnabled = true;
             this.cbx_Departamento.Location = new System.Drawing.Point(160, 75);
-            this.cbx_Departamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_Departamento.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Departamento.Name = "cbx_Departamento";
             this.cbx_Departamento.Size = new System.Drawing.Size(156, 21);
             this.cbx_Departamento.TabIndex = 21;
@@ -292,7 +299,7 @@
             // btn_Añadir
             // 
             this.btn_Añadir.Location = new System.Drawing.Point(201, 205);
-            this.btn_Añadir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Añadir.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Añadir.Name = "btn_Añadir";
             this.btn_Añadir.Size = new System.Drawing.Size(78, 43);
             this.btn_Añadir.TabIndex = 19;
@@ -303,7 +310,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(315, 205);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 43);
             this.button1.TabIndex = 17;
@@ -315,7 +322,7 @@
             this.cbx_Articulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Articulo.FormattingEnabled = true;
             this.cbx_Articulo.Location = new System.Drawing.Point(160, 41);
-            this.cbx_Articulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_Articulo.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Articulo.Name = "cbx_Articulo";
             this.cbx_Articulo.Size = new System.Drawing.Size(155, 21);
             this.cbx_Articulo.TabIndex = 13;
@@ -323,7 +330,7 @@
             // nud_Cantidad
             // 
             this.nud_Cantidad.Location = new System.Drawing.Point(431, 141);
-            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nud_Cantidad.Margin = new System.Windows.Forms.Padding(2);
             this.nud_Cantidad.Name = "nud_Cantidad";
             this.nud_Cantidad.Size = new System.Drawing.Size(154, 20);
             this.nud_Cantidad.TabIndex = 12;
@@ -395,13 +402,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Registrar Articulos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txt_Precio
-            // 
-            this.txt_Precio.Location = new System.Drawing.Point(160, 109);
-            this.txt_Precio.Name = "txt_Precio";
-            this.txt_Precio.Size = new System.Drawing.Size(155, 20);
-            this.txt_Precio.TabIndex = 30;
             // 
             // Frm_Modificar_Inventario
             // 

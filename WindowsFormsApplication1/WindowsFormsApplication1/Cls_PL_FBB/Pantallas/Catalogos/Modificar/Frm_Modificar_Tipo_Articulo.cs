@@ -27,7 +27,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
         {
             if (txt_Codigo_Estado.Text != string.Empty && txt_Descripcion.Text == string.Empty )
             {
-                MessageBox.Show("El esado no fue guardado. Hay datos incompletos.",
+                MessageBox.Show("El artículo no fue guardado. Hay datos incompletos.",
                     "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
@@ -79,7 +79,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
             if (Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec == true)
             {
-                MessageBox.Show("El estado fue guardado correctamente.",
+                MessageBox.Show("El Artículo fue guardado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
@@ -88,7 +88,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             }
             else
             {
-                MessageBox.Show("El estado nuevo no fue guardado, hubo un error en la ejecucíón.\n" +
+                MessageBox.Show("El Artículo nuevo no fue guardado, hubo un error en la ejecucíón.\n" +
                                "Mensaje del SQL: " + sMensajeError,
                                "Error",
                                MessageBoxButtons.OK,
@@ -104,7 +104,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
             if (Obj_Cls_Tipo_Articulo_DAL.bEstado_Ejec == true)
             {
-                MessageBox.Show("El estado fue actualizado correctamente.",
+                MessageBox.Show("El Artículo fue actualizado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
@@ -113,7 +113,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             }
             else
             {
-                MessageBox.Show("El estado no se pudo actualizar, hubo un error en la ejecucíón.\n" +
+                MessageBox.Show("El Artículo no se pudo actualizar, hubo un error en la ejecucíón.\n" +
                                "Mensaje error: " + sMensajeError,
                                "Error",
                                MessageBoxButtons.OK,

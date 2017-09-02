@@ -10,9 +10,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
         #region Variables Globales
 
             public cls_Objetivo_BLL Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
-            public cls_Objetivo_DAL Obj_Cls_Objetivo_DAL = new cls_Objetivo_DAL();
-
-            
+            public cls_Objetivo_DAL Obj_Cls_Objetivo_DAL = new cls_Objetivo_DAL();    
 
             private string sMensajeError;
 

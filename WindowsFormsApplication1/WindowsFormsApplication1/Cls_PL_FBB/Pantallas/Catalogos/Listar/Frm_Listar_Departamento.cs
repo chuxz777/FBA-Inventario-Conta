@@ -4,7 +4,6 @@ using System.Windows.Forms;
 //using Cls_DAL.Catalogos.Log_in;
 using Cls_DAL_FBB.Catalogos.Estados;
 using Cls_BLL_FBB.Catalogos.Estados;
-
 using Cls_DAL_FBB.Catalogos.Departamento;
 using Cls_BLL_FBB.Catalogos.Departamento;
 
@@ -18,9 +17,9 @@ namespace Cls_PL
     public partial class Frm_Listar_Departamento : Form
     {
         #region Variables Globales
-        private Frm_Listar_Departamento Obj_Pant_Mod_Departamento = new Frm_Listar_Departamento();
+        private Frm_Modificar_Departamento Obj_Pant_Mod_Departamento = new Frm_Modificar_Departamento(); // mod dept
         cls_Departamento_BLL Obj_Cls_Departamento_BLL = new cls_Departamento_BLL();
-        cls_Estados_DAL Obj_Cls_Estados_DAL = new cls_Estados_DAL();
+        cls_Departamento_DAL Obj_Cls_Departamento_DAL = new cls_Departamento_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
         private string sMensajeError;
 
@@ -51,11 +50,10 @@ namespace Cls_PL
 
         private void tlsbtn_Nuevo_Click(object sender, EventArgs e)
         {
-            Obj_Cls_Estados_DAL.bAccion = true; // Es un insert
-            Obj_Cls_Estados_DAL.iIdEstado = ' ';
-            Obj_Cls_Estados_DAL.sDescripcion = string.Empty;
-            Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
-            Obj_Pant_Mod_Departamento.Obj_Cls_Estados_DAL = Obj_Cls_Estados_DAL;
+            Obj_Cls_Departamento_DAL.bAccion = true; // Es un insert
+            Obj_Cls_Departamento_DAL.sDescripcion = string.Empty;
+            Obj_Cls_Departamento_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            Obj_Pant_Mod_Departamento.Obj_Cls_Departamento_DAL = Obj_Cls_Departamento_DAL;
             Obj_Pant_Mod_Departamento.ShowDialog();
         }
 
@@ -157,13 +155,13 @@ namespace Cls_PL
 
         private void Cargar_Fila()
         {
-            Obj_Cls_Estados_DAL.bAccion = false; //Update
+            Obj_Cls_Departamento_DAL.bAccion = false; //Update
             //Captura los valores del row para cargarlos en un objeto
-            Obj_Cls_Estados_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
-            Obj_Cls_Estados_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
-            Obj_Cls_Estados_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
+            //Obj_Cls_Departamento_DAL.iIdEstado = Convert.ToInt32(dgv_Estados.SelectedRows[0].Cells[0].Value.ToString());
+            Obj_Cls_Departamento_DAL.sDescripcion = dgv_Estados.SelectedRows[0].Cells[01].Value.ToString().Trim();
+            Obj_Cls_Departamento_DAL.bEstado_Ejec = false;//no se ha hecho la ejecucion
             // Carga los valores del row en un objeto y los envia a la pantalla de edicion
-            Obj_Pant_Mod_Departamento.Obj_Cls_Estados_DAL = Obj_Cls_Estados_DAL;
+            Obj_Pant_Mod_Departamento.Obj_Cls_Departamento_DAL = Obj_Cls_Departamento_DAL;
             Obj_Pant_Mod_Departamento.ShowDialog();
         }
 

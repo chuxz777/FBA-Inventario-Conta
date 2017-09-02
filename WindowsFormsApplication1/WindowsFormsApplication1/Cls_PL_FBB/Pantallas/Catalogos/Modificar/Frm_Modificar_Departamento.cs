@@ -92,7 +92,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             }
             else
             {
-                MessageBox.Show("El estado nuevo no fue guardado, hubo un error en la ejecucíón.\n" +
+                MessageBox.Show("El departamento nuevo no fue guardado, hubo un error en la ejecucíón.\n" +
                                "Mensaje del SQL: " + sMensajeError,
                                "Error",
                                MessageBoxButtons.OK,
@@ -108,7 +108,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
 
             if (Obj_Cls_Departamento_DAL.bEstado_Ejec == true)
             {
-                MessageBox.Show("El estado fue actualizado correctamente.",
+                MessageBox.Show("El departamento fue actualizado correctamente.",
                               "Confirmación",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Information);
@@ -117,7 +117,7 @@ namespace Cls_PL.Pantallas.Catalogos.Modificar
             }
             else
             {
-                MessageBox.Show("El estado no se pudo actualizar, hubo un error en la ejecucíón.\n" +
+                MessageBox.Show("El departamento no se pudo actualizar, hubo un error en la ejecucíón.\n" +
                                "Mensaje error: " + sMensajeError,
                                "Error",
                                MessageBoxButtons.OK,

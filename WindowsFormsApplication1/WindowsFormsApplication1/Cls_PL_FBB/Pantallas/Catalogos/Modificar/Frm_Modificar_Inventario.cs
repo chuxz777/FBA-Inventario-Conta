@@ -344,28 +344,6 @@ namespace Cls_PL
         {
             int cantidad = int.Parse(nud_Cantidad.Value.ToString());
 
-            //string dt_Picker_Text;
-
-            //DateTime datee = dtPicker_Mes_Año.Value;
-
-            //string a;
-
-            //a = datee.Year.ToString()
-            //b = DateTime.ParseExact()
-
-            //DateTime yyy = a;
-            //Datetime mmm = datee.Month;
-
-
-            //string format = "MM-yyyy";
-            //dt_Picker_Text = dtPicker_Mes_Año.Value.ToString("MM-yyyy");
-
-
-            //DateTime Fecha = new DateTime();
-            //DateTime.ParseExact(dt_Picker_Text, format, CultureInfo.InvariantCulture);
-
-
-
             Obj_Cls_Inventario_DAL.iCod_tipo_articulo = Convert.ToInt32(cbx_Articulo.SelectedValue.ToString());
             Obj_Cls_Inventario_DAL.iCod_departamento = Convert.ToInt32(cbx_Departamento.SelectedValue.ToString());
             Obj_Cls_Inventario_DAL.iPrecio_sugerido = Convert.ToInt32(txt_Precio.Text.ToString());
@@ -395,7 +373,18 @@ namespace Cls_PL
                                 MessageBoxIcon.Error);
             }
 
+            
 
+            if (Obj_Cls_Inventario_DAL.bEstado_Ejec == true)
+            {
+                MessageBox.Show("Los productos han sido registrados.",
+                "Información",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            }
+
+            LimpiarFormulario();
         }
 
 
@@ -409,6 +398,12 @@ namespace Cls_PL
         private void button3_Click(object sender, EventArgs e)
         {
             Ingresar_Productos();
+        }
+
+        private void LimpiarFormulario()
+        {
+            txt_Precio.Text = "";
+           
         }
     }
 }

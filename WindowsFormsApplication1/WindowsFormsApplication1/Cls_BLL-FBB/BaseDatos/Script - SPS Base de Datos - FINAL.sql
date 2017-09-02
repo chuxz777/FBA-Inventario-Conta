@@ -215,16 +215,27 @@ GO
 CREATE PROCEDURE SP_Seleccionar_Inventario
 AS	
 BEGIN
-	SELECT 
-		id_articulo AS 'Codigo del Articulo',
-		cod_tipo_articulo AS 'Codigo del tipo de articulo',
-		cod_departamento AS 'Codigo del Departamento',
-		precio_sugerido AS 'Precio',
-		fecha_entrada_inv AS 'Fecha de Entrada',
-		cod_color AS 'Codigo del Color',
-		cod_objetivo AS 'Codigo del Objetivo',
-		cod_estado AS 'Codigo del Estado'
-  FROM [dbo].[inventario]
+SELECT 
+		i.id_articulo AS 'Codigo del Articulo',
+		ta.descripcion 'Tipo de articulo',
+		d.descripcion AS ' Departamento',
+		i.precio_sugerido AS 'Precio',
+		i.fecha_entrada_inv AS 'Fecha de Entrada',
+		o.descripcion AS 'Objetivo',
+		e.descripcion 'Estado'
+  FROM INVENTARIO as i
+  INNER JOIN 
+	DEPARTAMENTO as d 
+	on i.cod_departamento = d.id_departamento
+  INNER JOIN
+	OBJETIVO as o
+	on i.cod_objetivo = o.id_objetivo
+  INNER JOIN
+	Estado as e
+	on i.cod_estado = e.id_estado
+  INNER JOIN 
+	tipo_articulo as ta
+	on i.cod_tipo_articulo = ta.id_tipo_articulo
 END
 GO
 

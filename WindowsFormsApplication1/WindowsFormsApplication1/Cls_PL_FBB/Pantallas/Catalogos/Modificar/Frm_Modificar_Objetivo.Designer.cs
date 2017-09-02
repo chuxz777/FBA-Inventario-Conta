@@ -164,9 +164,9 @@
             this.lbl_Codigo_Cliente.AutoSize = true;
             this.lbl_Codigo_Cliente.Location = new System.Drawing.Point(167, 48);
             this.lbl_Codigo_Cliente.Name = "lbl_Codigo_Cliente";
-            this.lbl_Codigo_Cliente.Size = new System.Drawing.Size(79, 13);
+            this.lbl_Codigo_Cliente.Size = new System.Drawing.Size(85, 13);
             this.lbl_Codigo_Cliente.TabIndex = 1;
-            this.lbl_Codigo_Cliente.Text = "Codigo Estado:";
+            this.lbl_Codigo_Cliente.Text = "Codigo Objetivo:";
             // 
             // txt_Codigo_Estado
             // 
