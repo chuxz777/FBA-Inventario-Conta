@@ -131,27 +131,23 @@ INSERT INTO [dbo].[tipo_articulo]
            ('Sudadera')
 GO
 
+
+
 USE [fbb_inventario_contabiliad]
 GO
 
-INSERT INTO [dbo].[inventario]
-           ([cod_tipo_articulo]
-           ,[cod_departamento]
-           ,[precio_sugerido]
-           ,[fecha_entrada_inv]
-           ,[cod_color]
-           ,[cod_objetivo]
-           ,[cod_estado])
-     VALUES
-           (1,
-           1,
-           1000,
-           GETDATE(),
-           1,
-           1,
-           1)
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Alimentación')
 GO
-
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Edificio')
+GO
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Recibos')
+GO
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Materiales de Escuela')
+GO
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Actividades')
+GO
+INSERT INTO [dbo].[categoria_gastos]([descripcion]) VALUES ('Pago de Prestamos')
+GO
 
 
 

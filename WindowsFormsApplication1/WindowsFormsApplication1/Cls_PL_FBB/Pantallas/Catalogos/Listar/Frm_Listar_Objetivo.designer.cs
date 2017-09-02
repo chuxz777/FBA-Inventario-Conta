@@ -246,7 +246,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(901, 49);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Fundación Bandera Blanca - Tipo de Articulos";
+            this.label1.Text = "Fundación Bandera Blanca - Objetivo de Artículos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm_Listar_Objetivo

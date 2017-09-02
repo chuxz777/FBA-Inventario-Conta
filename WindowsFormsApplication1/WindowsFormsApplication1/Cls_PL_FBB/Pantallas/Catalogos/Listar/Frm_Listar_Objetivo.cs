@@ -12,7 +12,7 @@ namespace Cls_PL
     public partial class Frm_Listar_Objetivo : Form
     {
         #region Variables Globales
-        private Frm_Listar_Objetivo Obj_Pant_Mod_Objetivo = new Frm_Listar_Objetivo();
+        private Frm_Modificar_Objetivo Obj_Pant_Mod_Objetivo = new Frm_Modificar_Objetivo();
         cls_Objetivo_BLL Obj_Cls_Objetivo_BLL = new cls_Objetivo_BLL();
         cls_Objetivo_DAL Obj_Cls_Objetivo_DAL = new cls_Objetivo_DAL();
         //public Cls_Tabla_LogIn_DAL Obj_Login_DAL = new Cls_Tabla_LogIn_DAL();
